@@ -7,6 +7,10 @@ categories: topoJSON
 twitter_card_type: summary_card_with_large_image
 twitter_image_src: null.png
 ---
+(**Update:** since originally posting this, I have learned a trick or two which avoids some of the problems discussed here. 
+Nonetheless, this post still stands a potentially helpful to someone walking the same path I did.
+See below for details.)
+
 This is one of those posts that a confounded developer hopes to find in a time of need.
 The situation: generating [TopoJSON](https://github.com/mbostock/topojson) files.
 Presented here are two attempts to generate a TopoJSON file; the first one failed, the second worked for me, [YMMV](https://en.wiktionary.org/wiki/YMMV).
@@ -14,7 +18,7 @@ The fail path is due to a naive attempt to do the conversion in one step. The su
 The two step process consists of using `topojson` and then [GDAL](http://www.gdal.org/) (on OSX, it can be installed via `brew install gdal`).
 
 As part of the [seattle-boundaries](http://tigue.com/by-time/2015/12/09/seattle-boundaries/) project, I needed to translate a
-"shapefile" for the Seattle City Council Districts to TopoJSON.
+shapefile for the Seattle City Council Districts to TopoJSON.
 I got the shapefile, [Seattle_City_Council_Districts.zip](https://data.seattle.gov/City-Business/City-Council-Districts/th8u-8xnq), from 
 [the City of Seattle's open data site](https://data.seattle.gov/).
 
@@ -26,6 +30,8 @@ My naive and doomed first attempt was to generate the TopoJSON directly from the
 ```bash
 topojson --out seattle-city-council-districts-as-topojson.bad.json City_Council_Districts.shp
 ```
+
+(**Update:** turns out the mistake I made was not using the `--spherical` option. Inspecting the `*.prj` file that came with the `*.shp` file revealed that the data was on a spherical projection. Re-running original command as `topojson --spherical ...` worked like a charm.)
 
 Below is the generated file, uploaded to GitHub. Notice the orange line at the north pole. That is the TopoJSON rendered (read: FAIL).
 
@@ -65,3 +71,8 @@ Notice how the districts are colored orange, similar to the TopoJSON "North Pole
 I guess `ogr2ogr` is better at handling shapefiles. TopoJSON was invented in order to make a more efficient geo-info JSON format that the rather "naive" GeoJSON, so it stands to reason that Bostock's tool is better at `GeoJSON to TopoJSON` than it is at `Shapefile to TopoJSON`. Or at least that is my guess. I have no ability to judge the quality of the input Shapefile; maybe the thing was funky to start with.
 
 For more information and all the files related to this task, check out [my GitHub repo on this topic](https://github.com/JohnTigue/nodeio/tree/master/data/generating-topojson).
+
+**Update:**
+Take 2 of the work in the post used `topojson@1.6.20` and I am not sure which version was used for Take 1 but is was almost a year ago.
+
+Also, the City now has UI for exporting (read:downloading) their datasets as GeoJSON, which leads to another option: use `topojson` to convert the GeoJSON to TopoJSON, no shapefile involved at all.
