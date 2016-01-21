@@ -8,7 +8,7 @@ twitter_card_type: summary_card_with_large_image
 twitter_image_src: null.png
 ---
 (**Update:** since originally posting this, I have learned a trick or two which avoids some of the problems discussed here. 
-Nonetheless, this post still stands a potentially helpful to someone walking the same path I did.
+Nonetheless, this post still stands as potentially helpful to anyone walking the same path I did.
 See below for details.)
 
 This is one of those posts that a confounded developer hopes to find in a time of need.
@@ -73,6 +73,6 @@ I guess `ogr2ogr` is better at handling shapefiles. TopoJSON was invented in ord
 For more information and all the files related to this task, check out [my GitHub repo on this topic](https://github.com/JohnTigue/nodeio/tree/master/data/generating-topojson).
 
 **Update:**
-Take 2 of the work in the post used `topojson@1.6.20` and I am not sure which version was used for Take 1 but is was almost a year ago.
+Take 2 of the work in the post used `topojson@1.6.20` and I am not sure which version was used for Take 1 but that version of `topojson` was installed over six months earlier.
 
-Also, the City now has UI for exporting (read:downloading) their datasets as GeoJSON, which leads to another option: use `topojson` to convert the GeoJSON to TopoJSON, no shapefile involved at all.
+Also, the City now has UI for exporting (read: downloading) their datasets as GeoJSON, which leads to another option: use `topojson` to convert the City's GeoJSON to TopoJSON, no shapefile involved at all.
