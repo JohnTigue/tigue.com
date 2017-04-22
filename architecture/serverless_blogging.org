@@ -1,0 +1,112 @@
+* Serverless blogging
+** Introduction
+  I guess this could be called SSSG: serverless SSG
+- All content source is static
+  - Git
+  - S3
+- All machinery is serverless
+  - static source => SSG => static web content
+  
+** Goals
+- Content in org
+  - write in org
+  - export to markdown
+- Serverless SSG machinery
+  - provider swappable
+
+** Prior art
+*** Orgmode based publishing
+**** What I think I want
+I want org to handle a "wiki" and a blog
+- Wiki is just a set of hyperlinked Org pages. wiki editing is via git.
+- Blog is authored in org, published through octopress
+- Bonus, blog posts and wiki posts can interlink to each other via relative HTTP URLs (and inside of Org, of course)
+
+Sundry reading
+- [[http://orgmode.org/manual/Publishing.html][Publishing - The Org Manual]]
+  - [[http://orgmode.org/worg/org-tutorials/org-publish-html-tutorial.html][Publishing Org-mode files to HTML]]
+- [[http://orgmode.org/worg/org-blog-wiki.html][Org Blogs and Wikis]] (machinery)
+
+*** Serverless
+- Excellent cost analysis
+  - [[https://blog.jevsejev.io/2016/05/17/aws-serverless-blog-costs/][Serverless blog costs on AWS S3 · Blogging fun by Sergej Jevsejev]]
+- https://github.com/serverless/serverless-graphql-blog
+
+**** Serverless framework
+- [[https://serverless.com/blog/static-site-post-scheduler/][How To Schedule Posts for Static Site Generators (Jekyll, Hugo, Phenomic etc.)]] 
+  - Some arch diagrams 
+- [[https://github.com/serverless/serverless-graphql-blog][serverless/serverless-graphql-blog]]
+  - "A Serverless Blog leveraging GraphQL to offer a REST API with only 1 endpoint using Serverless v0.5"
+  - So, not directly usable but maybe worth checking out
+    
+**** AWS Lambda Blog Platform
+sirceljm/aws-lambda-blog: AWS Lambda serverless blogging platform]]
+- AWS Lambda Blog Platform is a complete blogging solution that uses the following Amazon Web Services for operation
+  - API Gateway
+  - Lambda
+  - DynamoDB
+  - S3
+  - Cloudfront
+  - SES
+- [[https://www.reddit.com/r/programming/comments/5gx9ri/serverless_blogging_platform_using_aws_lambda_and/][Serverless blogging platform using AWS Lambda and other Amazon Web Services : programming]]
+  - So, how much it cost to run a small personal static site with something like this? Compared to EC2 hosting, for example.
+    - You should probably fall into free tier. Lambda: up to 1M request per month free (does not expire after a year) DynamoDB: up to 25 read / write units free (does not expire after a year) - minimal setup here is 4 read / write units CloudFront: shouldn't be any different than whit EC2 S3: < 10MB storage used API Gateway: 3.5$ per 1M if your free tier expired otherwise first 1M free
+- [[https://www.reddit.com/r/serverless/comments/5jwq2d/serverless_blogging_platform_built_with_aws_lambda/][serverless blogging platform built with AWS lambda : serverless]]
+
+*** SSGs
+**** SSG using AtomPub machinery?
+- [ ] what about 404s? "404.html Create a root 404.html page and GitHub Pages will serve it as your 404 response." but that is not the case elsewhere.
+  - https://blog.bolt.co/2013/12/12/building-the-bolt-blog.html
+    - right at the end it shows how nginx does @404
+- [ ] Could not the comments be extracted from disqus
+  - https://disqus.com/api/docs/
+  - This could be couched as a performance issue.
+  - So Disqus is for entering comments, not listing them
+- or what if comments were pull requests to the site's content repo?
+  - this would be a great way to filter out spammers and other "riffraff"
+- the idea is to be maximally SSG but have a minimal simple server which can do comments, pingbacks, etc.
+  - ideally no servers
+- if we are going back to static web sites yet pingback and comments do not work with static, is this time for Atompub?
+  - can HATEOAS work here?
+  - could a very simple server solve this problem?
+
+**** Specific SSGs 
+The programming language used within the SSG is not critical.
+Nonetheless, in case hacking becomes an issue, personally I'm writing a lot of code in JavaScript these days.
+More importantly, the machinery should read markdown (ideally stright from Org files...).
+
+Sundry readings
+- [[https://www.aerobatic.com/blog/how-to-host-your-static-web-site-with-hexo-js][How to host your static web site with HexoJS]]
+- [[https://www.smashingmagazine.com/2015/11/static-website-generators-jekyll-middleman-roots-hugo-review/][Static Website Generators Reviewed: Jekyll, Middleman, Roots, Hugo – Smashing Magazine]]
+- https://staticsitegenerators.net/
+
+***** SSGs written in JavaScript
+None of these have yet been looked over thorough ([2017-04-21 Fri]).
+
+Sundry readings
+- [[https://www.slant.co/topics/330/~best-static-site-generators][32 Best static site generators as of 2017 - Slant]]
+  - [[https://www.slant.co/versus/994/1020/~ghost_vs_hexo][Ghost vs Hexo detailed comparison as of 2017 - Slant]] 
+- Google [[https://www.google.com/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=ssg+hexo+ghost&tbs=qdr:y][ssg hexo ghost]] and the first SERP is all about Ghost => Hexo
+  - E.g., [[https://blog.terribledev.io/Why-I-moved-from-Ghost-to-Hexo/][Why I moved from Ghost to Hexo - The Ramblings of TerribleDev]] [2015-11-25 Wed]
+  - So, Hexo wins that quick test
+    
+- Hexo
+  - https://hexo.io/
+    - A fast, simple & powerful blog framework
+  - https://github.com/hexojs/hexo
+    - 2,352 commits ([2017-04-21 Fri])
+
+- Ghost
+  - https://ghost.org/ 
+    - Ghost: The Professional Publishing Platform
+  - [[https://github.com/TryGhost/Ghost][TryGhost/Ghost: A simple, powerful publishing platform]]
+    - 7,331 commits ([2017-04-21 Fri])
+
+***** 
+***** SSGs written not in JavaScript
+    
+- Hugo
+  - [[https://github.com/spf13/hugo][spf13/hugo: A Fast and Flexible Static Site Generator built with love in GoLang]]
+  - http://bezdelev.com/post/hugo-aws-lambda-static-website/
+    
+   
