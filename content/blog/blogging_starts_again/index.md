@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "val blogging = true"
-date: 2014-11-10 10:53:33 -0800
+featuredImage: "./org-mode-unicorn-logo.png"
+date: 2014-11-10T10:53:33-0800
 comments: true
 categories: 
 ---

@@ -1,5 +1,6 @@
 ---
 layout: post
+featuredImage: "./cheat_sheet.png"
 title: "Stefano Buliani: Serverless Cheatsheet"
 date: 2017-06-09T10:25:41-0700
 comments: true

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Omolumeter.com is live"
+featuredImage: "./omolumeter_v042.png"
 date: 2016-05-04T23:59:59-0800
 comments: true
 categories: Omolumeter

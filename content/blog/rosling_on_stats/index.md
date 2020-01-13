@@ -1,5 +1,6 @@
 ---
 layout: post
+featuredImage: "./rosling.png"
 title: "Rosling on which stats matter"
 date: 2014-11-13T15:43:45-0800
 comments: true

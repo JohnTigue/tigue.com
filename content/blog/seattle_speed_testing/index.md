@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Seattle ISP quality monitor"
+featuredImage: "./isp-monitor.png"
 date: 2016-02-18T23:59:59-0800
 comments: true
 categories: Seattle

@@ -1,6 +1,7 @@
 ---
 title: "First success indicator: a working EbolaMapper"
 date: 2014-11-10T23:59:50-0800
+featuredImage: "./who-ebola-data.png"
 OLDdate: "2015-05-01T22:12:03.284Z"
 description: "Hello World"
 

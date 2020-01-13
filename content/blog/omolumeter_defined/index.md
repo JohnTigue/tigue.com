@@ -1,5 +1,6 @@
 ---
 layout: post
+featuredImage: "./omolumeter_v010.png"
 title: "Omolumeter: epidemic outbreak visualization web-app"
 date: 2016-04-07T23:59:59-0800
 comments: true

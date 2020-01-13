@@ -1,5 +1,6 @@
 ---
 layout: post
+featuredImage: "./healthmap-map.png"
 title: "Three interactive ebola visualizations"
 date: 2014-11-11T17:22:37-0800
 comments: true

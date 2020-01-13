@@ -1,5 +1,6 @@
 ---
 layout: post
+featuredImage: "./topojson-win.png"
 title: "Generating TopoJSON debug"
 date: 2015-12-14 00:00:01 -0800
 comments: true

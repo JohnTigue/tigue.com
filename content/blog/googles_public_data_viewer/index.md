@@ -1,5 +1,6 @@
 ---
 layout: post
+featuredImage: "./google-pub-data.png"
 title: "Quality ebola data; shown in Google tools"
 date: 2014-11-15T12:55:42-0800
 comments: true

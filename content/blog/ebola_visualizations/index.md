@@ -1,5 +1,6 @@
 ---
 layout: post
+featuredImage: "./economists-ebola-graphic.png"
 title: "Gallery of ebola visualizations"
 date: 2014-11-11T12:01:08-0800
 comments: true

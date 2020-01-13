@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Seattle map boundaries repository"
+featuredImage: "./3-seattles.png"
 date: 2015-12-09T23:59:50-0800
 comments: true
 categories: Seattle

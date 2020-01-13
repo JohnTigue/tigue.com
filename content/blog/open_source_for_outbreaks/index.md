@@ -1,5 +1,6 @@
 ---
 layout: post
+featuredImage: "./stop_ebola.jpg"
 title: "Tao of open source applied to outbreaks"
 date: 2014-11-10T14:03:31-0800
 comments: true
