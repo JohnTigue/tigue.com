@@ -1,5 +1,6 @@
 ---
 layout: post
+featuredImage: "./physical-signifiers.png"
 title: "Frontline signifiers of success in the ebola response"
 date: 2014-12-20 13:15:18 -0800
 comments: true

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "NYTimes: the pace car"
+featuredImage: "./nytimes.png"
 date: 2014-11-13T14:39:47-0800
 comments: true
 categories: 

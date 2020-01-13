@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Tweets about deadly diseases"
+featuredImage: "./graphs-n-whaffles.png"
 date: 2014-11-13T12:33:15-0800
 comments: true
 categories: 

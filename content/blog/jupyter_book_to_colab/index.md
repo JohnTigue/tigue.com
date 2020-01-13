@@ -1,6 +1,8 @@
 ---
 title: "Jupyter Book to Colab"
 date: 2019-01-06T23:48:28-0800
+featuredImage: "./jupyter_book_to_colab.png"
+description: "whatever"
 ---
 ![](jupyter_book_to_colab.png)
 
@@ -14,7 +16,7 @@ I'm only going to go over the truly novel bit, which as the title
 implies is the integration of Jupyter Book and Colab. 
 
 The contextual goal is a static site for a software developer. The
-site's front consists of a blog and set of projects. The latter
+site's front consists of a blog      and set of projects. The latter
 involves a lot of Jupyter notebooks, which are static hostly on the
 static site as HTML snapshots of pre-run notebooks. Additionally,
 reader can easily execute the notebooks, without any admin hassles nor

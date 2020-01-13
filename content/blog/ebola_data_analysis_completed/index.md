@@ -1,5 +1,6 @@
 ---
 layout: post
+featuredImage: "./grid-of-some-twumbshots.png"
 title: "Ebola open data analysis completed"
 date: 2014-12-28T20:21:25-0800
 comments: true

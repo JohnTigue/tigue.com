@@ -1,5 +1,6 @@
 ---
 layout: post
+featuredImage: "./nat-geo-calendar.png"
 title: "Nat Geo uses a pictorial calendar for ebola visualization"
 date: 2014-11-15T17:10:02-0800
 comments: true

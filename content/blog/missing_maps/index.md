@@ -1,5 +1,6 @@
 ---
 layout: post
+featuredImage: "./economist-on-missingmaps.png"
 title: "MissingMaps.org and the long term solution"
 date: 2014-11-13T23:48:28-0800
 comments: true

@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
-
+import Img from "gatsby-image"
 
 import Bio from "../components/bio"
 import Layout from "../components/layout"
@@ -34,9 +34,12 @@ class BlogIndex extends React.Component {
                 <small>{node.frontmatter.date}</small>
               </header>
               <section>
+                <Img fixed={node.frontmatter.featuredImage.childImageSharp.fixed}/>
+                {/*<Img sizes="node.frontmatter.featuredImage.childImageSharp.sizes"/>
+                node.frontmatter.featuredImage*/}
                 <p
                   dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
+                    __html: node.excerpt,
                   }}
                 />
               </section>
@@ -60,7 +63,7 @@ export const pageQuery = graphql`
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
-          excerpt
+          excerpt(pruneLength: 500)
           fields {
             slug
           }
@@ -68,9 +71,21 @@ export const pageQuery = graphql`
             date(formatString: "MMMM DD, YYYY")
             title
             description
+            featuredImage {
+              childImageSharp { 
+                fixed(width: 600) {
+                  base64
+                  width
+                  height
+                  src
+                  srcSet
+                }
+              }
+            }
           }
         }
       }
     }
   }
 `
+

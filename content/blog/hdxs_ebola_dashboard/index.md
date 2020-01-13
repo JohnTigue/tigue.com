@@ -1,9 +1,10 @@
 ---
+featuredImage: "./hdx-dashboard.png"
 layout: post
 title: "HDX has the best ebola dashboard"
 date: 2014-11-15T15:01:26-0800
 comments: true
-categories: 
+categories:
 twitter_card_type: summary_card_with_large_image
 twitter_image_src: hdx-dashboard.png
 ---

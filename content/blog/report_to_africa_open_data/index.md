@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Ebola Report to Africa Open Data"
+featuredImage: "./africa-openness-by-okfn-org.png"
 date: 2014-12-04 00:00:01 -0800
 comments: true
 categories: ebola
