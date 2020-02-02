@@ -7,6 +7,8 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
+import "./BlogIndex.css"
+
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -15,7 +17,7 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="All posts" />
+        <SEO title="John Tigue's tech writings" />
         <Bio />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
@@ -34,12 +36,12 @@ class BlogIndex extends React.Component {
                 <small>{node.frontmatter.date}</small>
               </header>
               <section>
-                <Img fixed={node.frontmatter.featuredImage.childImageSharp.fixed}/>
-                {/*<Img sizes="node.frontmatter.featuredImage.childImageSharp.sizes"/>
+                {/* <Img fixed={node.frontmatter.featuredImage.childImageSharp.fixed}/> */}
+                {/* TODO: <Img sizes="node.frontmatter.featuredImage.childImageSharp.sizes"/>
                 node.frontmatter.featuredImage*/}
-                <p
+                <div
                   dangerouslySetInnerHTML={{
-                    __html: node.excerpt,
+                    __html: `<div>${node.html}</div>`,
                   }}
                 />
               </section>
@@ -67,6 +69,7 @@ export const pageQuery = graphql`
           fields {
             slug
           }
+          html
           frontmatter {
             date(formatString: "MMMM DD, YYYY")
             title
