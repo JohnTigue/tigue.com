@@ -1,0 +1,4034 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48in"
+   height="36in"
+   viewBox="0 0 1219.2 914.40003"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.2 5c3e80d, 2017-08-06"
+   sodipodi:docname="2019_06_bbi_scs_poster.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.22627417"
+     inkscape:cx="2240.677"
+     inkscape:cy="1852.2352"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g3265"
+     showgrid="false"
+     units="in"
+     inkscape:window-width="1797"
+     inkscape:window-height="1036"
+     inkscape:window-x="26"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0">
+    <inkscape:grid
+       type="xygrid"
+       id="grid5232"
+       units="in"
+       spacingx="2.54"
+       spacingy="2.54"
+       dotted="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,617.40002)">
+    <rect
+       style="fill:#ececec;stroke-width:0.288113"
+       id="rect2656"
+       width="512.98352"
+       height="46.876167"
+       x="559.68256"
+       y="-48.581425" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:74.63560486px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:0;stroke:none;stroke-width:1.86589038;"
+       x="31.596123"
+       y="-534.56622"
+       id="text4431"><tspan
+         sodipodi:role="line"
+         id="tspan4429"
+         x="31.596123"
+         y="-534.56622"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:74.6371994px;font-family:'Luxi Sans';-inkscape-font-specification:'Luxi Sans, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.86589038;fill:#000000;fill-opacity:0;">tS</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:69.05255127px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:2.43902469"
+       x="107.10633"
+       y="-544.87775"
+       id="text4443"><tspan
+         sodipodi:role="line"
+         id="tspan4441"
+         x="107.10633"
+         y="-544.87775"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:69.05255127px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:2.43902469">tSNE Better Faster Cheaper</tspan></text>
+    <g
+       transform="matrix(0.35274828,0,0,0.35274828,16.344519,168.79171)"
+       id="layer1-9"
+       inkscape:label="Layer 1">
+      <path
+         d="m 235.80616,289.56135 c -6.53747,3.71674 -143.912174,2.80427 -150.399697,-0.99897 -6.487524,-3.80325 -74.384659,-123.22947 -74.33471,-130.74945 0.04995,-7.51999 69.527516,-126.033737 76.064988,-129.750472 6.537473,-3.716736 143.912179,-2.804273 150.399699,0.998977 6.48752,3.803249 74.38466,123.229465 74.33471,130.749445 -0.05,7.51999 -69.52752,126.03374 -76.06499,129.75047 z"
+         inkscape:randomized="0"
+         inkscape:rounded="0.05"
+         inkscape:flatsided="true"
+         sodipodi:arg2="1.5774384"
+         sodipodi:arg1="1.0538396"
+         sodipodi:r2="130.25282"
+         sodipodi:r1="150.40302"
+         sodipodi:cy="158.8119"
+         sodipodi:cx="161.47145"
+         sodipodi:sides="6"
+         id="path7842"
+         style="fill:#000000;stroke-width:0.23229595"
+         sodipodi:type="star" />
+      <circle
+         r="100"
+         cy="159.95833"
+         cx="163.50003"
+         id="path7846"
+         style="fill:#aa0000;stroke-width:0.25264665" />
+      <circle
+         r="50"
+         cy="159.30951"
+         cx="163.39285"
+         id="path7852"
+         style="fill:#008000;stroke-width:0.26829574" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.2310257px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.05578542"
+       x="134.55055"
+       y="242.05338"
+       id="text4447"><tspan
+         sodipodi:role="line"
+         id="tspan4445"
+         x="134.55055"
+         y="242.05338"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:42.2310257px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.05578542">Reconstrue</tspan></text>
+    <g
+       id="g3657"
+       transform="matrix(0.09805414,0,0,0.09805414,1089.134,166.96902)">
+      <rect
+         id="rect1493"
+         height="1160"
+         width="1160"
+         y="0"
+         x="0"
+         style="fill:#ffffff" />
+      <g
+         id="g2929"
+         transform="translate(80,80)">
+        <g
+           id="g1499"
+           transform="matrix(0.4,0,0,0.4,320,0)">
+          <g
+             id="g1497"
+             style="fill:#000000">
+            <rect
+               id="rect1495"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1505"
+           transform="matrix(0.4,0,0,0.4,360,0)">
+          <g
+             id="g1503"
+             style="fill:#000000">
+            <rect
+               id="rect1501"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1511"
+           transform="matrix(0.4,0,0,0.4,400,0)">
+          <g
+             id="g1509"
+             style="fill:#000000">
+            <rect
+               id="rect1507"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1517"
+           transform="matrix(0.4,0,0,0.4,480,0)">
+          <g
+             id="g1515"
+             style="fill:#000000">
+            <rect
+               id="rect1513"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1523"
+           transform="matrix(0.4,0,0,0.4,560,0)">
+          <g
+             id="g1521"
+             style="fill:#000000">
+            <rect
+               id="rect1519"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1529"
+           transform="matrix(0.4,0,0,0.4,640,0)">
+          <g
+             id="g1527"
+             style="fill:#000000">
+            <rect
+               id="rect1525"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1535"
+           transform="matrix(0.4,0,0,0.4,320,40)">
+          <g
+             id="g1533"
+             style="fill:#000000">
+            <rect
+               id="rect1531"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1541"
+           transform="matrix(0.4,0,0,0.4,360,40)">
+          <g
+             id="g1539"
+             style="fill:#000000">
+            <rect
+               id="rect1537"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1547"
+           transform="matrix(0.4,0,0,0.4,440,40)">
+          <g
+             id="g1545"
+             style="fill:#000000">
+            <rect
+               id="rect1543"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1553"
+           transform="matrix(0.4,0,0,0.4,480,40)">
+          <g
+             id="g1551"
+             style="fill:#000000">
+            <rect
+               id="rect1549"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1559"
+           transform="matrix(0.4,0,0,0.4,640,40)">
+          <g
+             id="g1557"
+             style="fill:#000000">
+            <rect
+               id="rect1555"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1565"
+           transform="matrix(0.4,0,0,0.4,320,80)">
+          <g
+             id="g1563"
+             style="fill:#000000">
+            <rect
+               id="rect1561"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1571"
+           transform="matrix(0.4,0,0,0.4,360,80)">
+          <g
+             id="g1569"
+             style="fill:#000000">
+            <rect
+               id="rect1567"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1577"
+           transform="matrix(0.4,0,0,0.4,440,80)">
+          <g
+             id="g1575"
+             style="fill:#000000">
+            <rect
+               id="rect1573"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1583"
+           transform="matrix(0.4,0,0,0.4,520,80)">
+          <g
+             id="g1581"
+             style="fill:#000000">
+            <rect
+               id="rect1579"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1589"
+           transform="matrix(0.4,0,0,0.4,600,80)">
+          <g
+             id="g1587"
+             style="fill:#000000">
+            <rect
+               id="rect1585"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1595"
+           transform="matrix(0.4,0,0,0.4,520,120)">
+          <g
+             id="g1593"
+             style="fill:#000000">
+            <rect
+               id="rect1591"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1601"
+           transform="matrix(0.4,0,0,0.4,640,120)">
+          <g
+             id="g1599"
+             style="fill:#000000">
+            <rect
+               id="rect1597"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1607"
+           transform="matrix(0.4,0,0,0.4,320,160)">
+          <g
+             id="g1605"
+             style="fill:#000000">
+            <rect
+               id="rect1603"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1613"
+           transform="matrix(0.4,0,0,0.4,400,160)">
+          <g
+             id="g1611"
+             style="fill:#000000">
+            <rect
+               id="rect1609"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1619"
+           transform="matrix(0.4,0,0,0.4,440,160)">
+          <g
+             id="g1617"
+             style="fill:#000000">
+            <rect
+               id="rect1615"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1625"
+           transform="matrix(0.4,0,0,0.4,560,160)">
+          <g
+             id="g1623"
+             style="fill:#000000">
+            <rect
+               id="rect1621"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1631"
+           transform="matrix(0.4,0,0,0.4,640,160)">
+          <g
+             id="g1629"
+             style="fill:#000000">
+            <rect
+               id="rect1627"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1637"
+           transform="matrix(0.4,0,0,0.4,400,200)">
+          <g
+             id="g1635"
+             style="fill:#000000">
+            <rect
+               id="rect1633"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1643"
+           transform="matrix(0.4,0,0,0.4,440,200)">
+          <g
+             id="g1641"
+             style="fill:#000000">
+            <rect
+               id="rect1639"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1649"
+           transform="matrix(0.4,0,0,0.4,480,200)">
+          <g
+             id="g1647"
+             style="fill:#000000">
+            <rect
+               id="rect1645"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1655"
+           transform="matrix(0.4,0,0,0.4,520,200)">
+          <g
+             id="g1653"
+             style="fill:#000000">
+            <rect
+               id="rect1651"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1661"
+           transform="matrix(0.4,0,0,0.4,320,240)">
+          <g
+             id="g1659"
+             style="fill:#000000">
+            <rect
+               id="rect1657"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1667"
+           transform="matrix(0.4,0,0,0.4,400,240)">
+          <g
+             id="g1665"
+             style="fill:#000000">
+            <rect
+               id="rect1663"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1673"
+           transform="matrix(0.4,0,0,0.4,480,240)">
+          <g
+             id="g1671"
+             style="fill:#000000">
+            <rect
+               id="rect1669"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1679"
+           transform="matrix(0.4,0,0,0.4,560,240)">
+          <g
+             id="g1677"
+             style="fill:#000000">
+            <rect
+               id="rect1675"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1685"
+           transform="matrix(0.4,0,0,0.4,640,240)">
+          <g
+             id="g1683"
+             style="fill:#000000">
+            <rect
+               id="rect1681"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1691"
+           transform="matrix(0.4,0,0,0.4,360,280)">
+          <g
+             id="g1689"
+             style="fill:#000000">
+            <rect
+               id="rect1687"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1697"
+           transform="matrix(0.4,0,0,0.4,400,280)">
+          <g
+             id="g1695"
+             style="fill:#000000">
+            <rect
+               id="rect1693"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1703"
+           transform="matrix(0.4,0,0,0.4,440,280)">
+          <g
+             id="g1701"
+             style="fill:#000000">
+            <rect
+               id="rect1699"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1709"
+           transform="matrix(0.4,0,0,0.4,480,280)">
+          <g
+             id="g1707"
+             style="fill:#000000">
+            <rect
+               id="rect1705"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1715"
+           transform="matrix(0.4,0,0,0.4,520,280)">
+          <g
+             id="g1713"
+             style="fill:#000000">
+            <rect
+               id="rect1711"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1721"
+           transform="matrix(0.4,0,0,0.4,640,280)">
+          <g
+             id="g1719"
+             style="fill:#000000">
+            <rect
+               id="rect1717"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1727"
+           transform="matrix(0.4,0,0,0.4,0,320)">
+          <g
+             id="g1725"
+             style="fill:#000000">
+            <rect
+               id="rect1723"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1733"
+           transform="matrix(0.4,0,0,0.4,120,320)">
+          <g
+             id="g1731"
+             style="fill:#000000">
+            <rect
+               id="rect1729"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1739"
+           transform="matrix(0.4,0,0,0.4,160,320)">
+          <g
+             id="g1737"
+             style="fill:#000000">
+            <rect
+               id="rect1735"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1745"
+           transform="matrix(0.4,0,0,0.4,200,320)">
+          <g
+             id="g1743"
+             style="fill:#000000">
+            <rect
+               id="rect1741"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1751"
+           transform="matrix(0.4,0,0,0.4,240,320)">
+          <g
+             id="g1749"
+             style="fill:#000000">
+            <rect
+               id="rect1747"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1757"
+           transform="matrix(0.4,0,0,0.4,280,320)">
+          <g
+             id="g1755"
+             style="fill:#000000">
+            <rect
+               id="rect1753"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1763"
+           transform="matrix(0.4,0,0,0.4,320,320)">
+          <g
+             id="g1761"
+             style="fill:#000000">
+            <rect
+               id="rect1759"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1769"
+           transform="matrix(0.4,0,0,0.4,440,320)">
+          <g
+             id="g1767"
+             style="fill:#000000">
+            <rect
+               id="rect1765"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1775"
+           transform="matrix(0.4,0,0,0.4,560,320)">
+          <g
+             id="g1773"
+             style="fill:#000000">
+            <rect
+               id="rect1771"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1781"
+           transform="matrix(0.4,0,0,0.4,600,320)">
+          <g
+             id="g1779"
+             style="fill:#000000">
+            <rect
+               id="rect1777"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1787"
+           transform="matrix(0.4,0,0,0.4,680,320)">
+          <g
+             id="g1785"
+             style="fill:#000000">
+            <rect
+               id="rect1783"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1793"
+           transform="matrix(0.4,0,0,0.4,800,320)">
+          <g
+             id="g1791"
+             style="fill:#000000">
+            <rect
+               id="rect1789"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1799"
+           transform="matrix(0.4,0,0,0.4,880,320)">
+          <g
+             id="g1797"
+             style="fill:#000000">
+            <rect
+               id="rect1795"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1805"
+           transform="matrix(0.4,0,0,0.4,920,320)">
+          <g
+             id="g1803"
+             style="fill:#000000">
+            <rect
+               id="rect1801"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1811"
+           transform="matrix(0.4,0,0,0.4,960,320)">
+          <g
+             id="g1809"
+             style="fill:#000000">
+            <rect
+               id="rect1807"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1817"
+           transform="matrix(0.4,0,0,0.4,0,360)">
+          <g
+             id="g1815"
+             style="fill:#000000">
+            <rect
+               id="rect1813"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1823"
+           transform="matrix(0.4,0,0,0.4,40,360)">
+          <g
+             id="g1821"
+             style="fill:#000000">
+            <rect
+               id="rect1819"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1829"
+           transform="matrix(0.4,0,0,0.4,80,360)">
+          <g
+             id="g1827"
+             style="fill:#000000">
+            <rect
+               id="rect1825"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1835"
+           transform="matrix(0.4,0,0,0.4,200,360)">
+          <g
+             id="g1833"
+             style="fill:#000000">
+            <rect
+               id="rect1831"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1841"
+           transform="matrix(0.4,0,0,0.4,280,360)">
+          <g
+             id="g1839"
+             style="fill:#000000">
+            <rect
+               id="rect1837"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1847"
+           transform="matrix(0.4,0,0,0.4,360,360)">
+          <g
+             id="g1845"
+             style="fill:#000000">
+            <rect
+               id="rect1843"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1853"
+           transform="matrix(0.4,0,0,0.4,400,360)">
+          <g
+             id="g1851"
+             style="fill:#000000">
+            <rect
+               id="rect1849"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1859"
+           transform="matrix(0.4,0,0,0.4,520,360)">
+          <g
+             id="g1857"
+             style="fill:#000000">
+            <rect
+               id="rect1855"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1865"
+           transform="matrix(0.4,0,0,0.4,560,360)">
+          <g
+             id="g1863"
+             style="fill:#000000">
+            <rect
+               id="rect1861"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1871"
+           transform="matrix(0.4,0,0,0.4,600,360)">
+          <g
+             id="g1869"
+             style="fill:#000000">
+            <rect
+               id="rect1867"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1877"
+           transform="matrix(0.4,0,0,0.4,760,360)">
+          <g
+             id="g1875"
+             style="fill:#000000">
+            <rect
+               id="rect1873"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1883"
+           transform="matrix(0.4,0,0,0.4,800,360)">
+          <g
+             id="g1881"
+             style="fill:#000000">
+            <rect
+               id="rect1879"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1889"
+           transform="matrix(0.4,0,0,0.4,840,360)">
+          <g
+             id="g1887"
+             style="fill:#000000">
+            <rect
+               id="rect1885"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1895"
+           transform="matrix(0.4,0,0,0.4,880,360)">
+          <g
+             id="g1893"
+             style="fill:#000000">
+            <rect
+               id="rect1891"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1901"
+           transform="matrix(0.4,0,0,0.4,920,360)">
+          <g
+             id="g1899"
+             style="fill:#000000">
+            <rect
+               id="rect1897"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1907"
+           transform="matrix(0.4,0,0,0.4,240,400)">
+          <g
+             id="g1905"
+             style="fill:#000000">
+            <rect
+               id="rect1903"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1913"
+           transform="matrix(0.4,0,0,0.4,440,400)">
+          <g
+             id="g1911"
+             style="fill:#000000">
+            <rect
+               id="rect1909"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1919"
+           transform="matrix(0.4,0,0,0.4,520,400)">
+          <g
+             id="g1917"
+             style="fill:#000000">
+            <rect
+               id="rect1915"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1925"
+           transform="matrix(0.4,0,0,0.4,600,400)">
+          <g
+             id="g1923"
+             style="fill:#000000">
+            <rect
+               id="rect1921"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1931"
+           transform="matrix(0.4,0,0,0.4,680,400)">
+          <g
+             id="g1929"
+             style="fill:#000000">
+            <rect
+               id="rect1927"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1937"
+           transform="matrix(0.4,0,0,0.4,720,400)">
+          <g
+             id="g1935"
+             style="fill:#000000">
+            <rect
+               id="rect1933"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1943"
+           transform="matrix(0.4,0,0,0.4,760,400)">
+          <g
+             id="g1941"
+             style="fill:#000000">
+            <rect
+               id="rect1939"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1949"
+           transform="matrix(0.4,0,0,0.4,800,400)">
+          <g
+             id="g1947"
+             style="fill:#000000">
+            <rect
+               id="rect1945"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1955"
+           transform="matrix(0.4,0,0,0.4,840,400)">
+          <g
+             id="g1953"
+             style="fill:#000000">
+            <rect
+               id="rect1951"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1961"
+           transform="matrix(0.4,0,0,0.4,960,400)">
+          <g
+             id="g1959"
+             style="fill:#000000">
+            <rect
+               id="rect1957"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1967"
+           transform="matrix(0.4,0,0,0.4,120,440)">
+          <g
+             id="g1965"
+             style="fill:#000000">
+            <rect
+               id="rect1963"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1973"
+           transform="matrix(0.4,0,0,0.4,160,440)">
+          <g
+             id="g1971"
+             style="fill:#000000">
+            <rect
+               id="rect1969"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1979"
+           transform="matrix(0.4,0,0,0.4,200,440)">
+          <g
+             id="g1977"
+             style="fill:#000000">
+            <rect
+               id="rect1975"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1985"
+           transform="matrix(0.4,0,0,0.4,280,440)">
+          <g
+             id="g1983"
+             style="fill:#000000">
+            <rect
+               id="rect1981"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1991"
+           transform="matrix(0.4,0,0,0.4,320,440)">
+          <g
+             id="g1989"
+             style="fill:#000000">
+            <rect
+               id="rect1987"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g1997"
+           transform="matrix(0.4,0,0,0.4,360,440)">
+          <g
+             id="g1995"
+             style="fill:#000000">
+            <rect
+               id="rect1993"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2003"
+           transform="matrix(0.4,0,0,0.4,440,440)">
+          <g
+             id="g2001"
+             style="fill:#000000">
+            <rect
+               id="rect1999"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2009"
+           transform="matrix(0.4,0,0,0.4,560,440)">
+          <g
+             id="g2007"
+             style="fill:#000000">
+            <rect
+               id="rect2005"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2015"
+           transform="matrix(0.4,0,0,0.4,600,440)">
+          <g
+             id="g2013"
+             style="fill:#000000">
+            <rect
+               id="rect2011"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2021"
+           transform="matrix(0.4,0,0,0.4,640,440)">
+          <g
+             id="g2019"
+             style="fill:#000000">
+            <rect
+               id="rect2017"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2027"
+           transform="matrix(0.4,0,0,0.4,760,440)">
+          <g
+             id="g2025"
+             style="fill:#000000">
+            <rect
+               id="rect2023"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2033"
+           transform="matrix(0.4,0,0,0.4,840,440)">
+          <g
+             id="g2031"
+             style="fill:#000000">
+            <rect
+               id="rect2029"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2039"
+           transform="matrix(0.4,0,0,0.4,880,440)">
+          <g
+             id="g2037"
+             style="fill:#000000">
+            <rect
+               id="rect2035"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2045"
+           transform="matrix(0.4,0,0,0.4,920,440)">
+          <g
+             id="g2043"
+             style="fill:#000000">
+            <rect
+               id="rect2041"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2051"
+           transform="matrix(0.4,0,0,0.4,960,440)">
+          <g
+             id="g2049"
+             style="fill:#000000">
+            <rect
+               id="rect2047"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2057"
+           transform="matrix(0.4,0,0,0.4,40,480)">
+          <g
+             id="g2055"
+             style="fill:#000000">
+            <rect
+               id="rect2053"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2063"
+           transform="matrix(0.4,0,0,0.4,80,480)">
+          <g
+             id="g2061"
+             style="fill:#000000">
+            <rect
+               id="rect2059"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2069"
+           transform="matrix(0.4,0,0,0.4,120,480)">
+          <g
+             id="g2067"
+             style="fill:#000000">
+            <rect
+               id="rect2065"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2075"
+           transform="matrix(0.4,0,0,0.4,200,480)">
+          <g
+             id="g2073"
+             style="fill:#000000">
+            <rect
+               id="rect2071"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2081"
+           transform="matrix(0.4,0,0,0.4,240,480)">
+          <g
+             id="g2079"
+             style="fill:#000000">
+            <rect
+               id="rect2077"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2087"
+           transform="matrix(0.4,0,0,0.4,320,480)">
+          <g
+             id="g2085"
+             style="fill:#000000">
+            <rect
+               id="rect2083"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2093"
+           transform="matrix(0.4,0,0,0.4,440,480)">
+          <g
+             id="g2091"
+             style="fill:#000000">
+            <rect
+               id="rect2089"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2099"
+           transform="matrix(0.4,0,0,0.4,480,480)">
+          <g
+             id="g2097"
+             style="fill:#000000">
+            <rect
+               id="rect2095"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2105"
+           transform="matrix(0.4,0,0,0.4,600,480)">
+          <g
+             id="g2103"
+             style="fill:#000000">
+            <rect
+               id="rect2101"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2111"
+           transform="matrix(0.4,0,0,0.4,720,480)">
+          <g
+             id="g2109"
+             style="fill:#000000">
+            <rect
+               id="rect2107"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2117"
+           transform="matrix(0.4,0,0,0.4,760,480)">
+          <g
+             id="g2115"
+             style="fill:#000000">
+            <rect
+               id="rect2113"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2123"
+           transform="matrix(0.4,0,0,0.4,960,480)">
+          <g
+             id="g2121"
+             style="fill:#000000">
+            <rect
+               id="rect2119"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2129"
+           transform="matrix(0.4,0,0,0.4,0,520)">
+          <g
+             id="g2127"
+             style="fill:#000000">
+            <rect
+               id="rect2125"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2135"
+           transform="matrix(0.4,0,0,0.4,40,520)">
+          <g
+             id="g2133"
+             style="fill:#000000">
+            <rect
+               id="rect2131"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2141"
+           transform="matrix(0.4,0,0,0.4,80,520)">
+          <g
+             id="g2139"
+             style="fill:#000000">
+            <rect
+               id="rect2137"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2147"
+           transform="matrix(0.4,0,0,0.4,160,520)">
+          <g
+             id="g2145"
+             style="fill:#000000">
+            <rect
+               id="rect2143"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2153"
+           transform="matrix(0.4,0,0,0.4,320,520)">
+          <g
+             id="g2151"
+             style="fill:#000000">
+            <rect
+               id="rect2149"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2159"
+           transform="matrix(0.4,0,0,0.4,360,520)">
+          <g
+             id="g2157"
+             style="fill:#000000">
+            <rect
+               id="rect2155"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2165"
+           transform="matrix(0.4,0,0,0.4,480,520)">
+          <g
+             id="g2163"
+             style="fill:#000000">
+            <rect
+               id="rect2161"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2171"
+           transform="matrix(0.4,0,0,0.4,560,520)">
+          <g
+             id="g2169"
+             style="fill:#000000">
+            <rect
+               id="rect2167"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2177"
+           transform="matrix(0.4,0,0,0.4,600,520)">
+          <g
+             id="g2175"
+             style="fill:#000000">
+            <rect
+               id="rect2173"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2183"
+           transform="matrix(0.4,0,0,0.4,640,520)">
+          <g
+             id="g2181"
+             style="fill:#000000">
+            <rect
+               id="rect2179"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2189"
+           transform="matrix(0.4,0,0,0.4,800,520)">
+          <g
+             id="g2187"
+             style="fill:#000000">
+            <rect
+               id="rect2185"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2195"
+           transform="matrix(0.4,0,0,0.4,920,520)">
+          <g
+             id="g2193"
+             style="fill:#000000">
+            <rect
+               id="rect2191"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2201"
+           transform="matrix(0.4,0,0,0.4,0,560)">
+          <g
+             id="g2199"
+             style="fill:#000000">
+            <rect
+               id="rect2197"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2207"
+           transform="matrix(0.4,0,0,0.4,40,560)">
+          <g
+             id="g2205"
+             style="fill:#000000">
+            <rect
+               id="rect2203"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2213"
+           transform="matrix(0.4,0,0,0.4,80,560)">
+          <g
+             id="g2211"
+             style="fill:#000000">
+            <rect
+               id="rect2209"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2219"
+           transform="matrix(0.4,0,0,0.4,120,560)">
+          <g
+             id="g2217"
+             style="fill:#000000">
+            <rect
+               id="rect2215"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2225"
+           transform="matrix(0.4,0,0,0.4,200,560)">
+          <g
+             id="g2223"
+             style="fill:#000000">
+            <rect
+               id="rect2221"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2231"
+           transform="matrix(0.4,0,0,0.4,240,560)">
+          <g
+             id="g2229"
+             style="fill:#000000">
+            <rect
+               id="rect2227"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2237"
+           transform="matrix(0.4,0,0,0.4,320,560)">
+          <g
+             id="g2235"
+             style="fill:#000000">
+            <rect
+               id="rect2233"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2243"
+           transform="matrix(0.4,0,0,0.4,360,560)">
+          <g
+             id="g2241"
+             style="fill:#000000">
+            <rect
+               id="rect2239"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2249"
+           transform="matrix(0.4,0,0,0.4,400,560)">
+          <g
+             id="g2247"
+             style="fill:#000000">
+            <rect
+               id="rect2245"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2255"
+           transform="matrix(0.4,0,0,0.4,520,560)">
+          <g
+             id="g2253"
+             style="fill:#000000">
+            <rect
+               id="rect2251"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2261"
+           transform="matrix(0.4,0,0,0.4,560,560)">
+          <g
+             id="g2259"
+             style="fill:#000000">
+            <rect
+               id="rect2257"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2267"
+           transform="matrix(0.4,0,0,0.4,600,560)">
+          <g
+             id="g2265"
+             style="fill:#000000">
+            <rect
+               id="rect2263"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2273"
+           transform="matrix(0.4,0,0,0.4,640,560)">
+          <g
+             id="g2271"
+             style="fill:#000000">
+            <rect
+               id="rect2269"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2279"
+           transform="matrix(0.4,0,0,0.4,680,560)">
+          <g
+             id="g2277"
+             style="fill:#000000">
+            <rect
+               id="rect2275"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2285"
+           transform="matrix(0.4,0,0,0.4,760,560)">
+          <g
+             id="g2283"
+             style="fill:#000000">
+            <rect
+               id="rect2281"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2291"
+           transform="matrix(0.4,0,0,0.4,800,560)">
+          <g
+             id="g2289"
+             style="fill:#000000">
+            <rect
+               id="rect2287"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2297"
+           transform="matrix(0.4,0,0,0.4,840,560)">
+          <g
+             id="g2295"
+             style="fill:#000000">
+            <rect
+               id="rect2293"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2303"
+           transform="matrix(0.4,0,0,0.4,880,560)">
+          <g
+             id="g2301"
+             style="fill:#000000">
+            <rect
+               id="rect2299"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2309"
+           transform="matrix(0.4,0,0,0.4,920,560)">
+          <g
+             id="g2307"
+             style="fill:#000000">
+            <rect
+               id="rect2305"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2315"
+           transform="matrix(0.4,0,0,0.4,960,560)">
+          <g
+             id="g2313"
+             style="fill:#000000">
+            <rect
+               id="rect2311"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2321"
+           transform="matrix(0.4,0,0,0.4,0,600)">
+          <g
+             id="g2319"
+             style="fill:#000000">
+            <rect
+               id="rect2317"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2327"
+           transform="matrix(0.4,0,0,0.4,80,600)">
+          <g
+             id="g2325"
+             style="fill:#000000">
+            <rect
+               id="rect2323"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2333"
+           transform="matrix(0.4,0,0,0.4,160,600)">
+          <g
+             id="g2331"
+             style="fill:#000000">
+            <rect
+               id="rect2329"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2339"
+           transform="matrix(0.4,0,0,0.4,320,600)">
+          <g
+             id="g2337"
+             style="fill:#000000">
+            <rect
+               id="rect2335"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2345"
+           transform="matrix(0.4,0,0,0.4,360,600)">
+          <g
+             id="g2343"
+             style="fill:#000000">
+            <rect
+               id="rect2341"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2351"
+           transform="matrix(0.4,0,0,0.4,680,600)">
+          <g
+             id="g2349"
+             style="fill:#000000">
+            <rect
+               id="rect2347"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2357"
+           transform="matrix(0.4,0,0,0.4,800,600)">
+          <g
+             id="g2355"
+             style="fill:#000000">
+            <rect
+               id="rect2353"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2363"
+           transform="matrix(0.4,0,0,0.4,880,600)">
+          <g
+             id="g2361"
+             style="fill:#000000">
+            <rect
+               id="rect2359"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2369"
+           transform="matrix(0.4,0,0,0.4,960,600)">
+          <g
+             id="g2367"
+             style="fill:#000000">
+            <rect
+               id="rect2365"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2375"
+           transform="matrix(0.4,0,0,0.4,0,640)">
+          <g
+             id="g2373"
+             style="fill:#000000">
+            <rect
+               id="rect2371"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2381"
+           transform="matrix(0.4,0,0,0.4,120,640)">
+          <g
+             id="g2379"
+             style="fill:#000000">
+            <rect
+               id="rect2377"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2387"
+           transform="matrix(0.4,0,0,0.4,200,640)">
+          <g
+             id="g2385"
+             style="fill:#000000">
+            <rect
+               id="rect2383"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2393"
+           transform="matrix(0.4,0,0,0.4,240,640)">
+          <g
+             id="g2391"
+             style="fill:#000000">
+            <rect
+               id="rect2389"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2399"
+           transform="matrix(0.4,0,0,0.4,280,640)">
+          <g
+             id="g2397"
+             style="fill:#000000">
+            <rect
+               id="rect2395"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2405"
+           transform="matrix(0.4,0,0,0.4,400,640)">
+          <g
+             id="g2403"
+             style="fill:#000000">
+            <rect
+               id="rect2401"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2411"
+           transform="matrix(0.4,0,0,0.4,440,640)">
+          <g
+             id="g2409"
+             style="fill:#000000">
+            <rect
+               id="rect2407"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2417"
+           transform="matrix(0.4,0,0,0.4,480,640)">
+          <g
+             id="g2415"
+             style="fill:#000000">
+            <rect
+               id="rect2413"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2423"
+           transform="matrix(0.4,0,0,0.4,520,640)">
+          <g
+             id="g2421"
+             style="fill:#000000">
+            <rect
+               id="rect2419"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2429"
+           transform="matrix(0.4,0,0,0.4,560,640)">
+          <g
+             id="g2427"
+             style="fill:#000000">
+            <rect
+               id="rect2425"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2435"
+           transform="matrix(0.4,0,0,0.4,600,640)">
+          <g
+             id="g2433"
+             style="fill:#000000">
+            <rect
+               id="rect2431"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2441"
+           transform="matrix(0.4,0,0,0.4,640,640)">
+          <g
+             id="g2439"
+             style="fill:#000000">
+            <rect
+               id="rect2437"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2447"
+           transform="matrix(0.4,0,0,0.4,680,640)">
+          <g
+             id="g2445"
+             style="fill:#000000">
+            <rect
+               id="rect2443"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2453"
+           transform="matrix(0.4,0,0,0.4,720,640)">
+          <g
+             id="g2451"
+             style="fill:#000000">
+            <rect
+               id="rect2449"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2459"
+           transform="matrix(0.4,0,0,0.4,760,640)">
+          <g
+             id="g2457"
+             style="fill:#000000">
+            <rect
+               id="rect2455"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2465"
+           transform="matrix(0.4,0,0,0.4,800,640)">
+          <g
+             id="g2463"
+             style="fill:#000000">
+            <rect
+               id="rect2461"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2471"
+           transform="matrix(0.4,0,0,0.4,880,640)">
+          <g
+             id="g2469"
+             style="fill:#000000">
+            <rect
+               id="rect2467"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2477"
+           transform="matrix(0.4,0,0,0.4,920,640)">
+          <g
+             id="g2475"
+             style="fill:#000000">
+            <rect
+               id="rect2473"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2483"
+           transform="matrix(0.4,0,0,0.4,320,680)">
+          <g
+             id="g2481"
+             style="fill:#000000">
+            <rect
+               id="rect2479"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2489"
+           transform="matrix(0.4,0,0,0.4,360,680)">
+          <g
+             id="g2487"
+             style="fill:#000000">
+            <rect
+               id="rect2485"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2495"
+           transform="matrix(0.4,0,0,0.4,520,680)">
+          <g
+             id="g2493"
+             style="fill:#000000">
+            <rect
+               id="rect2491"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2501"
+           transform="matrix(0.4,0,0,0.4,600,680)">
+          <g
+             id="g2499"
+             style="fill:#000000">
+            <rect
+               id="rect2497"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2507"
+           transform="matrix(0.4,0,0,0.4,640,680)">
+          <g
+             id="g2505"
+             style="fill:#000000">
+            <rect
+               id="rect2503"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2513"
+           transform="matrix(0.4,0,0,0.4,800,680)">
+          <g
+             id="g2511"
+             style="fill:#000000">
+            <rect
+               id="rect2509"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2519"
+           transform="matrix(0.4,0,0,0.4,920,680)">
+          <g
+             id="g2517"
+             style="fill:#000000">
+            <rect
+               id="rect2515"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2525"
+           transform="matrix(0.4,0,0,0.4,320,720)">
+          <g
+             id="g2523"
+             style="fill:#000000">
+            <rect
+               id="rect2521"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2531"
+           transform="matrix(0.4,0,0,0.4,440,720)">
+          <g
+             id="g2529"
+             style="fill:#000000">
+            <rect
+               id="rect2527"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2537"
+           transform="matrix(0.4,0,0,0.4,480,720)">
+          <g
+             id="g2535"
+             style="fill:#000000">
+            <rect
+               id="rect2533"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2543"
+           transform="matrix(0.4,0,0,0.4,640,720)">
+          <g
+             id="g2541"
+             style="fill:#000000">
+            <rect
+               id="rect2539"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2549"
+           transform="matrix(0.4,0,0,0.4,720,720)">
+          <g
+             id="g2547"
+             style="fill:#000000">
+            <rect
+               id="rect2545"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2555"
+           transform="matrix(0.4,0,0,0.4,800,720)">
+          <g
+             id="g2553"
+             style="fill:#000000">
+            <rect
+               id="rect2551"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2561"
+           transform="matrix(0.4,0,0,0.4,840,720)">
+          <g
+             id="g2559"
+             style="fill:#000000">
+            <rect
+               id="rect2557"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2567"
+           transform="matrix(0.4,0,0,0.4,960,720)">
+          <g
+             id="g2565"
+             style="fill:#000000">
+            <rect
+               id="rect2563"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2573"
+           transform="matrix(0.4,0,0,0.4,320,760)">
+          <g
+             id="g2571"
+             style="fill:#000000">
+            <rect
+               id="rect2569"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2579"
+           transform="matrix(0.4,0,0,0.4,400,760)">
+          <g
+             id="g2577"
+             style="fill:#000000">
+            <rect
+               id="rect2575"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2585"
+           transform="matrix(0.4,0,0,0.4,440,760)">
+          <g
+             id="g2583"
+             style="fill:#000000">
+            <rect
+               id="rect2581"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2591"
+           transform="matrix(0.4,0,0,0.4,520,760)">
+          <g
+             id="g2589"
+             style="fill:#000000">
+            <rect
+               id="rect2587"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2597"
+           transform="matrix(0.4,0,0,0.4,600,760)">
+          <g
+             id="g2595"
+             style="fill:#000000">
+            <rect
+               id="rect2593"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2603"
+           transform="matrix(0.4,0,0,0.4,640,760)">
+          <g
+             id="g2601"
+             style="fill:#000000">
+            <rect
+               id="rect2599"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2609"
+           transform="matrix(0.4,0,0,0.4,800,760)">
+          <g
+             id="g2607"
+             style="fill:#000000">
+            <rect
+               id="rect2605"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2615"
+           transform="matrix(0.4,0,0,0.4,320,800)">
+          <g
+             id="g2613"
+             style="fill:#000000">
+            <rect
+               id="rect2611"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2621"
+           transform="matrix(0.4,0,0,0.4,360,800)">
+          <g
+             id="g2619"
+             style="fill:#000000">
+            <rect
+               id="rect2617"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2627"
+           transform="matrix(0.4,0,0,0.4,440,800)">
+          <g
+             id="g2625"
+             style="fill:#000000">
+            <rect
+               id="rect2623"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2633"
+           transform="matrix(0.4,0,0,0.4,480,800)">
+          <g
+             id="g2631"
+             style="fill:#000000">
+            <rect
+               id="rect2629"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2639"
+           transform="matrix(0.4,0,0,0.4,560,800)">
+          <g
+             id="g2637"
+             style="fill:#000000">
+            <rect
+               id="rect2635"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2645"
+           transform="matrix(0.4,0,0,0.4,600,800)">
+          <g
+             id="g2643"
+             style="fill:#000000">
+            <rect
+               id="rect2641"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2651"
+           transform="matrix(0.4,0,0,0.4,640,800)">
+          <g
+             id="g2649"
+             style="fill:#000000">
+            <rect
+               id="rect2647"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2657"
+           transform="matrix(0.4,0,0,0.4,680,800)">
+          <g
+             id="g2655"
+             style="fill:#000000">
+            <rect
+               id="rect2653"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2663"
+           transform="matrix(0.4,0,0,0.4,720,800)">
+          <g
+             id="g2661"
+             style="fill:#000000">
+            <rect
+               id="rect2659"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2669"
+           transform="matrix(0.4,0,0,0.4,760,800)">
+          <g
+             id="g2667"
+             style="fill:#000000">
+            <rect
+               id="rect2665"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2675"
+           transform="matrix(0.4,0,0,0.4,800,800)">
+          <g
+             id="g2673"
+             style="fill:#000000">
+            <rect
+               id="rect2671"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2681"
+           transform="matrix(0.4,0,0,0.4,840,800)">
+          <g
+             id="g2679"
+             style="fill:#000000">
+            <rect
+               id="rect2677"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2687"
+           transform="matrix(0.4,0,0,0.4,320,840)">
+          <g
+             id="g2685"
+             style="fill:#000000">
+            <rect
+               id="rect2683"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2693"
+           transform="matrix(0.4,0,0,0.4,440,840)">
+          <g
+             id="g2691"
+             style="fill:#000000">
+            <rect
+               id="rect2689"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2699"
+           transform="matrix(0.4,0,0,0.4,600,840)">
+          <g
+             id="g2697"
+             style="fill:#000000">
+            <rect
+               id="rect2695"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2705"
+           transform="matrix(0.4,0,0,0.4,680,840)">
+          <g
+             id="g2703"
+             style="fill:#000000">
+            <rect
+               id="rect2701"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2711"
+           transform="matrix(0.4,0,0,0.4,720,840)">
+          <g
+             id="g2709"
+             style="fill:#000000">
+            <rect
+               id="rect2707"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2717"
+           transform="matrix(0.4,0,0,0.4,760,840)">
+          <g
+             id="g2715"
+             style="fill:#000000">
+            <rect
+               id="rect2713"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2723"
+           transform="matrix(0.4,0,0,0.4,840,840)">
+          <g
+             id="g2721"
+             style="fill:#000000">
+            <rect
+               id="rect2719"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2729"
+           transform="matrix(0.4,0,0,0.4,920,840)">
+          <g
+             id="g2727"
+             style="fill:#000000">
+            <rect
+               id="rect2725"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2735"
+           transform="matrix(0.4,0,0,0.4,960,840)">
+          <g
+             id="g2733"
+             style="fill:#000000">
+            <rect
+               id="rect2731"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2741"
+           transform="matrix(0.4,0,0,0.4,360,880)">
+          <g
+             id="g2739"
+             style="fill:#000000">
+            <rect
+               id="rect2737"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2747"
+           transform="matrix(0.4,0,0,0.4,400,880)">
+          <g
+             id="g2745"
+             style="fill:#000000">
+            <rect
+               id="rect2743"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2753"
+           transform="matrix(0.4,0,0,0.4,440,880)">
+          <g
+             id="g2751"
+             style="fill:#000000">
+            <rect
+               id="rect2749"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2759"
+           transform="matrix(0.4,0,0,0.4,600,880)">
+          <g
+             id="g2757"
+             style="fill:#000000">
+            <rect
+               id="rect2755"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2765"
+           transform="matrix(0.4,0,0,0.4,680,880)">
+          <g
+             id="g2763"
+             style="fill:#000000">
+            <rect
+               id="rect2761"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2771"
+           transform="matrix(0.4,0,0,0.4,760,880)">
+          <g
+             id="g2769"
+             style="fill:#000000">
+            <rect
+               id="rect2767"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2777"
+           transform="matrix(0.4,0,0,0.4,800,880)">
+          <g
+             id="g2775"
+             style="fill:#000000">
+            <rect
+               id="rect2773"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2783"
+           transform="matrix(0.4,0,0,0.4,880,880)">
+          <g
+             id="g2781"
+             style="fill:#000000">
+            <rect
+               id="rect2779"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2789"
+           transform="matrix(0.4,0,0,0.4,920,880)">
+          <g
+             id="g2787"
+             style="fill:#000000">
+            <rect
+               id="rect2785"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2795"
+           transform="matrix(0.4,0,0,0.4,960,880)">
+          <g
+             id="g2793"
+             style="fill:#000000">
+            <rect
+               id="rect2791"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2801"
+           transform="matrix(0.4,0,0,0.4,480,920)">
+          <g
+             id="g2799"
+             style="fill:#000000">
+            <rect
+               id="rect2797"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2807"
+           transform="matrix(0.4,0,0,0.4,600,920)">
+          <g
+             id="g2805"
+             style="fill:#000000">
+            <rect
+               id="rect2803"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2813"
+           transform="matrix(0.4,0,0,0.4,760,920)">
+          <g
+             id="g2811"
+             style="fill:#000000">
+            <rect
+               id="rect2809"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2819"
+           transform="matrix(0.4,0,0,0.4,800,920)">
+          <g
+             id="g2817"
+             style="fill:#000000">
+            <rect
+               id="rect2815"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2825"
+           transform="matrix(0.4,0,0,0.4,880,920)">
+          <g
+             id="g2823"
+             style="fill:#000000">
+            <rect
+               id="rect2821"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2831"
+           transform="matrix(0.4,0,0,0.4,920,920)">
+          <g
+             id="g2829"
+             style="fill:#000000">
+            <rect
+               id="rect2827"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2837"
+           transform="matrix(0.4,0,0,0.4,960,920)">
+          <g
+             id="g2835"
+             style="fill:#000000">
+            <rect
+               id="rect2833"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2843"
+           transform="matrix(0.4,0,0,0.4,320,960)">
+          <g
+             id="g2841"
+             style="fill:#000000">
+            <rect
+               id="rect2839"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2849"
+           transform="matrix(0.4,0,0,0.4,360,960)">
+          <g
+             id="g2847"
+             style="fill:#000000">
+            <rect
+               id="rect2845"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2855"
+           transform="matrix(0.4,0,0,0.4,440,960)">
+          <g
+             id="g2853"
+             style="fill:#000000">
+            <rect
+               id="rect2851"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2861"
+           transform="matrix(0.4,0,0,0.4,640,960)">
+          <g
+             id="g2859"
+             style="fill:#000000">
+            <rect
+               id="rect2857"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2867"
+           transform="matrix(0.4,0,0,0.4,680,960)">
+          <g
+             id="g2865"
+             style="fill:#000000">
+            <rect
+               id="rect2863"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2873"
+           transform="matrix(0.4,0,0,0.4,840,960)">
+          <g
+             id="g2871"
+             style="fill:#000000">
+            <rect
+               id="rect2869"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2879"
+           transform="matrix(0.4,0,0,0.4,960,960)">
+          <g
+             id="g2877"
+             style="fill:#000000">
+            <rect
+               id="rect2875"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2889"
+           transform="scale(2.8)">
+          <g
+             id="g2887"
+             style="fill:#000000">
+            <g
+               id="g2885">
+              <rect
+                 id="rect2881"
+                 height="70"
+                 width="70"
+                 style="fill:none"
+                 y="15"
+                 x="15" />
+              <path
+                 id="path2883"
+                 d="M 85,0 H 15 0 v 15 70 15 h 15 70 15 V 85 15 0 Z m 0,85 H 15 V 15 h 70 z"
+                 inkscape:connector-curvature="0" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="g2899"
+           transform="matrix(2.8,0,0,2.8,720,0)">
+          <g
+             id="g2897"
+             style="fill:#000000">
+            <g
+               id="g2895">
+              <rect
+                 id="rect2891"
+                 height="70"
+                 width="70"
+                 style="fill:none"
+                 y="15"
+                 x="15" />
+              <path
+                 id="path2893"
+                 d="M 85,0 H 15 0 v 15 70 15 h 15 70 15 V 85 15 0 Z m 0,85 H 15 V 15 h 70 z"
+                 inkscape:connector-curvature="0" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="g2909"
+           transform="matrix(2.8,0,0,2.8,0,720)">
+          <g
+             id="g2907"
+             style="fill:#000000">
+            <g
+               id="g2905">
+              <rect
+                 id="rect2901"
+                 height="70"
+                 width="70"
+                 style="fill:none"
+                 y="15"
+                 x="15" />
+              <path
+                 id="path2903"
+                 d="M 85,0 H 15 0 v 15 70 15 h 15 70 15 V 85 15 0 Z m 0,85 H 15 V 15 h 70 z"
+                 inkscape:connector-curvature="0" />
+            </g>
+          </g>
+        </g>
+        <g
+           id="g2915"
+           transform="matrix(1.2,0,0,1.2,80,80)">
+          <g
+             id="g2913"
+             style="fill:#000000">
+            <rect
+               id="rect2911"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2921"
+           transform="matrix(1.2,0,0,1.2,800,80)">
+          <g
+             id="g2919"
+             style="fill:#000000">
+            <rect
+               id="rect2917"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+        <g
+           id="g2927"
+           transform="matrix(1.2,0,0,1.2,80,800)">
+          <g
+             id="g2925"
+             style="fill:#000000">
+            <rect
+               id="rect2923"
+               height="100"
+               width="100"
+               x="0"
+               y="0" />
+          </g>
+        </g>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.90244675px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.94757366"
+       x="680.33752"
+       y="235.80501"
+       id="text4451"><tspan
+         sodipodi:role="line"
+         id="tspan4449"
+         x="680.33752"
+         y="235.80501"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.90244675px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.94757366">reconstrue.com/tsne </tspan></text>
+    <rect
+       style="fill:#000000;fill-opacity:0;stroke-width:0.26458332"
+       id="rect4486"
+       width="863.59998"
+       height="76.199997"
+       x="177.8"
+       y="-363.40002" />
+    <rect
+       style="fill:#000000;fill-opacity:0;stroke-width:0.26458332"
+       id="rect4488"
+       width="927.09998"
+       height="215.89999"
+       x="152.39999"
+       y="-363.40002" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.90244675px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="556.68945"
+       y="-62.107933"
+       id="text4496"><tspan
+         sodipodi:role="line"
+         id="tspan4494"
+         x="556.68945"
+         y="-62.107933"
+         style="stroke-width:0.26458332">Free Jupyter compute</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.90244675px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="571.59656"
+       y="-13.938358"
+       id="text4500"><tspan
+         sodipodi:role="line"
+         x="571.59656"
+         y="-13.938358"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.39999962px;line-height:0.5;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         id="tspan4829">Site          TFLOPS     GPU             Owner</tspan><tspan
+         sodipodi:role="line"
+         x="571.59656"
+         y="33.439697"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.39999962px;line-height:0.5;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         id="tspan4508">Colab              180     TPU v2       Google</tspan><tspan
+         sodipodi:role="line"
+         x="571.59656"
+         y="80.817757"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.39999962px;line-height:0.5;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         id="tspan778">Colab                65     T4               Google</tspan><tspan
+         sodipodi:role="line"
+         x="571.59656"
+         y="128.19582"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.39999962px;line-height:0.5;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         id="tspan4550">Kaggle              21     P100          Google</tspan><tspan
+         sodipodi:role="line"
+         x="571.59656"
+         y="175.57387"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.39999962px;line-height:0.5;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         id="tspan796">MyBinder            ?     none             Open</tspan><tspan
+         sodipodi:role="line"
+         x="571.59656"
+         y="222.95193"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.39999962px;line-height:0.5;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         id="tspan4855" /><tspan
+         sodipodi:role="line"
+         x="571.59656"
+         y="270.33002"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:25.39999962px;line-height:0.5;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+         id="tspan4542" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.90244675px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="723.89996"
+       y="4.899972"
+       id="text4512"><tspan
+         sodipodi:role="line"
+         id="tspan4510"
+         x="723.89996"
+         y="39.479523"
+         style="stroke-width:0.26458332" /><tspan
+         sodipodi:role="line"
+         x="723.89996"
+         y="86.857582"
+         style="stroke-width:0.26458332"
+         id="tspan4514" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.90244675px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="698.5"
+       y="-45.900028"
+       id="text4524"><tspan
+         sodipodi:role="line"
+         id="tspan4522"
+         x="698.5"
+         y="-11.320477"
+         style="stroke-width:0.26458332" /><tspan
+         sodipodi:role="line"
+         x="698.5"
+         y="36.057583"
+         style="stroke-width:0.26458332"
+         id="tspan4526" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.90244675px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="698.5"
+       y="-45.900028"
+       id="text4853"><tspan
+         sodipodi:role="line"
+         id="tspan4851"
+         x="698.5"
+         y="-45.900028"
+         style="stroke-width:0.26458332" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot780"
+       style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion782"><rect
+           id="rect784"
+           width="3354.3379"
+           height="327.0369"
+           x="53.033009"
+           y="331.47192" /></flowRegion><flowPara
+         id="flowPara786"></flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot788"
+       style="fill:black;fill-opacity:1;stroke:none;font-family:sans-serif;font-style:normal;font-weight:normal;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px"><flowRegion
+         id="flowRegion790"><rect
+           id="rect792"
+           width="0"
+           height="61.871845"
+           x="2983.1067"
+           y="539.18451" /></flowRegion><flowPara
+         id="flowPara794"></flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:45.59852982px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1.13996327"
+       x="623.86652"
+       y="-438.75995"
+       id="text1546"><tspan
+         sodipodi:role="line"
+         x="623.86652"
+         y="-398.41592"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.13996327"
+         id="tspan1554" /><tspan
+         sodipodi:role="line"
+         x="623.86652"
+         y="-341.41779"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.13996327"
+         id="tspan1560" /><tspan
+         sodipodi:role="line"
+         x="623.86652"
+         y="-284.41962"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.13996327"
+         id="tspan1558" /><tspan
+         sodipodi:role="line"
+         x="623.86652"
+         y="-227.42145"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.13996327"
+         id="tspan1556" /><tspan
+         sodipodi:role="line"
+         x="623.86652"
+         y="-170.42329"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.13996327"
+         id="tspan1552" /><tspan
+         sodipodi:role="line"
+         x="623.86652"
+         y="-113.42513"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:8.46666622px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:1.13996327"
+         id="tspan1548" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.90244675px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="564.15741"
+       y="-474.51678"
+       id="text4455"><tspan
+         sodipodi:role="line"
+         id="tspan4453"
+         x="564.15741"
+         y="-474.51678"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.90244675px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332">Features</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.97838211px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.67445952"
+       x="565.26434"
+       y="-429.54388"
+       id="text1574"><tspan
+         sodipodi:role="line"
+         x="565.26434"
+         y="-429.54388"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.97838211px;line-height:1.39999998;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.67445952"
+         id="tspan1590">Auto-Perplexity: hyperparameter autoset</tspan><tspan
+         sodipodi:role="line"
+         x="565.26434"
+         y="-391.77414"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.97838211px;line-height:1.39999998;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.67445952"
+         id="tspan2514">    • Think: k-means Elbow</tspan><tspan
+         sodipodi:role="line"
+         x="565.26434"
+         y="-354.00443"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.97838211px;line-height:1.39999998;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.67445952"
+         id="tspan1782">Interactive</tspan><tspan
+         sodipodi:role="line"
+         x="565.26434"
+         y="-316.23468"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.97838211px;line-height:1.39999998;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.67445952"
+         id="tspan1582">    • In-browser UI &amp; algorithm run</tspan><tspan
+         sodipodi:role="line"
+         x="565.26434"
+         y="-278.46494"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.97838211px;line-height:1.39999998;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.67445952"
+         id="tspan1596">    • Brush UI for subsetting</tspan><tspan
+         sodipodi:role="line"
+         x="565.26434"
+         y="-240.69521"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.97838211px;line-height:1.39999998;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.67445952"
+         id="tspan1784">Progressive Visual Analytics </tspan><tspan
+         sodipodi:role="line"
+         x="565.26434"
+         y="-202.92548"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.97838211px;line-height:1.39999998;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.67445952"
+         id="tspan1594">    • Steerable</tspan><tspan
+         sodipodi:role="line"
+         x="565.26434"
+         y="-165.15575"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.97838211px;line-height:1.39999998;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.67445952"
+         id="tspan1602">    • Control embedding while crunching</tspan><tspan
+         id="tspan2611"
+         sodipodi:role="line"
+         x="565.26434"
+         y="-127.38601"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.97838211px;line-height:1.39999998;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.67445952">Less preprocessing needed nowadays</tspan><tspan
+         id="tspan2613"
+         sodipodi:role="line"
+         x="565.26434"
+         y="-91.639656"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.97838211px;line-height:1.39999998;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.67445952" /><tspan
+         sodipodi:role="line"
+         x="565.26434"
+         y="-57.916676"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:26.97838211px;line-height:1.39999998;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.67445952"
+         id="tspan1586" /></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="74.835464"
+       y="-446.67749"
+       id="text1606"><tspan
+         sodipodi:role="line"
+         id="tspan1604"
+         x="74.835464"
+         y="-437.31372"
+         style="stroke-width:0.26458332"></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:37.90244675px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="51.126709"
+       y="-471.6254"
+       id="text4484"><tspan
+         sodipodi:role="line"
+         id="tspan4482"
+         x="51.126709"
+         y="-471.6254"
+         style="stroke-width:0.26458332">Algorithms</tspan></text>
+    <g
+       id="g2742"
+       transform="translate(2.3386084,38.587038)">
+      <g
+         id="g3123"
+         transform="translate(23.386084,1.1693042)">
+        <flowRoot
+           xml:space="preserve"
+           id="flowRoot3159"
+           style="fill:black;fill-opacity:1;stroke:none;font-family:Tahoma;font-style:normal;font-weight:bold;font-size:96px;line-height:1.25;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'Tahoma, Bold';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal"><flowRegion
+             id="flowRegion3161"><rect
+               id="rect3163"
+               width="300.52039"
+               height="229.80971"
+               x="141.42136"
+               y="932.5127" /></flowRegion><flowPara
+             id="flowPara3165"></flowPara></flowRoot>        <g
+           id="g3265">
+          <image
+             width="433.51443"
+             height="47.095833"
+             preserveAspectRatio="none"
+             style="image-rendering:optimizeSpeed"
+             xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAB5MAAACyCAYAAABvLugFAAAABHNCSVQICAgIfAhkiAAABs5JREFU
+eJzt2aEBwjAAAEFKarId+88QhcMEDO4HaMXdBO//WGt9HwAAAAAAAADwN8b4PK+OAAAAAAAAAOB+
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAAwkwGAAAAAAAAIMxkAAAAAAAAAMJMBgAAAAAAACDMZAAAAAAAAADCTAYAAAAAAAAg
+zGQAAAAAAAAA4pxzvq6OAAAAAAAAAOA+9t7vHwd8CoI9WWcgAAAAAElFTkSuQmCC
+"
+             id="image2696"
+             x="21.780844"
+             y="-249.2269" />
+          <text
+             id="text1610"
+             y="-212.80017"
+             x="22.098082"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.07339478px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.72683489"
+             xml:space="preserve"><tspan
+               id="tspan1638"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.07339478px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="-212.80017"
+               x="22.098082"
+               sodipodi:role="line"> Year       O(time)   <tspan
+   style="letter-spacing:1.32291663px"
+   id="tspan3096">   </tspan><tspan
+   style="letter-spacing:2.11666656px"
+   id="tspan3151">  </tspan> Name</tspan><tspan
+               id="tspan1640"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.07339478px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="-176.45844"
+               x="22.098082"
+               sodipodi:role="line"> 2003      n               <tspan
+   id="tspan3141"
+   style="letter-spacing:1.58749998px">     </tspan><tspan
+   style="letter-spacing:1.85208333px"
+   id="tspan2966">   </tspan>SNE </tspan><tspan
+               id="tspan1642"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.07339478px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="-140.11668"
+               x="22.098082"
+               sodipodi:role="line"> 2008      n              <tspan
+   id="tspan3131"
+   style="letter-spacing:1.19062495px">        </tspan>tSNE </tspan><tspan
+               id="tspan1646"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.07339478px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="-103.77494"
+               x="22.098082"
+               sodipodi:role="line"
+               dy="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 8"> 2014      n log n  <tspan
+   style="letter-spacing:0.79374999px"
+   id="tspan3078">      </tspan>BH-SNE<tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.93333244px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   id="tspan3279"
+   dy="-8">*</tspan> </tspan><tspan
+               id="tspan1650"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.07339478px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="-67.433197"
+               x="22.098082"
+               sodipodi:role="line"> 2016      n log n     <tspan
+   style="letter-spacing:0.5291667px"
+   id="tspan3082">       </tspan>HSNE </tspan><tspan
+               id="tspan1652"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.07339478px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="-31.091454"
+               x="22.098082"
+               sodipodi:role="line"> 2017      ?           <tspan
+   style="letter-spacing:0.5291667px"
+   id="tspan3084"><tspan
+   style="letter-spacing:1.32291663px"
+   id="tspan3267">   </tspan>    </tspan> A-tSNE </tspan><tspan
+               id="tspan1654"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.07339478px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="5.2502899"
+               x="22.098082"
+               sodipodi:role="line"> 2018      n          <tspan
+   style="letter-spacing:2.11666656px"
+   id="tspan3271">   </tspan><tspan
+   style="letter-spacing:1.32291663px"
+   id="tspan3076">  </tspan> tfjs-tsne </tspan><tspan
+               id="tspan1656"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.07339478px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="41.592033"
+               x="22.098082"
+               sodipodi:role="line"> 2018      n log n<tspan
+   style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:16.93333244px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start"
+   id="tspan3269"
+   dy="-3 0 3">**   </tspan> tsne-cuda </tspan><tspan
+               id="tspan1776"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.75555611px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="77.933777"
+               x="22.098082"
+               sodipodi:role="line">            *<tspan
+   id="tspan3129"
+   style="letter-spacing:0.5291667px">  </tspan>Default for sklearn</tspan><tspan
+               id="tspan1780"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.75555611px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="114.27552"
+               x="22.098082"
+               sodipodi:role="line">         **   50X – 700X</tspan><tspan
+               id="tspan1778"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.75555611px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="150.61726"
+               x="22.098082"
+               sodipodi:role="line" /><tspan
+               id="tspan1658"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.07339478px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="186.95901"
+               x="22.098082"
+               sodipodi:role="line" /><tspan
+               id="tspan1636"
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:29.07339478px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.72683489"
+               y="223.30075"
+               x="22.098082"
+               sodipodi:role="line" /></text>
+          <text
+             id="text3127"
+             y="65.477753"
+             x="136.80858"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="stroke-width:0.26458332"
+               y="65.477753"
+               x="136.80858"
+               id="tspan3125"
+               sodipodi:role="line">   </tspan></text>
+          <text
+             id="text3211"
+             y="-150.22032"
+             x="176.93613"
+             style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.75555611px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+             xml:space="preserve"><tspan
+               style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:19.75555611px;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;writing-mode:lr-tb;text-anchor:start;stroke-width:0.26458332"
+               y="-150.22032"
+               x="176.93613"
+               id="tspan3209"
+               sodipodi:role="line">2</tspan></text>
+          <image
+             width="10.583333"
+             height="14.816667"
+             preserveAspectRatio="none"
+             style="image-rendering:optimizeSpeed"
+             xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAA4CAYAAACPKLr2AAAABHNCSVQICAgIfAhkiAAAA9ZJREFU
+aIHt2V8oe30cB/DPDMvILGMsSms1RVMScaOQKNypJ1cLF8qf5MqVuFNyp92Ii19JSYmLiQulxi5k
+TMmImX6PebILc+jnz9nO+7l6/Pzb7Hx3zvPbhXd9a+esz/e89tn23c45CgCgCAkEAuR0OmlnZ4dc
+Lhd5PB7y+XwkCEKkkpcolUoyGo1UXl5OtbW11NzcTEVFRV/WvcvfhFd5eHiA3W7HwMAASkpKoFAo
+QESSjerqaszNzYHnecSYnwQAGxsb6OjoQEZGhqSgSMNkMsFut8cG9Hg8/wvqs9HT04PHx8fowKOj
+oz8GJCLU1dXh/v4+cYFEhKamJoTD4cQFEhFGRkYSG5iSkoLDw8MPwCRKkPA8T6Ojox+fSJQOEhGS
+kpJweXkpvoM6nY6sVivNzMyQ2+2m6+tren5+Jo7j6Pz8nJaWlqivr48yMzNFde19BEGghYWFtzsj
+dTA5ORnt7e1YXV1FKBSKtla9hOM4dHV1xdXFlpaW6F8SpVKJ7u5ueL3emFCfZWxsjBmYm5sbGVhV
+VYW9vT1m2Os0NDQwIzmO+w08OzuDyWTC+Ph4zG9lLNna2mIGHh8f/wZKJnoXQRCg0+mYgC6X6wUo
+2zqoUCiorKyMufa/yLpQ5+TkMNVpNJqXx7ICQ6EQU112dvbLY1mBgUBAdE1hYeGbBV82IAByu92i
+6ywWy5tt2YD7+/sUDAZF19XX17/Zlg04Pz/PVNfW1vZ2hxxrIMdx0Gq1ote/ysrK91PJsw5OTk7S
+zc2N6Lr+/v6PO6Xu3snJCVQqlejuFRQU4Onp6UMHJQXyPI+amhqmn7cfP358NqW0wOHhYSZcRUUF
+BEGQF7i4uMh0qUSlUsHtdkeaVhrg7u4u1Go1U/cmJiaiTR0/8PT0FHq9ngkX5YRdGqDf74fRaGTC
+mc1mBIPBrw7BDry6ukJxcTETTqvVvv7XLD3Q7/fDbDYz4dLT07G9vR3rocQD48GpVCqsr6+LOZw4
+oNfrhclkYsKlpqZieXlZXDfEAA8ODpCfn8+EU6vVWFtbE4uLHehwOJCVlcWE02g0cDgcLLjYgCsr
+K0hLS2PC5eXlvT6FlB44NTUFpVLJhCstLcXFxUU8uMjAcDiMoaEhJhgRobGxEbe3t/HiPgfe3d2h
+tbWVGdfb2yvmPog4oM/ng8ViYV5GpqenpYJ9BG5ubjJfSzEYDHA6nVLjAOCnAgBsNhsNDg4Sz/Mk
+NgaDgWw2G+n1etG1X0Wn0/1DnZ2dzJ83uYfVar1Pmp2dlfyVS5mEuQ0RKd/AePMNjDffwHiT8EAF
+gL/+NCJKfv0Lyc+ivJM88gIAAAAASUVORK5CYII=
+"
+             id="image3231"
+             x="179.45839"
+             y="-199.17749" />
+        </g>
+      </g>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:10.58333302px;line-height:1.25;font-family:Tahoma;-inkscape-font-specification:'Tahoma, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal;text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="1041.85"
+       y="56.123329"
+       id="text2524"><tspan
+         sodipodi:role="line"
+         id="tspan2522"
+         x="1041.85"
+         y="65.778824"
+         style="stroke-width:0.26458332" /></text>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2544"
+       style="fill:black;fill-opacity:1;stroke:none;font-family:Tahoma;font-style:normal;font-weight:bold;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'Tahoma, Bold';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal"><flowRegion
+         id="flowRegion2546"><rect
+           id="rect2548"
+           width="2347.0981"
+           height="1370.6305"
+           x="2147.8369"
+           y="1741.2661" /></flowRegion><flowPara
+         id="flowPara2550"></flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2552"
+       style="fill:black;fill-opacity:1;stroke:none;font-family:Tahoma;font-style:normal;font-weight:bold;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'Tahoma, Bold';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal"><flowRegion
+         id="flowRegion2554"><rect
+           id="rect2556"
+           width="1931.2854"
+           height="1975.4796"
+           x="48.61359"
+           y="402.18259" /></flowRegion><flowPara
+         id="flowPara2558"></flowPara></flowRoot>    <g
+       id="g2716">
+      <flowRoot
+         style="fill:black;fill-opacity:1;stroke:none;font-family:Tahoma;font-style:normal;font-weight:bold;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'Tahoma, Bold';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal"
+         id="flowRoot2703"
+         xml:space="preserve"><flowRegion
+           id="flowRegion2705"><rect
+             y="1224.1942"
+             x="39.774757"
+             height="1621.9261"
+             width="1745.6699"
+             id="rect2708" /></flowRegion><flowPara
+           id="flowPara2710"></flowPara></flowRoot>    </g>
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot2718"
+       style="fill:black;fill-opacity:1;stroke:none;font-family:Tahoma;font-style:normal;font-weight:bold;font-size:40px;line-height:1.25;letter-spacing:0px;word-spacing:0px;-inkscape-font-specification:'Tahoma, Bold';font-stretch:normal;font-variant:normal;text-anchor:start;text-align:start;writing-mode:lr;font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-feature-settings:normal"><flowRegion
+         id="flowRegion2720"><rect
+           id="rect2722"
+           width="1957.8019"
+           height="1834.0582"
+           x="22.097088"
+           y="1118.1282" /></flowRegion><flowPara
+         id="flowPara2724"></flowPara></flowRoot>  </g>
+</svg>
