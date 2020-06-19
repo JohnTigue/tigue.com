@@ -1,0 +1,2139 @@
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>mod_autoindex Meets XML</title>
+<style type="text/css" >
+.sampleHTML 
+  {
+  BORDER-BOTTOM: black 2px solid; 
+  BORDER-LEFT: black 2px solid; 
+  BORDER-RIGHT: black 2px solid; 
+  BORDER-TOP: black 2px solid; 
+  COLOR: black; 
+  FONT-WEIGHT: bold; 
+  FONT-SIZE: 8pt;
+  MARGIN-LEFT: 0px; 
+  MARGIN-RIGHT: 5px;
+  }
+
+h3
+  {
+  padding-top: 25px;
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+  }
+
+a:link
+  {
+  color: MidnightBlue;
+  }
+
+a:visited
+  {
+  color: MidnightBlue;
+  }
+
+.sampleHTML 
+  {
+        border: solid black;
+        border-width: 2px;
+  BORDER-BOTTOM: black 2px solid; 
+  BORDER-LEFT: black 2px solid; 
+  BORDER-RIGHT: black 2px solid; 
+  BORDER-TOP: black 2px solid; 
+  COLOR: black;
+  padding: 5px; 
+  FONT-WEIGHT: normal; 
+  FONT-SIZE: 8pt;
+  Margin-top: 10px;
+  margin-botton: 10px;
+  }
+</style>
+   </head>
+   <body>
+      <h1>mod_autoindex Meets XML</h1> 
+      
+      <table border="0">
+         
+         <tr>
+            
+            <td>
+               <b>Author: 
+                  
+               </b>
+               
+            </td>
+            
+            <td>
+               <a href="mailto:john.tigue@tigue.com">John Tigue</a>
+               
+            </td>
+            
+         </tr>
+         
+         
+         <tr>
+            
+            <td>
+               <b>
+                  URL:
+                  
+               </b> 
+               
+            </td>
+            
+            <td>
+               <a href="http://www.tigue.com/collection-indexing/presentations/2001-04-06/">
+                  http://www.tigue.com/collection-indexing/presentations/2001-04-06/
+               </a>
+               
+            </td>
+            
+         </tr>
+         
+         
+         <tr>
+            
+            <td>
+               <b>
+                  Event: 
+                  
+               </b>
+               
+            </td>
+            
+            <td>
+               ApacheCon US 2001
+               
+            </td>
+            
+         </tr>
+         
+      </table>
+      
+      
+      
+      
+      <div>
+         <h3><a name="sectionAbstract">1
+               &nbsp;Abstract&nbsp;
+               
+            </a>
+         </h3>
+         
+         
+         <p>
+            When Apache serves up files from a disk based file system, 
+            it maps between HTTP URLs and the file system's directories and files.
+            In the case of directories,
+            Apache can be configured such that if a GET request is addressed to an URL with a trailing slash then the response
+            will contain an HTML page which lists resources available within the corresponding file system directory.
+            As its name implies the module, mod_autoindex, automatically indexes file system directories for Apache.
+            
+         </p>
+         
+         
+         
+         <p>
+            This paper considers several different ways of patching mod_autoindex such that it generates pages which are
+            XML enabled as well as backwards compatible with HTML browsers.
+            Trivial changes to the source code of mod_autoindex.c can accommodate several technologies 
+            including XML, XHTML, XSL, and XLink.
+            Benefits of these patches include prettier pages, less load on the server CPU, and most significantly out-of-the-box 
+            Apache becomes an XLink application server. 
+            
+         </p>
+         
+      </div>
+      
+      
+      
+      <div>
+         <h3><a name="sectionTOC">2
+               &nbsp;Table of Contents&nbsp;
+               
+            </a>
+         </h3>
+         
+         <p>
+            &nbsp;<a href="#sectionAbstract">1&nbsp;&nbsp;Abstract</a><br>
+            &nbsp;<a href="#sectionTOC">2&nbsp;&nbsp;Table of Contents</a><br>
+            &nbsp;<a href="#sectionIntroduction">3&nbsp;&nbsp;Introduction</a><br>
+            &nbsp;<a href="#sectionTerminology">4&nbsp;&nbsp;Terminology</a><br>
+            &nbsp;<a href="#sectionMotivational">5&nbsp;&nbsp;Motivational Examples</a><br>
+            &nbsp;<a href="#sectionWellformedness">6&nbsp;&nbsp;Well-formedness</a><br>
+            &nbsp;<a href="#sectionXHTML">7&nbsp;&nbsp;XHTML</a><br>
+            &nbsp;<a href="#sectionMoreTags">8&nbsp;&nbsp;More Tags</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#sectionSeparating">8.1&nbsp;&nbsp;Separating the Property Values from Each Other</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#sectionGrouping">8.2&nbsp;&nbsp;Grouping Property Values by Resource</a><br>
+            &nbsp;<a href="#sectionXLink">9&nbsp;&nbsp;XLink</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#sectionCIisPhysicalXLink">9.1&nbsp;&nbsp;Collection Indexing is the Physical Link Structure</a><br>
+            &nbsp;<a href="#sectionMisc">10&nbsp;&nbsp;Miscellaneous Syntax Refinements</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#sectionDateTime">10.1&nbsp;&nbsp;Date and Time Formats</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#sectionMediaType">10.2&nbsp;&nbsp;Media Type</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#sectionElementOrdering">10.3&nbsp;&nbsp;Less Dependencies Between the XML Element Ordering and XSLTs</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#sectionTruncation">10.4&nbsp;&nbsp;Property Value Truncation</a><br>
+            &nbsp;<a href="#sectionImplications">11&nbsp;&nbsp;Implications and Broader Context</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#sectionFreebies">11.1&nbsp;&nbsp;Implicit Freebie Beneifts</a><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#sectionNonHTTPd">11.2&nbsp;&nbsp;Collection Indexing without Web Servers</a><br>
+            &nbsp;<a href="#sectionWrench">12&nbsp;&nbsp;Wrench</a><br>
+            &nbsp;<a href="#sectionCallFormStandard">13&nbsp;&nbsp;Call for Standardization</a><br>
+            &nbsp;<a href="#sectionFurtherInfo">14&nbsp;&nbsp;Further Information</a><br>
+            &nbsp;<a href="#sectionBibliography">15&nbsp;&nbsp;Bibliography</a><br>
+            
+         </p>
+         
+         
+      </div>
+      
+      
+      <div>
+         <h3><a name="sectionIntroduction">3
+               &nbsp;Introduction&nbsp;
+               
+            </a>
+         </h3>
+
+         <p>
+            This paper considers ways of modifying mod_autoindex such that the HTML documents it generates incorporate
+            various XML technologies. 
+            The proposed changes to the code in mod_autoindex.c are minimal and 
+            essentially involve modifying existing string constants. 
+            None of the patches presented involve using an XML parser on the server. 
+            The changes affect only the auto-generated HTML documents and not the HTTP headers.
+            
+         </p>
+         
+         
+         
+         
+         
+         <p>
+            
+            For lack of a better term, this XML enlightened directory listing behavior is termed "Collection Indexing."
+            The term "directory listing" is undesirable as it is not implementation agnostic as protocol terminology should be.
+            That is, "directory" is file system specific terminology. 
+            Even though this paper only covers a file system-based implementation (Apache's mod_autoindex),
+            Collection Indexing can be described in HTTP terminology which is implementation agnostic.
+            Collection Indexing is simply a politically correct, and distinct, term for something which seems to have not yet been
+            formally defined.
+            
+         </p>
+         
+         
+         <p>
+            
+            The first patch presented causes the pages generated by mod_autoindex to be well-formed XML documents which conform with 
+            the W3C's XHTML 1.0 Recommendation.
+            The changes involve nothing more that removing the DOCTYPE declaration and adding some slashes to empty elements 
+            (for example, "<tt>&lt;HR></tt>" becomes "<tt>&lt;HR /></tt>").
+            As a result XSL Transformations (XSLTs) can be applied to the Collection Index pages while maintaining backwards compatibility
+            with deployed non-XML Web browsers. 
+            Also, sorting the list of resources by name, size, etc. (that is, "FancyIndexing") can be done client-side.
+            
+         </p>
+         
+         
+         
+         
+         <p>
+            After XML well-formedness is established, 
+            further patches add more markup elements and attributes to the Collection Index pages.
+            The benefits of XHTML are considered.
+            Then the basis of columnar formatting is changed from mono-spaced &lt;pre> to &lt;table>. 
+            
+         </p>
+         
+         
+         <p>
+            Another patch adds in XLink attributes.
+            A Collection Index page can be viewed as essentially just an XLink extended link with one arc to each resource contained in
+            the collection.
+            The most significant benefit of this patch is that out-of-the-box, vanilla Apache becomes the basis for XLink applications.
+            
+         </p>
+         
+         
+         <p>
+            Cumulatively, these patches result in XHTML pages which are XLink-enabled and sortable via client-side XSLT.
+            Not all the patches need be implemented for benefits to be realized.
+            The syntax modifications part of the paper ends by considering sundry machine readability issues such as ISO 8601 formatting
+            of dates.
+            
+         </p>
+         
+         
+         <p>
+            After presenting the patches the broader context of Collection Indexing is explored.
+            Collection Indexing can be thought of as "the physical storage structure API for XML applications".
+            Collection Indexing is a trivial, incremental innovation but it greatly increase the utility of vanilla web servers for XML-based
+            Web applications. 
+            This is demonstrated with example Collection Indexing-aware clients.
+            Included in the examples is "wrench," a Web browser-based equivalent to Microsoft's file system Explorer.
+            Finally, the paper closes with a call for a standardization of Collection Indexing.
+            
+         </p>
+         
+         
+      </div>
+      
+      
+      
+      <div>
+         <h3><a name="sectionTerminology">4
+               &nbsp;Terminology&nbsp;
+               
+            </a>
+         </h3>
+         <title><a name="sectionTerminology">Terminology</a></title>
+         
+         <p>
+            Briefly, and informally, some terms are defined.
+            
+         </p>
+         
+         
+         <p>
+            <b>Resource:</b><br>
+            Quoting the HTTP/1.1 RFC:
+            "a network data object or service that can be identified by a URI".
+            
+         </p>
+         
+         
+         <p>
+            <b>Collection:</b><br>
+            A resource addressed by an URL which ends in a '/'. 
+            Note that this is not the same as a WebDAV Collection.
+            As the WebDAV spec says in section 5.2: "A resource MAY be a collection but not be WebDAV compliant."
+            
+         </p>
+         
+         
+         <p>
+            <b>Collection Index:</b><br>
+            In an HTTP context, a special case of the message returned in response to a GET request addressed to an URL ending in a slash.
+            In Apache, when a GET request is received for an URL which ends in slash, one of three things can happen:
+            
+            <ol>
+               
+               <li>The response reports 404, access denied, or other error messages.</li>
+               
+               <li>The response contains a default document (commonly named index.html or default.htm).</li>
+               
+               <li>The response contains an HTML document with links to other resources available off the requested URL.</li>
+               
+            </ol>
+            In the third case, mod_autoindex is called on to automatically generate an HTML index page which lists
+            available resources immediately relative to the URL requested, that is, the parent resource and the children
+            resources. In this paper, these mod_autoindex generated documents shall be termed "Collection Indices" or also "Collection
+            Index Pages".
+            
+         </p>
+         
+         
+         
+         
+         
+         
+         
+         
+      </div>
+      
+      
+      
+      <div>
+         <h3><a name="sectionMotivational">5
+               &nbsp;Motivational Examples&nbsp;
+               
+            </a>
+         </h3>
+         
+         <p>
+            There are two main use cases for Collection Indexing. 
+            The first is that of a human browsing a Web site's URL tree.
+            The second is a piece of software operating without the help of a human.
+            
+         </p>
+         
+         
+         <p>
+            The case of a human browsing a Web site is widely experienced.
+            As the next section will show, minimally XML compliant (that is, well-formed) mod_autoindex's pages can 
+            demonstrate relative advantage over Apache 1.3.19's mod_autoindex pages.
+            Essentially, better UI styling can be done (via XSLT) and Collection Index pages can be sorted client-side.
+            This is a "better, faster, cheaper" value proposition.
+            Collection Indexing benefits in this case may be sufficient to justify adoption of the patch to mod_autoindex.
+            
+         </p>
+         
+         
+         <p>
+            The more interesting benefits of Collection Indexing are probably associated with the second use case in which 
+            a piece of software is operating without the help of a human.
+            In the former use case, it is the human which initiates link traversal and models the Web site structure.
+            In the latter use case, the client application does the traversal and modeling internally (much like a Web crawling robot).
+            This is a "brave new world" value propostion.
+            This paper is focused primarily on this second use case.
+            This paper will consider how to modify mod_autoindex such that XML reading robots can get the most out of the Collection
+            Index pages.
+            A motivation example will help demonstrate this.
+            
+         </p>
+         
+         
+         <p>
+            Consider the case of an XML-based client application using a Web server for data storage.
+            Some URL subtree of the Web server has been allocated for the application's use. 
+            The application's data is stored in multiple resources which are XML documents
+            all located in the allocated URL subtree. 
+            
+         </p>
+         
+         
+         <p>
+            On the URL subtree the XML data documents are leaf nodes of the tree and the Collection Index pages are
+            internal, non-leaf nodes. 
+            The internal tree nodes should be XML as well otherwise the XML client application
+            can not traverse and enumerate it's own data space.
+            The client's XML parser will choke if the Collection Index pages are mal-formed HTML.
+            Simply making mod_autoindex's pages well-formed would be enough to enable this case.
+            
+         </p>
+         
+         
+         <p>
+            This "example" will be returned to later in the paper.
+            
+         </p>
+         
+      </div>
+      
+      
+      
+      
+      
+      
+      <div>
+         <h3><a name="sectionWellformedness">6
+               &nbsp;Well-formedness&nbsp;
+               
+            </a>
+         </h3>
+         
+         
+         <p>
+            In this section, Apache 1.3.19's mod_autoindex is patched such that it puts out HTML documents
+            which conform to XML 1.0 <a href="#xml">[XML]</a>. 
+            The goal of this section is to change mod_autoindex.c just enough to cause it to generate documents which
+            are minimally XML comformant.
+            XML processors are required to fail when parsing a document which is not well-formed.
+            So, for an XML client to read Apache mod_autoindex pages, well-formedness is the minimum requirement.
+            Benefits can be realized with just well-formedness.
+            Once the documents are well-formed, XML clients can begin to process them, yet downlevel Web browsers can still render the
+            documents as HTML. 
+            After establishing well-formedness later sections of this paper consider further refinements.
+            
+         </p>
+         
+         
+         
+         
+         <p>
+            <tt>DirectoryIndex</tt> is the directive which configures Apache to server up (usually) static documents
+            for URLs which end in slashes.
+            When servicing a GET request on a slash-terminated URL,
+            if the <tt>DirectoryIndex</tt> directive does not resolve to something to respond with and 
+            the <tt>Indexes</tt> directive is set then Apache calls on mod_autoindex to generate an index page on-the-fly.
+            
+         </p>
+         
+         
+         <p>
+            Here is an example HTML page generated by Apache 1.3.19's mod_autoindex (configured for FancyIndexing).
+            
+         </p>
+         
+         <div class="sampleHTML">
+            <pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+&lt;HTML>
+ &lt;HEAD>
+  &lt;TITLE>Index of /&lt;/TITLE>
+ &lt;/HEAD>
+ &lt;BODY>
+&lt;H1>Index of /&lt;/H1>
+&lt;PRE>&lt;IMG SRC="/blank.gif" ALT="     "> &lt;A HREF="?N=D">Name&lt;/A>                    &lt;A HREF="?M=A">Last modified&lt;/A>       &lt;A HREF="?S=A">Size&lt;/A>  
+&lt;HR>
+&lt;IMG SRC="/img/folder.gif" ALT="[DIR]"> &lt;A HREF="/">Parent Directory&lt;/A>        07-Dec-2000 11:16      -  
+&lt;IMG SRC="/img/folder.gif" ALT="[DIR]"> &lt;A HREF="bar/">bar/&lt;/A>                    13-Mar-2001 10:28      -  
+&lt;IMG SRC="/img/text.gif" ALT="[TXT]"> &lt;A HREF="foo.html">foo.html&lt;/A>                01-Dec-2000 19:41     1k  
+&lt;IMG SRC="/img/text.gif" ALT="[TXT]"> &lt;A HREF="junk.html">junk.html&lt;/A>               01-Dec-2000 19:41     1k  
+&lt;IMG SRC="/img/sound2.gif" ALT="[SND]"> &lt;A HREF="noise.ram">noise.ram&lt;/A>               15-Nov-2000 11:33     1k  
+&lt;IMG SRC="/img/unknown.gif" ALT="[   ]"> &lt;A HREF="theSecretOfLifeIsTo.hmph">theSecretOfLifeIsTo...>&lt;/A> 18-Oct-2000 22:26    40k  
+&lt;/PRE>&lt;HR>
+&lt;/BODY>&lt;/HTML>
+
+</pre>
+            </div>
+         
+         
+         
+         <p>
+            When the above document is read by an XML processor, the parse will fail.
+            First the DOCTYPE declaration is not a valid XML DOCTYPE declaration.
+            In XML, PUBLIC DOCTYPE declaration need to be of the following form.
+            
+            <blockquote>
+               <tt>&lt;!DOCTYPE foo PUBLIC "bar" "bas" ></tt>
+               
+            </blockquote>
+            XML 1.0 does not require a DOCTYPE declaration so it can be omitted.
+            
+         </p>
+         
+         
+         <p>
+            After removing the DOCTYPE declaration, the parse will still fail.
+            The problem is that the <tt>HR</tt> and <tt>IMG</tt> elements are not well-formed.
+            Simply changing "<tt>&lt;HR></tt>" to "<tt>&lt;HR /></tt>" and making the <tt>IMG</tt> element an empty element will solve
+            the problem. 
+            (Note that "<tt>&lt;HR/></tt>" would also be valid XML but causes trouble with some deployed HTML browsers.)
+            After these trivial changes, the parse will succeed.
+            
+         </p>
+         
+         
+         <p>
+            Here is the result of applying these changes to the above example document.
+            
+         </p>
+         
+         <div class="sampleHTML">
+            <pre>
+&lt;HTML>
+ &lt;HEAD>
+  &lt;TITLE>Index of /&lt;/TITLE>
+ &lt;/HEAD>
+ &lt;BODY>
+&lt;H1>Index of /&lt;/H1>
+&lt;PRE>&lt;IMG SRC="/blank.gif" ALT="     "> &lt;A HREF="?N=D">Name&lt;/A>                    &lt;A HREF="?M=A">Last modified&lt;/A>       &lt;A HREF="?S=A">Size&lt;/A>  
+&lt;HR />
+&lt;IMG SRC="/img/folder.gif" ALT="[DIR]" /> &lt;A HREF="/">Parent Directory&lt;/A>        07-Dec-2000 11:16      -  
+&lt;IMG SRC="/img/folder.gif" ALT="[DIR]" /> &lt;A HREF="bar/">bar/&lt;/A>                    13-Mar-2001 10:28      -  
+&lt;IMG SRC="/img/text.gif" ALT="[TXT]" /> &lt;A HREF="foo.html">foo.html&lt;/A>                01-Dec-2000 19:41     1k  
+&lt;IMG SRC="/img/text.gif" ALT="[TXT]" /> &lt;A HREF="junk.html">junk.html&lt;/A>               01-Dec-2000 19:41     1k  
+&lt;IMG SRC="/img/sound2.gif" ALT="[SND]" /> &lt;A HREF="noise.ram">noise.ram&lt;/A>               15-Nov-2000 11:33     1k  
+&lt;IMG SRC="/img/unknown.gif" ALT="[   ]" /> &lt;A HREF="theSecretOfLifeIsTo.hmph">theSecretOfLifeIsTo...>&lt;/A> 18-Oct-2000 22:26    40k  
+&lt;/PRE>&lt;HR />
+&lt;/BODY>&lt;/HTML>
+
+</pre>
+            </div>
+         
+         
+         
+         <p>
+            The costs of these changes are trivial.
+            The changes to the HTML documents are rather insignificant.
+            The changes to mod_autoindex.c involve only modifying string constants and no new lines of code.
+            Also, the network and CPU costs are minimal.
+            In terms of network costs a few more bytes go over the network because of the extra slashes and spaces.
+            Perhaps some very weak robots would be confuse by the changes.
+            Note that compatibility with deployed HTML browsers is not lost by introducing these changes.
+            
+         </p>
+         
+         
+         <p>
+            In terms of benefits, the generated HTML documents are now also well-formed XML documents.
+            This is the minimum requirement for documents to be parsable by an XML processor.
+            Given just this, an XML client can now process an entire URL subtree as a set of XML documents, as mentioned in the
+            previous section.
+            An XML client can crawl a Web site where previously the directory listing pages would have
+            caused fatal XML parsing errors.
+            There is much more on this point later in the section entitled <a href="#sectionImplications">Implications and Broader Context.</a>
+            
+         </p>
+         
+         
+         <p>
+            There are also benefits for the case of humans viewing Collection Indexing pages.
+            First, since the mod_autoindex documents are now well-formed they can be used as input to XSL transforms.
+            This enables prettier pages which are easier to read. 
+            
+         </p>
+         
+         
+         <p>
+            (Note that all the above can be applied similarly to mod_autoindex when it is not configured for FancyIndexing.
+            When FancyIndexing is not enabled, mod_autoindex just lists the resource names and no other properites.
+            The resources are listed within a <tt>&lt;UL></tt>.
+            The rest of this section is only appropriate to the FancyIndexing case.)
+            
+         </p>
+         
+         
+         
+         <p>
+            Not only can the mod_autoindex pages be easier on human eyes, they can also be easier on the server's CPU.
+            Apache's FancyIndexing sorting can now be implemented client-side.
+            FancyIndexing is a feature of mod_autoindex.
+            It allows the resources tabularly listed in the Collection Index page to be sorted by property values.
+            These sortable properties include name, size, date of last modification, and description.
+            Note that it does not include sorting by Content-Type. 
+            Property values can be sorted in ascending or descending order.
+            Each time a human clicks on a column header the server is asked to resort the listed resouces in the new order.
+            This is accomplished by specifying the sort order on the URL query term (for example, http://www.example.com/foo?S=A
+            will GET the collection sorted by size ascending.
+            
+         </p>
+         
+         
+         <p>
+            With FancyIndexing-like sorting happening on the client the server does less work.
+            On many networks, the UI can respond quicker as resorting no longer requires a round trip to the server to
+            re-fetch the same information sorted in a different order.
+            This this case XSLT can be demonstrated to have relative advantage over CSS.
+            
+         </p>
+         
+         
+         <p>
+            NUT is a client XML application which does the sorting client-side.
+            It is a HTML framset-based application which loads well-formed mod_autoindex pages from a server.
+            The pages are then parsed and transformed such that when the user requests that the list be resorted the
+            click event is intercepted by NUT and the sort is performed on the client.
+            
+         </p>
+         
+         
+         <p>
+            NUT has limitations though.
+            It only works with Apache with the patch of this section. 
+            For example, it can't handle Microsoft's IIS Directory Browsing pages (even if they were well-formed).
+            Further improvements to the Collection Index pages would need to be made to get interoperability.
+            This will be addressed in later sections.
+            
+         </p>
+         
+         
+         
+         
+         
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      <div>
+         <h3><a name="sectionXHTML">7
+               &nbsp;XHTML&nbsp;
+               
+            </a>
+         </h3>
+         
+         <p>
+            In this section, Apache 1.3.19's mod_autoindex is patched such that it puts out HTML pages
+            which conform with XHTML 1.0 <a href="#xhtml">[XHTML]</a>. 
+            The W3C Recommendation XHTML 1.0 modifies HTML 4 to make it conform to XML 1.0 <a href="#xml">[XML]</a>.
+            
+         </p>
+         
+         
+         <p>
+            For this effort, it is hard to demonstrate technical benefits of XHTML over the results of the previous section 
+            (this is, just plain old well-formed documents).
+            None the less, XHTML would certainly seem to be relevant to a paper entitled "mod_autoindex Meets XML".
+            Displaying the XHTML seal of approval on mod_autoindex is a consise way to denote the fact that its documents are 
+            HTML and XML friendly.
+            Perhaps some unknown XHTML clients will benefit from mod_autoindex putting out XHTML conformant documents. 
+            For example, some imaginary XHTML client may look for the XHTML DOCTYPE declaration and abort if one is not found.
+            
+         </p>
+         
+         
+         
+         <p>
+            The XHTML spec does mention various issues which are relevant here.
+            Appendix C of XHTML 1.0 "summarizes design guidelines for authors who wish their XHTML documents to render on existing HTML
+            user agents".
+            For example, Appendix C mentions that "empty elements must end in ' />' for the benefit of downlevel HTML browsers."
+            One side effect of adopting XHTML is that a DOCTYPE declaration can be added back to the Collection Index pages.
+            
+         </p>
+         
+         
+         
+         <p>
+            In order to make the last example document from the previous section conform to XHTML all that is required
+            is several element and attribute names need to be in lower case.
+            Adding the DOCTYPE declaration is optional.
+            Here is that last example document modified to comform with XHTML 1.0.
+            
+         </p>
+         
+         
+         <div class="sampleHTML">
+            <pre>
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "DTD/xhtml1-strict.dtd" >
+&lt;html>
+ &lt;head>
+  &lt;title>Index of /&lt;/title>
+ &lt;/head>
+ &lt;body>
+&lt;h1>Index of /&lt;/h1>
+&lt;pre>&lt;img src="/blank.gif" alt="     "> &lt;a href="?N=D">Name&lt;/a>                    &lt;a href="?M=A">Last modified&lt;/a>       &lt;a href="?S=A">Size&lt;/a>  
+&lt;hr />
+&lt;img src="/img/dir.gif" alt="[DIR]" /> &lt;a href="/">Parent Directory&lt;/a>        07-Dec-2000 11:16      -  
+&lt;img src="/img/dir.gif" alt="[DIR]" /> &lt;a href="bar/">bar/&lt;/a>                    13-Mar-2001 10:28      -  
+&lt;img src="/img/text.gif" alt="[text/html]" /> &lt;a href="foo.html">foo.html&lt;/a>                01-Dec-2000 19:41     1k  
+&lt;img src="/img/text.gif" alt="[text/html]" /> &lt;a href="junk.html">junk.html&lt;/a>               01-Dec-2000 19:41     1k  
+&lt;img src="/img/sound2.gif" alt="[SND]" /> &lt;a href="noise.ram">noise.ram&lt;/a>               15-Nov-2000 11:33     1k  
+&lt;img src="/img/unknown.gif" alt="[   ]" /> &lt;a href="theSecretOfLifeIsTo.hmph">theSecretOfLifeIsTo...>&lt;/a> 18-Oct-2000 22:26    40k  
+&lt;/pre>&lt;hr />
+&lt;/body>&lt;/html>
+
+</pre>
+            </div>
+         
+         
+         <p>
+            The necessary changes to mod_autoindex.c involve only modifying string constants and no new lines of code.
+            
+         </p>
+         
+         
+         <p>
+            XHTML is not so very interesting by itself (curious given the exuberance evidenced in the spec: 
+            "The XHTML family is the next step in the evolution of the Internet.")
+            It is a basic technology which is useful for blending HTML with other markup.
+            
+         </p>
+         
+         
+         <p>
+            For the purposes of this effort, the main value of XHTML is that within well-formed XHTML document, 
+            additional XML technologies can be expressed via attribute assignments and processing instructions. 
+            Such new attributes do not extend XHTML. 
+            For HTML page rendering purposes they are completely ignored as they have no semantic significance to the page rendering
+            process.
+            In other words, this is not a proposal for extending HTML browsers but rather for how to extend the utility of Collection
+            Indexing pages to non-HTML clients.
+            All the remaining techniques introducted in this paper assume that the Collection Index pages have to be XHTML
+            documents.
+            In this way, the pages can be made more friendly to XML client software while still being renderable
+            as HTML documents.
+            
+         </p>
+         
+         
+         
+         
+         <p>
+            As a prelude to the changes which will be introduced in the next section, a final constraint of XHTML should be mentioned.
+            XHTML 1.0, Appendix B in normative. 
+            It mentions that "<tt>pre</tt> cannot contain the <tt>img</tt>, [...], or <tt>sup</tt> elements." 
+            Apache's mod_autoindex can be configure (via the <tt>AddIcon*</tt> directives) to not include <tt>img</tt> elements.
+            When <tt>img</tt> elements are used, though, they will need to be contained within some element besides 
+            <tt>pre</tt> in order for mod_autoindex's pages to conform with XHTML 1.0. 
+            
+         </p>
+         
+         
+         
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      <div>
+         <h3><a name="sectionMoreTags">8
+               &nbsp;More Tags&nbsp;
+               
+            </a>
+         </h3>
+         
+         <p>
+            In the previous sections it was demonstrated that well-formedness alone provides valuable utility for XML clients.
+            None the less, mod_autoindex does more than just put out arbitrary HTML documents:
+            it puts out HTML documents which describe resources contained in a Collection.
+            The main goal of this effort is to make mod_autoindex useful to both HTML clients and XML clients.
+            Further utility can be realized in Collection Index pages by adding more markup tags in such a way
+            that XML clients can more readily model the resources and their properties.
+            In other words, a page which is well-formed is not necessarily well marked up. 
+            
+         </p>
+         
+         
+         <p>
+            For each child resource that mod_autoindex lists, it can include the following properties:
+            
+            <ul>
+               
+               <li>name and URL</li>
+               
+               <li>size</li>
+               
+               <li>date of last modification</li>
+               
+               <li>description</li>
+               
+               <li>iconic indication of Content-Type</li>
+               
+            </ul>
+            Consider this snippet of a mod_autoindex document which describes two resources.
+            
+         </p>
+         
+         
+         <div class="sampleHTML">
+            <pre>
+&lt;img src="/img/text.gif" alt="[text/html]" /> &lt;a href="foo.html">foo.html&lt;/a>                01-Dec-2000 19:41     1k  
+&lt;img src="/img/text.gif" alt="[text/html]" /> &lt;a href="junk.html">junk.html&lt;/a>               01-Dec-2000 19:41     1k  
+</pre>
+            </div>
+         
+         
+         <p>
+            The name of the first resource is foo.html, its size is 1 kilobyte, 
+            and it was last modified on December 3rd, 2000 at 7:13PM. 
+            
+            These properties can be extracted from the document via some rather convoluted XSLT.
+            
+         </p>
+         
+         
+         <p>
+            The problem is that mod_autoindex's pages are going to have to perform two tasks.
+            Firstly, they need to show the resource properties to humans. 
+            This means that the property values need to be element content not attribute values otherwise they will not render as text.
+            Mod_autoindex also needs to markup the information for XML clients.
+            Humans and software do not process information in the same way.
+            For example consider date and time formatting.
+            A human may like "01-Dec-2000 19:41" and find ISO8601 format (that is, "2000-12-01T19:41") more difficult to parse.
+            A computer will have the opposite opinion.
+            A simple solution would be to have both formats in the Collection Index page: the human readable format is expressed as
+            element content and the machine readable format is expressed as an attribute value.
+            Here's an example (more on the "lastMod" attribute name later).
+            
+            <blockquote>
+               <tt>&lt;span lastMod="2000-12-01T19:41">01-Dec-2000 19:41&lt;/span></tt>
+               
+            </blockquote>
+            
+         </p>
+         
+         
+         <p>
+            In terms of specific syntax, this section adds more element tags to the Collection Index pages. 
+            Later sections turn to adding more attributes to elements, such as that <tt>lastMod</tt> attribute.
+            The goal is to get the element structure of the documents to mirror the structure of the information being expressed.
+            The tags of the elements should explicitly denote where a property value begins and ends.
+            
+         </p>
+         
+         
+         <p>
+            This section is dependent on the previous sections.
+            
+            Mod_autoindex's legacy is that of generating HTML documents.
+            For backwards compatibility with HTML browsers,
+            any new tags added to the Collection Index documents must be HTML tags.
+            For the new XML clients, well-formedness is the minimum requirement for XML 1.0 conformance.
+            XHTML satisfies these two requirements.
+            Therefore, in this section, all elements names in the Collection Index pages are constrained to those of XHTML. 
+            
+         </p>
+         
+         
+         
+         
+         <div>
+            <h3><a name="sectionSeparating">8.1
+                  &nbsp;Separating the Property Values from Each Other&nbsp;
+                  
+               </a>
+            </h3>
+            
+            <p>
+               Apache 1.3.19 mod_autoindex's Collection Index pages separate some of the values
+               the properties of resources listed with nothing more than spaces.
+               Separating those property values with markup tags would make the information structure more explicit to XML clients.
+               
+            </p>
+            
+            
+            <p>
+               Theoretically, a <tt>span</tt> element without a <tt>style</tt> or <tt>class</tt>
+               attribute assignment has no affect on HTML page layout.
+               This visually innocuous markup is here used to add more structure to the Collection Indexing 
+               documents without affecting the HTML layout.
+               The point is that since the answer has to involve HTML elements, any element will do for XML clients and
+               <tt>span</tt> (without attributes) is the least disruptive to the HTML clients.
+               
+            </p>
+            
+            
+            
+            <p>
+               Here, repeated, is the last example document snippet from the previous section.
+               
+            </p>
+            
+            
+            
+            <div class="sampleHTML">
+               <pre>
+&lt;img src="/text.gif" alt="[TXT]" /> &lt;a href="foo.html">foo.html&lt;/a>          03-Dec-2000 19:13     1k  
+&lt;img src="/text.gif" alt="[TXT]" /> &lt;a href="junk.html">junk.html&lt;/a>         01-Dec-2000 19:41     1k  
+</pre>
+               </div>
+            
+            
+            
+            <p>
+               Here is that same snippet with <tt>span</tt> tags added.
+               
+            </p>
+            
+            
+            <div class="sampleHTML">
+               <pre>
+&lt;img src="/text.gif" alt="[TXT]" /> &lt;a href="foo.html">foo.html&lt;/a>          &lt;span>03-Dec-2000 19:13&lt;/span>     &lt;span>1k&lt;span>  
+&lt;img src="/text.gif" alt="[TXT]" /> &lt;a href="junk.html">junk.html&lt;/a>         &lt;span>01-Dec-2000 19:41&lt;/span>     &lt;span>1k&lt;/span>  
+</pre>
+               </div>
+            
+            
+            
+            
+            <p>
+               In this way, the XML element structure of the document's markup more closely mirrors the structure of the information
+               expressed in the document.
+               With these changes, an XML client can more readily identify a resource's date of last modification and size 
+               (and description, as well, if mod_autoindex had been configured to generate it, as was not the case in this example).
+               At this point, individual properties values are separated from each other by markup tags.
+               Each property value is contained in its own element.
+               
+            </p>
+            
+            
+            <p>
+               Note that the HTML spces says that HTML browsers should ignore tags which they do not recognise.
+               So, theoretically a random non-HTML element name could be substituted for the <tt>span</tt>'s in the above example and
+               there would still be no effect on HTML page layout.
+               Technically, such a document would not validate against the XHTML DTDs.
+               Validation of  a document against a DTD can detect elements not defined in the DTD
+               but no errors are caused by the presence of extra attributes not defined in the DTD.
+               This is a weak point especially given that XHTML was designed to be mixed with other markup.
+               In later sections, XHTML markup will be used with the intent of affecting HTML layout.
+               Such usage will add more justification for sticking to XHTML tags.
+               
+            </p>
+            
+            
+            
+            
+            <p>
+               In terms of costs, the <tt>span</tt> tags require additional bytes to go out over the network. 
+               Still, no new lines of code are required to implement this change in mod_autoindex.c.
+               
+            </p>
+            
+            
+            
+            <p>
+               Even with the changes proposed in this section, 
+               some of the structure of the index pages is still not explicitly XML syntaxed.
+               That leads to the next proposed change.
+               
+            </p>
+            
+         </div>
+         
+         
+         <div>
+            <h3><a name="sectionGrouping">8.2
+                  &nbsp;Grouping Property Values by Resource&nbsp;
+                  
+               </a>
+            </h3>
+            <title>Grouping Property Values by Resource</title>
+            
+            
+            
+            
+            <p>
+               Although the property values are now contained in separate elements, 
+               the values are still not grouped together by XML markup such that there is one element which contains
+               all the properties specific to an individual resource.
+               HTML clients do not need this but XML clients would be assisted if it were the case.
+               
+            </p>
+            
+            
+            <p>
+               Mod_autoindex's documents are syntaxed to leverage page layout features of the widely deployed HTML browsers.
+               Some of these features are called for in the (X)HTML specs and some are simply widely implemented.
+               
+            </p>
+            
+            
+            <p>
+               Apache 1.3.19's mod_autoindex wraps all resource descriptions together within a big <tt>pre</tt> which
+               causes columnar layout during HTML rendering.
+               During the rendering process, line breaks within most XHTML elements are treated as just more whitespace.
+               But within <tt>pre</tt> elements, line breaks are significant for HTML rendering.
+               Mod_autoindex groups all the properties of each listed resource on a separate line within the <tt>pre</tt> element.
+               That is, the line break is what delineates one resource description from the next.
+               
+            </p>
+            
+            
+            <p>
+               The other browser feature which causes mod_autoindex's pages to render with column alignment is that <tt>pre</tt>
+               element content is commonly rendered with fixed-pitch fonts.
+               So, mod_autoindex uses whitespace padding to align the data cells into columns.
+               
+            </p>
+            
+            
+            
+            
+            
+            <p>
+               Here is repeated an earlier example mod_autoindex page which illustrates the use of a <tt>pre</tt> element. 
+               This example document was generated by Apache 1.3.19's mod_autoindex (configured for FancyIndexing) 
+               without any patches applied to the code.
+               
+            </p>
+            
+            
+            <div class="sampleHTML">
+               <pre>
+&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+&lt;HTML>
+ &lt;HEAD>
+  &lt;TITLE>Index of /&lt;/TITLE>
+ &lt;/HEAD>
+ &lt;BODY>
+&lt;H1>Index of /&lt;/H1>
+&lt;PRE>&lt;IMG SRC="/blank.gif" ALT="     "> &lt;A HREF="?N=D">Name&lt;/A>                    &lt;A HREF="?M=A">Last modified&lt;/A>       &lt;A HREF="?S=A">Size&lt;/A>  
+&lt;HR>
+&lt;IMG SRC="/img/folder.gif" ALT="[DIR]"> &lt;A HREF="/">Parent Directory&lt;/A>        07-Dec-2000 11:16      -  
+&lt;IMG SRC="/img/folder.gif" ALT="[DIR]"> &lt;A HREF="bar/">bar/&lt;/A>                    13-Mar-2001 10:28      -  
+&lt;IMG SRC="/img/text.gif" ALT="[TXT]"> &lt;A HREF="foo.html">foo.html&lt;/A>                01-Dec-2000 19:41     1k  
+&lt;IMG SRC="/img/text.gif" ALT="[TXT]"> &lt;A HREF="junk.html">junk.html&lt;/A>               01-Dec-2000 19:41     1k  
+&lt;IMG SRC="/img/sound2.gif" ALT="[SND]"> &lt;A HREF="noise.ram">noise.ram&lt;/A>               15-Nov-2000 11:33     1k  
+&lt;IMG SRC="/img/unknown.gif" ALT="[   ]"> &lt;A HREF="theSecretOfLifeIsTo.hmph">theSecretOfLifeIsTo...>&lt;/A> 18-Oct-2000 22:26    40k  
+&lt;/PRE>&lt;HR>
+&lt;/BODY>&lt;/HTML>
+
+</pre>
+               </div>
+            
+            
+            
+            
+            <p>
+               These HTML layout tricks that mod_autoindex uses work well with the vast majority of HTML browsers.
+               But they do not work for the XML clients.
+               This is another case in which adding more markup tags helps XML clients more readily model the resources and their properties.
+               
+            </p>
+            
+            
+            <p>
+               Also note that in the above example, there are <tt>img</tt> elements contained within the <tt>pre</tt> element. 
+               As mentioned earlier, XHTML says that <tt>pre</tt> shouldn't contain <tt>img</tt>.
+               This may be a good point at which to start considering some different XHTML elements.
+               
+            </p>
+            
+            
+            
+            
+            
+            <p>
+               Consider for a moment what Collection Index pages could look like if XHTML elements were not a requirement.
+               The following example is one possibility.
+               
+            </p>
+            
+            
+            <div class="sampleHTML">
+               <pre>
+&lt;collectionIndex>
+  &lt;resource>
+    &lt;name>foo.html&lt;/name>
+    &lt;lastMod>03-Dec-2000 19:13&lt;/lastMod>
+    &lt;size>1k&lt;/size>
+  &lt;/resource>
+  &lt;resource>
+    &lt;name>junk.html&lt;/name>
+    &lt;lastMod>01-Dec-2000 19:41&lt;/lastMod>
+    &lt;size>1k&lt;/size>
+  &lt;/resource>
+&lt;/collectionIndex>
+</pre>
+               </div>
+            
+            
+            
+            <p>
+               As a side note, readers familiar with RDF may wonder why the above example is not RDF.
+               For this paper, it simply complicates the syntax.
+               None the less, mapping to RDF could probably be done with a trival XSLT.
+               Collection Indexing needs to be compared to RDF but is not in this paper.
+               
+            </p>
+            
+            
+            
+            <p>
+               So, a requirement is to come up with a set of HTML tags which have the same element structure as above but which do not involve
+               <tt>pre</tt>.
+               Another requirement is that the information still render with column alignment in HTML browsers.
+               An HTML table would satisfy these constraints.
+               Changing only the element names and none of the PCDATA, this is how the above example would look.
+               
+            </p>
+            
+            
+            <div class="sampleHTML">
+               <pre>
+&lt;table>
+  &lt;tr>
+    &lt;td>foo.html&lt;/td>
+    &lt;td>03-Dec-2000 19:13&lt;/td>
+    &lt;td>1k&lt;/td>
+  &lt;/tr>
+  &lt;tr>
+    &lt;td>junk.html&lt;/td>
+    &lt;td>01-Dec-2000 19:41&lt;/td>
+    &lt;td>1k&lt;/td>
+  &lt;/tr>
+&lt;/table>
+</pre>
+               </div>
+            
+            
+            
+            <p>
+               With these proposed syntax changes,
+               there are sufficient markup tags such that each property of each resource in contained in a separate element.
+               Also, for each resource there is an element which contains all the properties of that resource and the element does not contain
+               properties of other resources.
+               
+            </p>
+            
+            
+            <p>
+               The costs of these changes include more bytes being transmitted over the network.
+               
+            </p>
+            
+            
+            <p>
+               When mod_autoindex was first written, there were widely deployed clients which did not handle tables.
+               So, using the <tt>pre</tt> element for formatting was a good choice especially since there were no XML clients.
+               Presently, HTML tables still have an undesirable effect on some HTML clients: tables prevent progressive rendering.
+               Tables cannot be rendered by some HTML browsers until the entire table has be received by the client.
+               One solution would be to use other elements besides <tt>table</tt>, <tt>tr</tt>, and <tt>td</tt>.
+               For example, <tt>div</tt>, <tt>p</tt>, and <tt>span</tt> could respectively replace the HTML table elements.
+               
+               
+            </p>
+            
+            
+            
+            
+            <p>
+               One user interface benefit of tables is that non fixed-pitch fonts can be used and the data will still align in columns.
+               
+            </p>
+            
+            
+            
+            
+            
+            
+         </div>
+         
+         
+      </div>
+      
+      
+      
+      
+      
+      <div>
+         <h3><a name="sectionXLink">9
+               &nbsp;XLink&nbsp;
+               
+            </a>
+         </h3>
+         
+         
+         <p>
+            Collection Index pages describe parent to child links between a Collection and its contained Resources.
+            In this section those links are expressed using XLink <a href="#xlink">[XLink]</a> attributes.
+            
+         </p>
+         
+         
+         
+         
+         
+         
+         <p>
+            As the XLink spec says, XLink 
+            "allows elements to be inserted into XML documents in order to create and describe links between resources."
+            The spec also says, "XLink's namespace provides global attributes for use on elements that are in any arbitrary namespace.
+            
+            The global attributes are <tt>type</tt>, <tt>href</tt>, <tt>role</tt>, <tt>arcrole</tt>, <tt>title</tt>, <tt>show</tt>, 
+            <tt>actuate</tt>, <tt>label</tt>, <tt>from</tt>, and <tt>to</tt>. 
+            Document creators use the XLink global attributes to make the elements in their own namespace, 
+            or even in a namespace they do not control, recognizable as XLink elements." 
+            As described earlier, Collection Index pages should only contain XHTML elements.
+            These XLink attributes are added to the XHTML elements in order to identify the links from parent to child.
+            
+         </p>
+         
+         
+         <p>
+            Note that as of this writting, XLink is a W3C Proposed Recommendation ("But today I am still just a bill").
+            In the W3C, the issue of how XHTML's <tt>a</tt> element will be recognised as an XLink link element is currently unresolved.
+            Specifically, in the 2001-12-20 version of XLink, Section 4.5 "Using XLink with Legacy Markup"
+            explicitly says that the <tt>href</tt> attribute of the XHTML namespace is not the same as the <tt>href</tt> attribute
+            defined in the XLink namespace.
+            The syntax proposed in this section sidesteps the issue by not using <tt>a</tt> elements to express the XLinks. 
+            Once the <tt>a</tt>-as-XLink-element issue is resolved, it may well be more natural to use it as such
+            in Collection Index pages.
+            So, this section may be soon be stale in terms of the specific XLink syntax, but that should not affect the underlying
+            data model.
+            
+         </p>
+         
+         
+         <p>
+            There is a potential for confusion between XHTML's built in linking mechanism and the XLink machinery that is added to
+            the XHTML Collection Indexing pages during this section.
+            In XLink terminology, XHTML's built in linking mechanism is a "simple link."
+            In this section, an XLink "extended link" is added to the Collection Index pages (more on this later).
+            XHMTL's built in linking mechanism is not sufficient to describe an extended link.
+            
+         </p>
+         
+         
+         <p>  
+            This section applies the XLink global attributes to the syntax developed in the previous section, that is, they are added
+            to an XHTML <tt>table</tt> and elements contained within the <tt>table</tt>.
+            As previously discussed, other XHTML elements besides <tt>table</tt>, <tt>tr</tt>, and <tt>td</tt> could be used.
+            In other words, there is no dependancy between the XLink attributes and the specific XHTML elements they are applied to.
+            This is quite different from the case of XHTML's built in linking as expressed via the <tt>a</tt> element and its <tt>href</tt> attribute.
+            This independence between the XLink attributes and the elements they are applied to is simply a feature of XLink.
+            
+         </p>
+         
+         
+         
+         
+         <p>
+            Note that this section assumes that there are already sufficient tags such that each property of each resource in contained
+            in a separate element.
+            It is also assumed that for each resource there is an element which contains all the properties of that resource and the element
+            does not contain properties of other resources.
+            The techniques of the previous section provide the necessary element tags for these assumptions.
+            In this section, only attributes are added to the Collection Index documents.
+            No new elements are added.
+            There is also a dependancy between this section and the section on XHTML because XML well-formedness, 
+            as provided by XHTML, is a pre-requisite for XLink.
+            
+         </p>
+         
+         
+         
+         
+         
+         <p>
+            <i>
+               Here is where there should be example Collection Index pages which include the XLink global attributes.
+               Also, there should be analysis of the costs, benefits, and limitations of adding those attributes to the pages.
+               These are missing as of this release of this document.
+               
+            </i>
+            
+         </p>
+         
+         
+         
+         <div>
+            <h3><a name="sectionCIisPhysicalXLink">9.1
+                  &nbsp;Collection Indexing is the Physical Link Structure&nbsp;
+                  
+               </a>
+            </h3>
+            <title>Collection Indexing is the Physical Link Structure</title>
+            
+            
+            
+            <p>
+               Separation of the physical links and the logical links. 
+               This is analogous to the XML 1.0 spec which makes a distinction between physical structure and logical structures.
+               In this case, the distinction is between physical links and logical links.
+               XML1.0 only addresses the physical structure of a single document.
+               Collection Indexing addresses the physical link structure of a set of documents.
+               An app's XML elements and links are the logical structure (think TopicMaps). 
+               The app's data physical structure is represented in the Collection Index links of an URL subtree.
+               Collection Index links are about "where" not "what" or "why". 
+               
+            </p>
+            
+            
+            <p>
+               The set of collection index pages for an url subtree is the "spine" of the data. 
+               The spine's root is the app's topmost collection index page. 
+               The whole set is the physical map of an app's data. 
+               This set's info is equivalent to the manifest of archives. 
+               
+            </p>
+            
+            
+         </div>
+         
+         
+         
+         <p>
+            By adding XLink attributes to Collection Index pages, a vanilla Web server can
+            be used as a dynamic XLink storage system.
+            That is to say, with Collection Indexing, vanilla Apache becomes an XLink application as defined in
+            section 3.3, Application Conformance, of the XLink spec.
+            
+         </p>
+         
+         
+         
+      </div>
+      
+      
+      
+      
+      
+      
+      <div>
+         <h3><a name="sectionMisc">10
+               &nbsp;Miscellaneous Syntax Refinements&nbsp;
+               
+            </a>
+         </h3>
+         <p>
+            This section briefly sketches several possibilities for further refinement of the Collection Indexing syntax.  
+            
+         </p>
+         
+         
+         <div>
+            <h3><a name="sectionDateTime">10.1
+                  &nbsp;Date and Time Formats&nbsp;
+                  
+               </a>
+            </h3>
+            
+            <p>
+               Different servers format dates and times in Collection Index pages differently.
+               Here is an example of how Apache does it.
+               
+            </p>
+            
+            <div class="sampleHTML">
+               <pre>
+18-Oct-2000 22:36
+</pre>
+               </div>
+            
+            
+            <p>
+               Here is an example of how Microsoft's IIS formats the same date/time.
+               
+            </p>
+            
+            <div class="sampleHTML">
+               <pre>
+Wednesday, October 18, 2000 10:36 PM
+</pre>
+               </div>
+            
+            
+            <p>
+               Interoperability would be desirable.
+               Also, a format which accounts for internationalization would be a plus.
+               For dates and times, XML Schema <a href="#XMLSchemaDatatypes">[XMLSchemaDatatypes]</a> builds on 
+               the work of ISO 8601.
+               This is how the same example date/time would be formatted a la XML Schema.
+               
+            </p>
+            
+            
+            <div class="sampleHTML">
+               <pre>
+2000-10-18T22:36
+</pre>
+               </div>
+            
+            
+            <p>
+               If machine readable date/time formats go in attributes and human readable formats go in element content
+               then this isn't a concern. 
+               If ISO8601 goes in element content then concerns of human readability need to be taken into account.
+               
+            </p>
+            
+            
+            
+         </div>
+         
+         
+         
+         <div>
+            <h3><a name="sectionMediaType">10.2
+                  &nbsp;Media Type&nbsp;
+                  
+               </a>
+            </h3>
+            
+            
+            <p>
+               Apache 1.3.19's mod_autoindex pages do not explicitly denote the Content-Type of Resources listed.
+               There is the possibility of an iconic indication representation via the various <tt>AddIcon*</tt> directives.
+               There is also the possibility of a textual indication via the various <tt>AddAlt*</tt> directives.
+               These latter directives are how the <tt>&lt;img alt="..."</tt> values are determined.
+               As seen in the examples in this paper, '[' and ']' are also added to the <tt>alt</tt> values.
+               These brackets seem superfluous.
+               If they were removed then the value of the <tt>alt</tt> could be the media type (for example, "text/html").
+               
+            </p>
+            
+         </div>
+         
+         
+         
+         
+         <div>
+            <h3><a name="sectionElementOrdering">10.3
+                  &nbsp;Less Dependencies Between the XML Element Ordering and XSLTs&nbsp;
+                  
+               </a>
+            </h3>
+
+            <p>
+               If <tt>table</tt> tags are used as argued in section 8.2, then each property value is contained in a <tt>td</tt> element.
+               Consider the following snippet.
+               
+            </p>
+            
+            
+            
+            <div class="sampleHTML">
+               <pre>
+&lt;tr>
+&lt;td>&lt;a href="foo.html">foo.html&lt;/a>&lt;/td> 
+&lt;td>2000-10-18T22:36&lt;/td> 
+&lt;td>312k&lt;/td> 
+&lt;/tr> 
+
+</pre>
+               </div>
+            
+            
+            <p>
+               The problem is that there is no markup which says "this is the date last modified" and "this is the content-length".
+               The same element name, <tt>td</tt>, is ambiguously used for multiple property values. 
+               There could be an implicit convention based on element ordering.
+               For example, "the first <tt>td</tt> is the Resource name, the second <tt>td</tt> is..."
+               That seems weak though.
+               Alternatively each property type could have a distinct element name wrapping the values.
+               This would be visually akward when rendered as HTML though.
+               
+            </p>
+            
+            
+            <p>
+               More explicit markup would removing the dependancy on element ordering.
+               Here is one possible solution. 
+               (The attribute name <tt>http-equiv</tt> is used here only because of its familiarity from HTML's <tt>meta</tt>.)
+               
+            </p>
+            
+            
+            <div class="sampleHTML">
+               <pre>
+&lt;tr>
+&lt;td http-equiv="url" >&lt;a href="foo.html">foo.html&lt;/a>&lt;/td> 
+&lt;td http-equiv="last-modified" >2000-10-18T22:36&lt;/td> 
+&lt;td http-equiv="content-length" >312k&lt;/td> 
+&lt;/tr> 
+</pre>
+               </div>
+            
+            
+            <p>
+               With these additional attributes the element ordering is no longer significant. 
+               Different servers could have different column ordering.
+               For example, Apache lists (in order) name, date last modified, and size
+               while Microsoft's IIS lists just date last modified and then name.
+               But if both used the same markup to distinguish which columns correspond with which property values
+               then one XSLT could be written which could handle both of these servers as well as others.
+               
+            </p>
+            
+            
+            
+            
+            <p>
+               The above example skips over the issue of what namespace the imagined <tt>http-equiv</tt> attribute come from.
+               It would be useful it there were a standard which defined a set of global attributes which would be "the
+               Dublin Core of common RFC 822 headers."
+               These properties such as "byte size" and "media type" occur in HTTP message headers and MIME message headers.
+               There should be a standard which addresses how to recognise the same information within an XML document.
+               Such a namespace could then be put to use in Collection Index pages and many other situation.
+               Of interest to such an effort would be the HTTP/1.1 spec, section 19.4, 
+               "Differences Between HTTP Entities and MIME Entities."
+               
+            </p>
+            
+            
+            <p>
+               This http-equiv spec would also hopefully pin down what units byte lengths should be expressed in.
+               Some servers format size in units of byte while other use kilobytes.
+               If the Collection Indexing pages were syntaxed such that human readable formats are used in element content
+               and machine readable formats are used in attributes, then it would seem logical that the machine readable format
+               would use bytes and not kilobytes as the unit.
+               
+            </p>
+            
+            
+            
+            
+            <p>
+               Perhaps the column-to-property-value mapping could be done on a <tt>th</tt> element so that the attribute assignment would
+               only need be expressed once per column instead of on each <tt>td</tt>.
+               Therefore, there would be sufficent syntax to identify which Resource property each column enumerates yet
+               no unnecessary repetition of the information.
+               
+            </p>
+            
+            
+            <p>
+               One last point about XSLTs, perhaps there could be a mod_autoindex directive for specifying which
+               XSLT should be applied to the pages mod_autoindex generates.
+               This would use the syntax defined in the W3C Recommendation Associating Style Sheets with XML documents
+               <a href="#associatingStyleSheets">[AssociatingStyleSheets]</a>.
+               The abstract of that Recommendations says: 
+               "This document allows a style sheet to be associated with an XML document by including one or more processing instructions
+               with a target of xml-stylesheet in the document's prolog."
+               
+            </p>
+            
+         </div>
+         
+         
+         <div>
+            <h3><a name="sectionTruncation">10.4
+                  &nbsp;Property Value Truncation&nbsp;
+                  
+               </a>
+            </h3>
+            <title>Property Value Truncation</title>
+            
+            <p>
+               As mentioned previously, in Apache 1.3.19 mod_autoindex the column alignment of property values is
+               realized via the fixed-pitch font implied by <tt>pre</tt> and whitespace padding.
+               Sometimes property values are truncated in the interest of columnar formatting.
+               This is demonstrated in the example document which has been used throughout this paper.
+               Here the relevant snippet is repeated.
+               
+            </p>
+            
+            
+            <div class="sampleHTML">
+               <pre>
+&lt;IMG SRC="/img/unknown.gif" ALT="[   ]"> &lt;A HREF="theSecretOfLifeIsTo.hmph">theSecretOfLifeIsTo...>&lt;/A> 18-Oct-2000 22:26    40k  
+</pre>
+               </div>
+            
+            
+            <p>
+               The URL of the resource is <tt>/theSecretOfLifeIsTo.hmph</tt> but serveral of the tail characters are truncated.
+               If the Resource descriptions were embedded within a <tt>table</tt> then truncation would not be required as
+               column alignment for <tt>table</tt>s is implemented automatically by HTML browsers.
+               
+            </p>
+            
+            
+            <p>
+               The same point could be made about sizes. 
+               Apache rounds size values to nearest kilobyte or .1 megabyte.
+               IIS does not do any rounding.
+               Rounding can be desirable for humans reading the Collection Index pages.
+               This is another case where having both the human readable and machine readable formats may be a good thing.
+               
+            </p>
+            
+            
+            <p>
+               Even though truncation would no longer be required for column alignment purposes,
+               it may still be desirable.
+               Perversely long property value strings could still cause wastfully sparse HTML layout.
+               For example, consider a Collection which contains several Resources all having short names except for one which has a very
+               long name.
+               In the rendered HTML page the name column would be wide in order to accommodate the one long name yet 
+               all but one of the cells in the column would contain lots of blank space.
+               
+            </p>
+            
+            
+         </div>
+         
+      </div>
+      
+      
+      
+      
+      
+      <div>
+         <h3><a name="sectionImplications">11
+               &nbsp;Implications and Broader Context&nbsp;
+               
+            </a>
+         </h3>
+         
+         <p>
+            This section considers the implications of the syntactical modifications introduced in previous sections.
+            As each patch was introduced earlier, specific and immediate benefits were illustrated.
+            This section discusses broader benefits of Collection Indexing which are not attributable to any specific
+            syntactical modification of mod_autoindex's documents. 
+            
+         </p>
+         
+         
+         
+         <div>
+            <h3><a name="sectionFreebies">11.1
+                  &nbsp;Implicit Freebie Benefits&nbsp;
+                  
+               </a>
+            </h3>
+            
+            <p>
+               The major search engines (for example, Google, Altavista, and FAST) only care about HTML links and not about XML.
+               Collection Index pages are a freebie discovery mechanism for search engines integration. 
+               So, Collection Index pages are a cheap and easy way to make XHTML-encoded application data 
+               accessable to the search engines.
+               
+            </p>
+            
+            
+            <p>
+               Collection Indexing is a safe mechanism for multiple client data PUTs. 
+               On a vanilla, file system-based Web server, Collection Indexing is the only dynamic mechanism. 
+               When a new Resource is added to a Collection, the Web server automatically updates the Collection Index page. 
+               Collecting Index pages are "written to"  only by the Web server i.e. only one party so no race conditions. 
+               To do something like clients repeatedly updating index.html invites a race condition. 
+               This way a dynamic XML based application can be hosted on the simplest of Web servers. 
+               
+            </p>
+            
+         </div>
+         
+         
+         <div>
+            <h3><a name="sectionNonHTTPd">11.2
+                  &nbsp;Collection Indexing without Web Servers&nbsp;
+                  
+               </a>
+            </h3>
+            
+            
+            <p>
+               This paper has only considered Collection Indexing in the context of a Web server.
+               Collection Indexing can be applied to other situations as well.
+               Coming from an HTTP protocol perspective it could be argued that Collection Indexing in superfluous.
+               All this Collection Indexing information could have been gleaned from Apache 1.3.19 without any patches.
+               For example, for a given slash-terminated URL a client could:
+               
+               <ol>
+                  
+                  <li>Perform a GET request on the URL.</li>
+                  
+                  <li>Rip up the response document looking for HTTP URLs in <tt>&lt;a href= ... &lt;/a></tt>.
+                  </li>
+                  
+                  <li>Perform a HEAD request on each URL discovered.</li>
+                  
+               </ol>
+               This would result in the client having the same information as provided by a Collection Index page. 
+               Granted it would cost more HTTP round trips to get the information but no changes to deployed software is required.
+               
+            </p>
+            
+            
+            <p>
+               The above arguement is a protocol centric one.
+               Collection Indexing is primarily concerned with XML content, not the HTTP protocol.
+               That is, the core focus is sets of interlinked XML documents, not sets of HTTP Resources.
+               The following examples illustrate the use of Collection Indexing in non-HTTP server contexts.
+               
+            </p>
+            
+            
+            <p>
+               An example of non-HTTP Collection Indexing is 
+               the case of an HTML browser rendering a slash-terminated <tt>file://</tt> URL.
+               In this situation, the browser uses the client OS file system APIs to find out what files are in a directory.
+               It then auto generates an HTML page which represents the directory contents.
+               Opera renders the directory listing as a <tt>table</tt>, Netscape renders as a big pre much like mod_autoindex, 
+               and MSIE5 has it's Web Views.
+               If the browsers were to generate Collection Index pages for file:// URLs  
+               then an XML application could work if loaded from an http:// URL or a file:// URL.
+               
+            </p>
+            
+            
+            <p>
+               Another example of how Collection Indexing could come into play in a non-HTTP situation is the case of 
+               rfc2387 - The MIME Multipart/Related Content-type. 
+               Every level of the multipart message has a start entity.
+               These start entities could be Collection Index pages.
+               In this way a Web site could be archived to a multipart/related file.
+               
+            </p>
+            
+            
+            
+            <p>
+               A final example of Collection Indexing is caching for off line use.
+               A browser-based JavaScript application could use the Collection Indexing page set to
+               enumerate its data store and load it into the browsers cache so that all the data will be available later
+               if the original storage system is not available to the JavaScript application.
+               
+               
+            </p>
+            
+            
+            
+            
+            
+         </div>
+         
+         
+         <p>
+            As discussed previously, one benefit of Collection Indexing is that Apache's FancyIndexing can be implemented client-side.
+            The next section demonstrates software which does just that and more.
+            
+         </p>
+         
+         
+      </div>
+      
+      
+      
+      
+      
+      
+      <div>
+         <h3><a name="sectionWrench">12
+               &nbsp;Wrench&nbsp;
+               
+            </a>
+         </h3>
+         
+         <p>
+            This section introduces wrench.
+            The name "wrench" is an acronym for "Web Resource Explorer for Navigation Collection Hierarchies".
+            Wrench is a JavaScript1.1 client application which runs within the context of a JavaScript-enabled HTML browser.
+            
+         </p>
+         
+         
+         <p>
+            Wrench can be thought of as a Web-only equivalent to Microsoft's Explorer.
+            Explorer essentially is a hard drive file system navigator.
+            Explorer can also be used to navigate networked file system including a WebDAV server's URL space.
+            In contrast, wrench only reads Collection Index pages served up over HTTP via GETs.
+            
+         </p>
+         
+         
+         <p>
+            Like Explorer, wrench's user interface consists mainly of a tree on the left and a table on the right.
+            The tree provides visual context by displaying a hierarchy of Collections.
+            When the user selects a specific node in the tree, the table on the right is loaded with the properties of the
+            Resources in the corresponding Collection.
+            The column headers in the table can be clicked on to cause the Resources in the table to be sorted by that column.
+            Resources can be sorted by name, size, date of last modification, and MIME type.
+            In this way wrench implements the same behavior as Apache's FancyIndexing.
+            The relative advantage of wrench over FancyIndexing is that the sorting is performed on the client without returning to the
+            server to load the same information sorted in a different order.
+            
+         </p>
+         
+         
+         
+         <p>
+            In the interest of full disclosure it should be mentioned that although wrench is implemented in JavaScript1.1, 
+            it needs a non-JavaScript mechanism which actually performs HTTP GET requests.
+            Wrench starts from within an HTML page.
+            The page is loaded into a browser and runs just like regular JavaScript embedded within an HTML page.
+            The distinction between wrench and most other JavaScript is that wrench can read multiple Collection Index pages without itself
+            being reloaded.
+            Usually, when a page is read by a browser, it replaces the previous page rendered in the browser.
+            With wrench, though, the Collection Index pages are not directly rendered by the browser.
+            That is, the browser parses the HTML document which contains wrench's JavaScript code
+            but after that wrench's itself parses the XML of the Collection Index pages.
+            
+         </p>
+         
+         
+         <p>
+            The point is that early implementations of JavaScript in Web browsers have no built in way of providing the content of URLs
+            to running bits of JavaScript code.
+            So, wrench needs a support mechanism in order to process Collection Index pages.
+            The support mechanism could be a Java Applet or MSIE's XMLHTTP object.
+            The support mechanism sends a HTTP GET request message to a Web server and provides the contents of the response message to
+            the JavaScript.
+            
+         </p>
+         
+         
+         <p>
+            Wrench has nice user interface properties. But it is more than NUT with a context tree. Wrench builds a model of the
+            URL subtree. NUT just knows about a single collection at a time while Wrench remembers the tree.
+            So, Collection Indexing pages are the basis for browser-based applications which can model URL subtrees not just individual
+            nodes in the tree. 
+            This in concert with a traditional Web search engine can be very powerful.
+            
+         </p>
+         
+         
+      </div>
+      
+      
+      
+      <div>
+         <h3><a name="sectionCallFormStandard">13
+               &nbsp;Call for Standardization&nbsp;
+               
+            </a>
+         </h3>
+         
+         <p>
+            Collection Indexing is widely implemented.
+            For example, IIS has "directory browsing" and Apache has mod_automindex "FancyIndexing".
+            Historically, Collection Index pages have primarily been used to assist humans in navigating Web server
+            URL trees.
+            Additionally, they have been used by Web crawling robots such as search engines.
+            There is no standard which defines the structure of and information contained in Collection Index pages.
+            This has lead to divergent implementations.
+            Yet that has not caused much of a problem to date.
+            This is because the pages were marked up well enough for humans to understand.
+            Also, crawlers just ripped up the HTML looking for <tt>&lt;a href="....</tt>
+            But, XML clients cannot use the current index pages.
+            
+         </p>
+         
+         
+         
+         <p>
+            The following statement seems uncontroversial:
+            
+            <blockquote>
+               The vast majority of currently deployed Web servers are capable of generating HTML pages in
+               response to GET requests on URLs ending in '/'.
+               These generated pages contain links to resources avaiable at URLs which are 
+               prefixed with the URL to which the GET request message was addressed. 
+               The pages may also enumerate properties of those resources such as byte length, MIME type, and last modified date, etc.
+               
+            </blockquote>
+            
+         </p>
+         
+         
+         <p>
+            This paper has only examined Apache's implementation of directory listing but
+            lots of different Web servers are all doing the same thing yet each vendor's implementation 
+            produces pages which express the information in sightly different ways.
+            A situation like this is a prime candidate for standardization.
+            Further, the simplicity of the proposal and the trivial nature of the code modification make
+            it all the easier to adopt.
+            
+         </p>
+         
+         
+         
+         <p>
+            Dispite the seemingly uncontroversial nature of Collection Indexing, things get complicated when
+            labels (such as "children" or "collection") are applied to this commonly implemented behavior. 
+            And the controversy becomes even more heated when comparisions are made to existing relevant standards.
+            See, <a href="#collectionindexing">[CollectionIndexing]</a>
+            for a reference to a paper which discusses the possibilities for Collection Indexing standardization
+            in the context of such specs as HTTP, WebDAV, and Relative URLs.
+            
+         </p>
+         
+         
+         <p>
+            Hopefully, this paper has demonstrated how simple it is to add XML technologies to the directory listings of the
+            current crop of Web servers.
+            Even without a relevant standard, Collection Indexing is a simple yet powerful idea which 
+            makes Web servers more useful to XML applications.
+            Apache could be made XML client friendly immediately using some or all of the techniques presented in this paper.
+            Even better would be an interoperability increasing standards defining Collection Indexing such that any XML client
+            could work with any Web server's Collection Index pages as implemented by Apache or other miscellaneous offerings.
+            
+         </p>
+         
+         
+      </div>
+      
+      
+      
+      
+      <div>
+         <h3><a name="sectionFurtherInfo">14
+               &nbsp;Further Information&nbsp;
+               
+            </a>
+         </h3>
+         
+         <p>
+            For more information on collection indexing, pleas visit 
+            <a href="#collectionindexing">[CollectionIndexing]</a>
+            
+         </p>
+         
+         
+         <p>
+            Email about Collection Indexing can be sent to <a href="mailto:john.tigue@tigue.com">john.tigue@tigue.com</a>.
+            
+         </p>
+         
+         
+         <p>
+            Code patches to mod_autoindex and related XSL Transforms are available
+            at <a href="#collectionindexing">[CollectionIndexing]</a>
+            
+         </p>
+         
+         
+      </div>
+      
+      
+      
+      <div>
+         <h3><a name="sectionBibliography">15
+               &nbsp;Bibliography&nbsp;
+               
+            </a>
+         </h3>
+         <dl>
+            
+            <dt>
+               <a name="collectionindexing">[CollectionIndexing]</a>
+               
+            </dt>
+            
+            <dd>
+               A collection of Tigue's documents on Collection Indexing including the code samples from this presentation.
+               <br>  
+               <a href="http://www.tigue.com/collection-indexing/">http://www.tigue.com/collection-indexing/</a> 
+               
+            </dd> 
+            
+            
+            <dt>
+               <a name="recxlink">[XLink]</a>
+               
+            </dt>
+            
+            <dd>
+               XML Linking Language (XLink) Version 1.0
+               <br>  
+               <a href="http://www.w3.org/TR/xlink/">http://www.w3.org/TR/xlink/</a> 
+               
+            </dd> 
+            
+            
+            <dt>
+               <a name="rfc1808">[RFC1808]</a>
+               
+            </dt>
+            
+            <dd>
+               RFC 1808 Relative Uniform Resource Locators 
+               <br>  
+               <a href="http://www.ietf.org/rfc/rfc1808.txt">http://www.ietf.org/rfc/rfc1808.txt</a> 
+               <br>  
+               Note that RFC 1808 was updated by <a href="#rfc2396">[RFC2396]</a>
+               
+            </dd> 
+            
+            
+            <dt>
+               <a name="rfc2396">[RFC2396]</a>
+               
+            </dt>
+            
+            <dd>
+               RFC 2396 Uniform Resource Identifiers (URI): Generic Syntax 
+               <br>  
+               <a href="http://www.ietf.org/rfc/rfc2396.txt">http://www.ietf.org/rfc/rfc2396.txt</a> 
+               <br>  
+               Note that RFC 2396 was updated by <a href="#rfc2732">[RFC2732]</a>
+               
+            </dd> 
+            
+            
+            
+            <dt>
+               <a name="rfc2732">[RFC2732]</a>
+               
+            </dt>
+            
+            <dd>
+               RFC 2732 Format for Literal IPv6 Addresses in URL's 
+               <br>  
+               <a href="http://www.ietf.org/rfc/rfc2732.txt">http://www.ietf.org/rfc/rfc2732.txt</a> 
+               
+            </dd> 
+            
+            
+            <dt>
+               <a name="rfc2616">[RFC2616]</a>
+               
+            </dt>
+            
+            <dd>
+               Hypertext Transfer Protocol -- HTTP/1.1 
+               <br>  
+               <a href="http://www.ietf.org/rfc/rfc2616.txt">http://www.ietf.org/rfc/rfc2616.txt</a> 
+               
+            </dd> 
+            
+            
+            <dt>
+               <a name="rfc2518">[RFC2518]</a>
+               
+            </dt>
+            
+            <dd>
+               HTTP Extensions for Distributed Authoring -- WEBDAV
+               <br>  
+               <a href="http://www.ietf.org/rfc/rfc2518.txt">http://www.ietf.org/rfc/rfc2518.txt</a> 
+               
+            </dd> 
+            
+            
+            
+            
+            
+            <dt>
+               <a name="XMLSchemaDatatypes">[XMLSchemaDatatypes]</a>
+               
+            </dt>
+            
+            <dd>
+               W3C Recommendation XML Schema Part 2: Datatypes
+               <br>  
+               <a href="http://www.w3.org/TR/xmlschema-2/">http://www.w3.org/TR/xmlschema-2/</a> 
+               <br>
+               
+            </dd> 
+            
+            
+            
+            
+            <dt>
+               <a name="dateandtimeformats">[DateAndTimeFormats]</a>
+               
+            </dt>
+            
+            <dd>
+               W3C Note: Date and Time Formats
+               <br>  
+               <a href="http://www.w3.org/TR/NOTE-datetime">http://www.w3.org/TR/NOTE-datetime</a> 
+               <br>
+               This document is a profile of ISO 8601 : 1988 (E), 
+               "Data elements and interchange formats - Information interchange - Representation of dates and times". 
+               
+            </dd> 
+            
+            
+            <dt>
+               <a name="xhtml">[XHTML]</a>
+               
+            </dt>
+            
+            <dd>
+               W3C Recommendation XHTML 1.0: The Extensible HyperText Markup Language
+               <br>  
+               <a href="http://www.w3.org/TR/xhtml1/">http://www.w3.org/TR/xhtml1/</a> 
+               
+            </dd> 
+            
+            
+            <dt>
+               <a name="xml">[XML]</a>
+               
+            </dt>
+            
+            <dd>
+               W3C Recommendation Extensible Markup Language (XML) 1.0 (Second Edition)
+               <br>  
+               <a href="http://www.w3.org/TR/2000/REC-xml-20001006">http://www.w3.org/TR/2000/REC-xml-20001006</a> 
+               
+            </dd> 
+            
+            
+            <dt>
+               <a name="associatingStyleSheets">[AssociatingStyleSheets]</a>
+               
+            </dt>
+            
+            <dd>
+               W3C Recommendation Associating Style Sheets with XML documents Version 1.0
+               
+               <br>  
+               <a href="http://www.w3.org/TR/xml-stylesheet/">http://www.w3.org/TR/xml-stylesheet/</a> 
+               
+            </dd> 
+            
+            
+         </dl>
+         
+         
+      </div> 
+      
+      
+      
+      
+      <p>
+         <i>Copyright &reg; 1999-2001
+            <a href="mailto:john.tigue@tigue.com" target="_blank">John Tigue</a> Inc. All rights reserved.
+         </i>
+         
+      </p>
+      
+      
+      
+   </body>
+</html>

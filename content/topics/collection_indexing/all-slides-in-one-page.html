@@ -1,0 +1,567 @@
+
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   
+      <title>Collection Indexing: Using XML to Improve Web Directory Listings</title>
+   </head>
+   <body>
+      <h1>Collection Indexing: Using XML to Improve Web Directory Listings</h1> 
+      
+      <title>Collection Indexing: Using XML to Improve Web Directory Listings</title>
+      
+      
+      <div>
+         <h3><a name="section1.2.3FIXME">1
+               &nbsp;Collection Indexing: Using XML to Improve Web Directory Listings &nbsp;
+               
+            </a>
+         </h3>
+         <title>Collection Indexing: Using XML to Improve Web Directory Listings </title>     
+         
+         <table border="0" NOTwidth="100%" bgcolor="#000000" cellspacing="0" cellpadding="0"> 
+            
+            <tr> 
+               
+               <td width="100%">
+                  
+                  <table border="0" NOTcols="*,100%" NOTwidth="100%" cellpadding="4" cellspacing="2"> 
+                     
+                     <tr> 
+                        
+                        <td bgcolor="#C0C0C0"><b>Speaker</b></td>
+                        
+                        <td bgcolor="#C0C0C0">John Tigue <a href="mailto:john.tigue@tigue.com">&lt;john.tigue@tigue.com></a></td>
+                        
+                     </tr>
+                     
+                     <tr>
+                        
+                        <td bgcolor="#C0C0C0"><b>Presented at</b></td>
+                        <td bgcolor="#C0C0C0">ApacheCon US 2001</td>
+                        
+                     </tr>
+                     
+                     <tr>
+                        
+                        <td bgcolor="#C0C0C0"><b>Date</b></td>
+                        <td bgcolor="#C0C0C0">2001-04-06</td>
+                        
+                     </tr>
+                     
+                     <tr>
+                        
+                        <td bgcolor="#C0C0C0"><b>URL for presentation slides</b></td>
+                        
+                        <td bgcolor="#C0C0C0">
+                           <a href="http://www.tigue.com/collection-indexing/presentations/2001-03-15/">
+                              http://www.tigue.com/collection-indexing/presentations/2001-03-15/
+                           </a>
+                           
+                        </td>
+                        
+                     </tr>
+                     
+                     <tr>
+                        
+                        <td bgcolor="#C0C0C0"><b>Latest information</b></td>
+                        <td bgcolor="#C0C0C0">
+                           <a href="http://www.tigue.com/collection-indexing/">
+                              http://www.tigue.com/collection-indexing/
+                           </a>
+                        </td>
+                        
+                     </tr>
+                     
+                  </table> 
+                  
+               </td> 
+               
+            </tr> 
+            
+         </table> 
+         
+      </div>
+      
+      
+      
+      <div>
+         <h3><a name="section1.2.3FIXME">2
+               &nbsp;Topic&nbsp;
+               
+            </a>
+         </h3>
+         <title>Topic</title> 
+         
+         <ul>
+            
+            <li>
+               Collection indexing is Web directory listings with XML added in.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               Motivate as to why collection indexing is important to XML.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               Show problems with current implementations of directory listing.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               Experiment with software to improve current situation.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               Argue for a need for a new standard which addresses collection indexing.
+               
+            </li>
+            
+         </ul>
+         
+      </div>
+      
+      
+      <div>
+         <h3><a name="section1.2.3FIXME">3
+               &nbsp; Terminology &nbsp;
+               
+            </a>
+         </h3>
+         <title> Terminology </title>
+         
+         <ul>
+            
+            <li>
+               <b>Resource:</b><br>
+               As defined in the early HTTP specs, a URI addressable thing on the Web.
+               
+            </li>
+            
+            <br>
+            <br>
+            
+            
+            <li>
+               <b>Collection:</b><br>
+               Essentially, a resource addressed by a URI ending in "/". 
+               
+            </li>
+            
+            <br>
+            <br>
+            
+            
+            <li>
+               <b>Collection index page:</b><br>
+               If an HTTP GET request on a collection is responded to with a page which
+               references resources which are contained in 
+               the collection then let us call that page a collection index.
+               
+            </li>
+            
+            
+         </ul>
+         
+      </div>
+      
+      
+      <div>
+         <h3><a name="section1.2.3FIXME">4
+               &nbsp;Collection indexing in not WebDAV&nbsp;
+               
+            </a>
+         </h3>
+         <title>Collection indexing in not WebDAV</title> 
+         
+         <ul>
+            
+            <li>
+               Not WebDAV PROPFIND because the solution should be compatible with legacy HTML browsers as well as XML clients. 
+               That is, it must be an HTML page.
+               
+            </li>
+            
+            <br><br>
+            
+            
+            <li>
+               WebDAV also suffers in terms of diffusion/deployment. 
+               Many more sites have "directory listing" enabled than WebDAV.
+               
+            </li>
+            
+         </ul>
+         
+      </div>
+      
+      
+      <div>
+         <h3><a name="section1.2.3FIXME">5
+               &nbsp;Collection indexing is not directory listing&nbsp;
+               
+            </a>
+         </h3>
+         <title>Collection indexing is not directory listing</title> 
+         
+         <ul>
+            
+            <li> 
+               Actually they are the same thing. Collection indexing is simply a more PC name in the formal HTTP terminology.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               Here "directory" is from file system terminology.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               The word "collection" is more general and comes from HTTP terminology.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               For example, a collection index could be the result set of a database query, or it could be a static 
+               HTML page handcrafted by a human.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               So, XML'd directory listing is a subset of collection indexing.
+               
+            </li>
+            
+         </ul>
+         
+         
+      </div>
+      
+      
+      
+      <div>
+         <h3><a name="section1.2.3FIXME">6
+               &nbsp;Current state of Web servers&nbsp;
+               
+            </a>
+         </h3>
+         <title>Current state of Web servers</title> 
+         
+         <ul>
+            
+            <li>
+               Collection indexing is widely implemented:
+               
+               <ul>
+                  
+                  <li>IIS has "directory browsing"</li>
+                  
+                  <li>Apache has "FancyIndexing" and others</li>
+                  
+               </ul>
+               
+            </li>
+            <br>
+            
+            <li>
+               Historically was for <b>humans</b> to navigate sites; spiders and robots could them partially.
+               Implementations predate XML.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               No standards address collection indexing so implementations are divergent.
+               Basically, HTTP spec was supposed to be content agnostic; is specifies the headers not the entity body.
+               This is changing with things like WebDAV.
+               
+            </li>
+            
+         </ul>
+         
+      </div>
+      
+      
+      <div>
+         <h3><a name="section1.2.3FIXME">7
+               &nbsp;Limitations of current Web servers&nbsp;
+               
+            </a>
+         </h3>
+         <title>Limitations of current Web servers</title> 
+         
+         <ul>
+            
+            <li>No standard means each Web server is doing the same thing differently; 
+               e.g. dates are formatted differently in Apache and IIS.
+            </li>
+            <br><br>
+            
+            <li>Major Web servers are putting out pages which aren't XML well formed.</li>
+            <br><br>
+            
+            <li>Sometimes property values are truncated in the interest of tabular formatting via &lt;pre>.</li>
+            <br><br>
+            
+            <li>XHTML is not used.</li>
+            <br><br>
+            
+            <li>
+               No markup for size, type, date properties of resources indexed. 
+               Formatting is done only through one big &lt;pre>.
+               
+            </li>
+            
+         </ul>
+         
+      </div>
+      
+      
+      <div>
+         <h3><a name="section1.2.3FIXME">8
+               &nbsp;Motivational example&nbsp;
+               
+            </a>
+         </h3>
+         <title>Motivational example</title> 
+         
+         <ul>
+            
+            <li>Consider an XML based application with data stored on a Web server.</li>
+            <br><br>
+            
+            <li>The data is stored in multiple resources which are XML documents, all located in some URL subtree.
+               On the URL subtree, documents are leaf nodes.
+            </li>
+            <br><br>
+            
+            <li>	
+               The collection(s) containing the resources are part of that URL subtree.
+               The collection pages are internal, non-leaf nodes in the URL subtree.
+               They should be XML as well.
+               
+            </li>
+            
+            <br><br>
+            
+            
+            <li>
+               For an XML document set which spans multiple collections on a Web server URL subtree, the set of collection index
+               pages for all those collections is the "spine" of the data structure. 
+               Essentially the physical structure of the data structure starts at the collection index page 
+               of the subroot assigned to the document set.
+               Topic Maps et al are a level up, that is, they are the logical structure not the physical. 
+               
+            </li>
+            
+            <br><br>
+            
+            <li>
+               The web server will automatically update the collection index page if a new resource is added to the collection.
+               Only with collection indexing can this be realized safely. 
+               To do something like repeatedly updating index.html invites a race condition.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               So, on a static, file system based, vanilla Web server the collection indexing is the only dynamic mechanism.
+               So, by making the collection pages XML compatible, a dynamic XML based application can be hosted on the
+               simplest of Web servers.
+               
+            </li>
+            <br><br>
+            
+            
+            
+         </ul>
+         
+      </div>
+      
+      
+      
+      <div>
+         <h3><a name="section1.2.3FIXME">9
+               &nbsp;Well-formed collection indices: minimally XML&nbsp;
+               
+            </a>
+         </h3>
+         <title>Well-formed collection indices: minimally XML</title> 
+         
+         <ul>
+            
+            <li>
+               Implement XHTML.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               Add more HTML elements around resource properties like size, type, date.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               Styling via CSS and XSL is simply prettier.
+               
+            </li>
+            
+            <br><br>
+            
+            <li>
+               Adding XSL can enables sorting resources by properties in a table without returning to the server for each new 
+               sort ordering.
+               That is, FancyIndexing can be implemented on client side now so easier on server workload.
+               But markup is still weak so XSL style sheet in tightly bound to XML. Can make that better.
+               
+            </li>
+            
+            
+            <br><br>
+            
+            <li>
+               Still compatible with deployed HTML browsers.
+               
+            </li>
+            
+         </ul>
+         
+      </div>
+      
+      
+      <div>
+         <h3><a name="section1.2.3FIXME">10
+               &nbsp;XLink&nbsp;
+               
+            </a>
+         </h3>
+         <title>XLink</title> 
+         
+         <ul>
+            
+            <li>
+               A page which is well-formed is not necessarily well marked up.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               Collection index pages are like XLink extended links.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               Need to stay inside HTML so can't make new elements, only new attributes.
+               Architectural Forms can help in this case.
+               
+            </li>
+            
+            <br><br>
+            
+            <li>
+               XLink is supposed to have a way for XHTML linking semantics to be recognized as such.
+               
+            </li> 
+            
+            
+            <br><br>
+            
+            <li>
+               By adding XLink attributes to collection index pages, a vanilla, static Web server can
+               be used as a dynamic XLink storage system. Essentially a very rudimentary XLink repository.
+               
+            </li> 
+            
+            
+         </ul>
+         
+      </div>
+      
+      
+      <div>
+         <h3><a name="section1.2.3FIXME">11
+               &nbsp;Better mark up of resource properties&nbsp;
+               
+            </a>
+         </h3>
+         <title>Better mark up of resource properties</title>
+         
+         <ul>
+            
+            <li>
+               Need more attributes on markup around resource properties such as size and type.
+               This way clients do not need to depend on element ordering to determine which properties are which.
+               Currently the information structure is not exposed completely to an XML client because of insufficient mark up.
+               
+            </li>
+            <br><br>
+            
+            <li>
+               This is like 'http-equiv', that is,  declares equivalence between entity body info and header info.
+               This is very much like WebDAV PROPFIND on a collection.
+               
+            </li> 
+            <br><br>
+            
+            <li>
+               There needs to be a standard for these attributes and the formats of data such as expressing dates in ISO8601.
+               More generally, there needs to be a Note on how to map equivalence of data expressed in HTTP headers and in HTTP
+               entities.
+               
+            </li>
+            
+         </ul>
+         
+      </div>
+      
+      
+      <div>
+         <h3><a name="section1.2.3FIXME">12
+               &nbsp;Further information &nbsp;
+               
+            </a>
+         </h3>
+         <title>Further information </title>
+         
+         <ul>
+            
+            <li>
+               For more information on collection indexing, please visit
+               <a href="http://www.tigue.com/collection-indexing/">http://www.tigue.com/collection-indexing/</a>
+               
+            </li>
+            <br><br>
+            
+            
+            <li>
+               Software from demos is available at the same URL.
+               
+            </li>
+            <br><br>
+            
+            
+            <li>
+               For comments, email John Tigue at <a href="john.tigue@tigue">john.tigue@tigue.com</a>
+               
+            </li>
+            
+         </ul>
+         
+      </div>
+      
+      
+   </body>
+</html>
