@@ -13,32 +13,6 @@ A [JSON manifest file](http://reconstrue.com/projects/brightfield_neurons/challe
 
 For more context see the project's main notebook on Colab, [brightfield neuron reconstruction challenge.ipynb](https://colab.research.google.com/drive/1qvwT-SxHpZSLQ88VeIOkR296pbZfQqTK).
 
-
-
-## Legal
-
-Copyright 2019 Reconstrue LLC.
-Licensed under the Apache License, Version 2.0 (the "License");
-
-
-
-```
-# Copyright 2019 Reconstrue LLC. All Rights Reserved.
-#
-# Licensed under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#     http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# ==============================================================================
-```
-
 ## Overview of files
 
 This doesn't get into higher level domain specific stuff (i.e. the main goal of innovating actual ML-assisted microscopy) rather the topic here is to take stock of the files and partition them into useful subsets small enough that compute can happen on Colab (answer: download and process all of one specimen's files at a time, but only one at a time).
@@ -52,8 +26,6 @@ actually visualizes the dataset on a digital microscopy level (read: show images
 The challenge dataset is hosted on Wasabi Cloud Storage, which mimics the APIs of AWS S3 so all the regular ways of accessing data on S3 can be used to access the data
 
 - Service endpoint address: s3.wasabisys.com
-- Access Key Id: 2G7POM6IZKJ3KLHSC4JB
-- Secret Access Key: 0oHD5BXPim7fR1n7zDXpz4YoB7CHAHAvFgzpuJnt
 - Storage region: us-west-1
 - bucket name: brightfield-auto-reconstruction-competition  
 
@@ -141,8 +113,7 @@ The data is stored on Wasabi Cloud Storage, which mimics the AWS S3 APIs, so AWS
 
 ### Set up shop
 
-
-```
+```python
 import boto3
 import json
 import os
@@ -154,8 +125,7 @@ from IPython.display import HTML, display
 sns.set(color_codes=True)
 ```
 
-
-```
+```python
 # A Colab progress bar
 
 def progress(value, max=100):
@@ -177,7 +147,7 @@ def progress(value, max=100):
 This only pulls down the keys and metadata, not the actual images nor SWC files.
 
 
-```
+```python
 # Tweaked out code via https://stackoverflow.com/a/49361727 and https://stackoverflow.com/a/14822210
 # TODO: test this. 2.5 vs. 2.7 TB was seen?
 def format_bytes(size):
@@ -252,20 +222,7 @@ print("Summed file size of all training cells: %s %s (%d bytes, %d files)" %  ('
 ```
 
     Total root subfolders = 106. Mapping training image stacks, one at a time...
-
-
-
-
-        <progress
-            value='106'
-            max='105',
-            style='width: 100%'
-        >
-            106
-        </progress>
-    
-
-
+    ...
     Training neurons mapped: 105
     Summed file size of all training cells:  2.5 TB (2713760166906 bytes, 53926 files)
 
@@ -278,7 +235,7 @@ Whelp, time and space are limited on Colab so let's figure out which neurons are
 ### List training neurons by file size
 
 
-```
+```python
 # bitwize shift 30 converts bytes to gigabytes
 training_cell_sizes = np.array([cell["size"]>>30 for cell in training_neurons.values()])
 sizes_histogram = sns.distplot(training_cell_sizes, bins=20, kde=False, rug=True).set_title("Training cells image stacks (gigabytes)")
@@ -289,7 +246,7 @@ sizes_histogram = sns.distplot(training_cell_sizes, bins=20, kde=False, rug=True
 
 
 
-```
+```python
 # List cell sorted by fileset size (z-stack and SWC), plus averages and total
 
 def sizer(x): 
@@ -318,105 +275,7 @@ print("Total size of training dataset = " + '{:4.1f}'.format(total_file_size) + 
     651806289: 291 files =  6.0 GB
     647289876: 228 files =  7.0 GB
     651748297: 336 files =  7.0 GB
-    647244741: 261 files =  8.0 GB
-    713686035: 289 files =  8.9 GB
-    647247980: 299 files =  9.1 GB
-    649052017: 307 files =  9.4 GB
-    650917845: 245 files = 10.0 GB
-    672278613: 330 files = 10.1 GB
-    654221379: 334 files = 10.3 GB
-    676633030: 387 files = 10.6 GB
-    726555942: 377 files = 11.6 GB
-    706002308: 378 files = 11.6 GB
-    664466860: 382 files = 11.7 GB
-    739291676: 386 files = 11.9 GB
-    699207642: 389 files = 11.9 GB
-    669371214: 295 files = 12.0 GB
-    654591451: 300 files = 12.2 GB
-    836350796: 413 files = 12.7 GB
-    651511374: 414 files = 12.7 GB
-    729522604: 431 files = 13.2 GB
-    696228200: 435 files = 13.4 GB
-    651790667: 250 files = 13.4 GB
-    728251151: 267 files = 14.2 GB
-    668664690: 464 files = 14.3 GB
-    651834134: 469 files = 14.4 GB
-    673066511: 283 files = 14.5 GB
-    652113069: 359 files = 14.6 GB
-    821560343: 361 files = 14.7 GB
-    715286106: 482 files = 14.8 GB
-    739383450: 506 files = 15.6 GB
-    693978543: 386 files = 15.7 GB
-    724316403: 387 files = 15.7 GB
-    720948812: 526 files = 16.1 GB
-    712951287: 527 files = 16.2 GB
-    777467421: 535 files = 16.4 GB
-    691329423: 538 files = 16.5 GB
-    743214898: 549 files = 16.8 GB
-    663961066: 414 files = 16.8 GB
-    713016653: 554 files = 17.0 GB
-    692932326: 557 files = 17.2 GB
-    715328776: 322 files = 17.2 GB
-    744609566: 426 files = 17.3 GB
-    766985763: 568 files = 17.4 GB
-    647278927: 346 files = 17.5 GB
-    762912832: 431 files = 17.5 GB
-    718987297: 444 files = 18.0 GB
-    677347027: 586 files = 18.0 GB
-    687702530: 358 files = 18.1 GB
-    694613686: 446 files = 18.1 GB
-    719458528: 341 files = 18.3 GB
-    720463180: 599 files = 18.4 GB
-    674317065: 344 files = 18.4 GB
-    710114253: 466 files = 18.9 GB
-    861519869: 468 files = 19.1 GB
-    688712523: 481 files = 19.6 GB
-    797376860: 485 files = 19.7 GB
-    685884456: 492 files = 20.1 GB
-    777472440: 519 files = 21.0 GB
-    693441787: 316 files = 21.1 GB
-    832210870: 402 files = 21.6 GB
-    722603466: 401 files = 22.4 GB
-    767485082: 444 files = 22.4 GB
-    722033195: 562 files = 22.8 GB
-    774495631: 563 files = 22.8 GB
-    736979905: 430 files = 23.1 GB
-    706065773: 572 files = 23.1 GB
-    743274987: 591 files = 24.0 GB
-    677326176: 595 files = 24.1 GB
-    762275581: 447 files = 24.2 GB
-    757721211: 603 files = 24.6 GB
-    691830341: 607 files = 24.7 GB
-    768977785: 609 files = 24.7 GB
-    647225829: 460 files = 24.7 GB
-    704338365: 614 files = 24.9 GB
-    743918700: 467 files = 25.1 GB
-    712977942: 622 files = 25.2 GB
-    696560235: 509 files = 25.7 GB
-    815877776: 479 files = 25.7 GB
-    798631918: 480 files = 25.9 GB
-    694569649: 486 files = 26.1 GB
-    710124691: 488 files = 26.2 GB
-    663523681: 539 files = 27.3 GB
-    707517873: 547 files = 27.6 GB
-    689485972: 362 files = 30.1 GB
-    742421390: 562 files = 30.2 GB
-    745145893: 567 files = 30.5 GB
-    765078615: 461 files = 30.8 GB
-    721065710: 589 files = 31.5 GB
-    718706617: 591 files = 31.6 GB
-    715273626: 594 files = 31.8 GB
-    718476684: 611 files = 32.7 GB
-    704353262: 612 files = 32.8 GB
-    704363712: 610 files = 32.9 GB
-    702233284: 614 files = 33.2 GB
-    651829339: 529 files = 35.3 GB
-    741428906: 591 files = 39.4 GB
-    726635182: 610 files = 40.7 GB
-    772239618: 617 files = 41.2 GB
-    818150510: 444 files = 44.1 GB
-    845142280: 535 files = 44.3 GB
-    728203498: 675 files = 45.0 GB
+    ...
     697851947: 850 files = 45.7 GB
     699189400: 650 files = 53.8 GB
     687746742: 608 files = 59.9 GB
@@ -433,11 +292,11 @@ In summary, there are 105 training neurons. The specimens' size range from 6.0 G
 The final part of the challenge data set to be mapped is the sub-root directory, `TEST_DATA_SET`, which has 10 neurons laid out like with the training data, except the SWC files are missing i.e. no reconstruction answers given (because, that is what the challenger is supposed to demonstrate: the capability to generate quality SWC files).
 
 
-```
+```python
 client = boto3.client('s3',
      endpoint_url = 'https://s3.us-west-1.wasabisys.com',
-     aws_access_key_id = '2G7POM6IZKJ3KLHSC4JB',
-     aws_secret_access_key = "0oHD5BXPim7fR1n7zDXpz4YoB7CHAHAvFgzpuJnt")
+     aws_access_key_id = '',
+     aws_secret_access_key = "")
 paginator = client.get_paginator('list_objects')
 result = paginator.paginate(
     Bucket='brightfield-auto-reconstruction-competition', 
@@ -502,16 +361,6 @@ print("\nTotal size of testing dataset = " + '{:4.1f}'.format(fileSize) + " " + 
 
 
 
-        <progress
-            value='10'
-            max='10',
-            style='width: 100%'
-        >
-            10
-        </progress>
-    
-
-
     TEST_DATA_SET/665856925/
     TEST_DATA_SET/687730329/
     TEST_DATA_SET/691311995/
@@ -539,7 +388,7 @@ print("\nTotal size of testing dataset = " + '{:4.1f}'.format(fileSize) + " " + 
 
 
 
-```
+```python
 # bitwize shift 30 converts bytes to gigabytes
 testing_cell_sizes = np.array([cell["size"]>>30 for cell in testing_neurons.values()])
 sizes_histogram = sns.distplot(testing_cell_sizes, bins=20, kde=False, rug=True).set_title("Test cells image stacks (gigabytes)")
@@ -553,7 +402,7 @@ sizes_histogram = sns.distplot(testing_cell_sizes, bins=20, kde=False, rug=True)
 
 
 
-```
+```python
 # Note: specimen 741428906 is in both the training and testing datasets.
 # This next line will keep the testing one, with prefix = 'TEST_DATA_SET/741428906/'.
 # I.e. the training version of 741428906 is dropped from the manifest. We only
@@ -581,7 +430,7 @@ print("Total size of training dataset = " + '{:4.1f}'.format(grand_total_file_si
 
 
 
-```
+```python
 # Double check those numbers: just total every single object
 total_bytes_for_all_objects = 0
 for s3_object in bucket.objects.all():
@@ -597,7 +446,7 @@ print("Total size of all files in dataset = " + '{:4.2f}'.format(recheck_size) +
 ## Write specimens_manifest.json
 
 The rest of the notebooks in this project make use of `specimens_manifest.json` which is just a semantically organized manifest of all the files in the dataset, organized by specimen, as image stack, catalogued by specimen_id. The head of `specimens_manifest.json` looks like:
-```
+```javascript
 {
     "647225829": {
         "id": "647225829",
@@ -624,7 +473,7 @@ Might as well list the specimens sorted by size, smallest first. This way a casu
 Note: a copy of `specimens_manifest.json` is stored on reconstrue.com. This is used by default by other notebooks in this project. That file was created by the following code cell:
 
 
-```
+```python
 # Goal: write specimens_manifest.json
 specimens_manifest = {}
 
@@ -655,7 +504,7 @@ with open(manifest_file_name, "w+") as mani:
 Looks like 741428906 got into both the training and test datasets.
 
 
-```
+```python
 # Notice how len(all_specimens) < len(training_neurons) + len(testing_neurons)
 # There seems to be one missing
 print(len(training_neurons))
@@ -678,7 +527,7 @@ for name in aSet.intersection(bSet):
 
 
 
-```
+```python
 # Check the file on the file system.
 # On the file system, specimens_manifest.json is a bit long for display (> 5K lines). 
 # So, here's the first 20 lines; the rest is similar.
@@ -714,7 +563,7 @@ for name in aSet.intersection(bSet):
                 "647225829/reconstruction_0_0539044533_639893239-0013.tif",
 
 
-```
+```python
 # To download specimens_manifest.json
 #
 # from google.colab import files
