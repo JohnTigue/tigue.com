@@ -2,3 +2,9 @@ h3 > a {
     color: black;
     font-size: 150%;
 }
+
+@media (max-width: 720px) {
+    h1 {
+        font-size: 100%;
+    }
+}
