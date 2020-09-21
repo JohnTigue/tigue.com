@@ -11,7 +11,7 @@ RUN \
   --repository http://dl-3.alpinelinux.org/alpine/edge/community \
   --repository http://dl-3.alpinelinux.org/alpine/edge/main \
   && rm -fR /var/cache/apk/*
-
+RUN apk add autoconf 
 RUN npm install -g gatsby-cli
 
 WORKDIR /app
