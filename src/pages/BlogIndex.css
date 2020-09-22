@@ -6,5 +6,7 @@ h3 > a {
 @media (max-width: 720px) {
     h1 {
         font-size: 100%;
+        white-space: nowrap;
+        overflow: hidden;
     }
 }

@@ -11,6 +11,7 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+    const hackColor = "#4c4c4c"
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -18,12 +19,14 @@ class BlogPostTemplate extends React.Component {
           title={post.frontmatter.title}
           description={post.frontmatter.description || post.excerpt}
         />
+        <Bio />
         <article>
           <header>
             <h1
               style={{
                 marginTop: rhythm(1),
                 marginBottom: 0,
+                color: hackColor
               }}
             >
               {post.frontmatter.title}
@@ -39,13 +42,14 @@ class BlogPostTemplate extends React.Component {
             </p>
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          {/*
           <hr
             style={{
               marginBottom: rhythm(1),
             }}
           />
+          */}
           <footer>
-            <Bio />
           </footer>
         </article>
 
