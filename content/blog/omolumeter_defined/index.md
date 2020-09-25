@@ -15,8 +15,8 @@ The first piece of software to come out of that side project is called an omolum
 
 <a title='Omolumeter v0.1.0' href='http://tigue.com/projects/omolumeter/src/apps/omolumeter/'><img src='omolumeter_v010.png' class='center' alt='Omolumeter v0.1.0' /></a>
 
-Earlier I completed [analysis of the open data on the Ebola 2014 West Africa outbreak](http://tigue.com/by-time/2014/12/28/ebola-open-data-analysis-completed/).
-Currently, building on that analysis, I am working on a data format I am calling the [Outbreak Time Series Specification](https://github.com/JohnTigue/outbreak_time_series/wiki/Outbreak-Time-Series-Specification-Overview) ("the Spec").
+Earlier I completed [analysis of the open data on the Ebola 2014 West Africa outbreak](http://tigue.com/ebola_data_analysis_completed).
+Currently, building on that analysis, I am working on a data format I am calling the [Outbreak Time Series Specification](https://github.com/JohnTigue/idots/wiki/Outbreak-Time-Series-Specification-Overview) ("the Spec").
 The API design is actually leveraging the recently completed W3C Recommendation, [CSV on the Web](https://www.w3.org/2013/csvw/wiki/Main_Page) (CSVW).
 In parallel I am writing software which reads files (or in HTTP terminology, resources) that are formatted compliant to the Spec.
 
