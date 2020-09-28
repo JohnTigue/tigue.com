@@ -6,16 +6,13 @@ FROM node:11
 # Seems to involve VSCode debug ports.  TODO: But I don't use VSCode so...    
 EXPOSE 8000 9929 9230
 
-#RUN \
-#  apk add --no-cache python make g++ && \
-#  apk add vips-dev fftw-dev automake --update-cache \
-#  --repository http://dl-3.alpinelinux.org/alpine/edge/community \
-#  --repository http://dl-3.alpinelinux.org/alpine/edge/main \
-#  && rm -fR /var/cache/apk/*
-
-#RUN apk add autoconf
-##RUN apk add autotools-dev  
-
+RUN \
+  apk add --no-cache python make g++ && \
+  apk add vips-dev fftw-dev --update-cache \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/community \
+  --repository http://dl-3.alpinelinux.org/alpine/edge/main \
+  && rm -fR /var/cache/apk/*
+RUN apk add autoconf 
 RUN npm install -g gatsby-cli
 
 WORKDIR /app

@@ -37,9 +37,11 @@ const Bio = () => {
     <div
       style={{
         display: `flex`,
-        marginBottom: rhythm(2.5),
+        marginBottom: rhythm(0.25), 
       }}
-    >
+      >
+
+      {/*
       <Image
         fixed={data.avatar.childImageSharp.fixed}
         alt={author}
@@ -52,14 +54,27 @@ const Bio = () => {
         imgStyle={{
           borderRadius: `50%`,
         }}
-      />
-      <p>
-        Written by <strong>{author}</strong>, who also microblogs on
-        {` `}
+      /> */}
+      <p style={{textAlign:`center`, width:"100%"}}>
+        { /*
+        Tech writting by <strong>{author}</strong> (
         <a href={`https://twitter.com/${social.twitter}`}>
           Twitter as @{`${social.twitter}`}
-        </a>
+        </a>)
+          */ }
+    
+
+      <a href="https://twitter.com/johntigue" ><img src="/round_icons/twitter.svg" width="65px" style={{paddingBottom: "3px" }}/></a>
+
+      <a href="https://github.com/johntigue" ><img src="/round_icons/github.svg" width="68px" style={{"padding": "7px" }}/></a>
+
+      <a href="http://reconstrue.com/"><img class="reconstrue" src="/round_icons/reconstrue_logo_brandmark.svg" width="68px" style={{padding: "6px 2px 6px 2px" }}/></a>
+    
+      <a href="mailto:john@tigue.com"><img src="/round_icons/email.svg" width="68px" style={{"padding": "7px" }}/></a>
+
+      <a href="http://tigue.com/rss.xml"><img src="/round_icons/rss.svg" width="68xpx" style={{"padding": "7px" }}/></a>
       </p>
+
     </div>
   )
 }

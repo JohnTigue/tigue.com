@@ -5,6 +5,7 @@ import { rhythm, scale } from "../utils/typography"
 
 class Layout extends React.Component {
   render() {
+    const hackColor = "#4c4c4c"
     const { location, title, children } = this.props
     const rootPath = `${__PATH_PREFIX__}/`
     let header
@@ -13,8 +14,9 @@ class Layout extends React.Component {
       header = (
         <h1
           style={{
-            ...scale(1.5),
-            marginBottom: rhythm(1.5),
+            ...scale(2.0),
+            color: hackColor,
+            marginBottom: rhythm(0.5),
             marginTop: 0,
           }}
         >
@@ -22,10 +24,9 @@ class Layout extends React.Component {
             style={{
               boxShadow: `none`,
               textDecoration: `none`,
-              color: `inherit`,
+              color: `inherit`
             }}
-            to={`/`}
-          >
+            to={`/`}>
             {title}
           </Link>
         </h1>
@@ -34,7 +35,9 @@ class Layout extends React.Component {
       header = (
         <h3
           style={{
+            ...scale(1.0),
             fontFamily: `Montserrat, sans-serif`,
+            color: hackColor,
             marginTop: 0,
           }}
         >
@@ -42,7 +45,8 @@ class Layout extends React.Component {
             style={{
               boxShadow: `none`,
               textDecoration: `none`,
-              color: `inherit`,
+              notColor: `inherit`,
+              color: hackColor,
             }}
             to={`/`}
           >
@@ -56,11 +60,11 @@ class Layout extends React.Component {
         style={{
           marginLeft: `auto`,
           marginRight: `auto`,
-          maxWidth: rhythm(24),
+          maxWidth: rhythm(36),
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
-        <header>{header}</header>
+        <header style={{textAlign:`center`}}>{header}</header>
         <main>{children}</main>
         <footer>
           © {new Date().getFullYear()}

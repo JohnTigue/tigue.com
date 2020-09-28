@@ -1,38 +1,49 @@
 ---
-title: "Whiteboarder: A Two-Bit Image Processor"
-date: 2020-05-26T17:00:00-0800
-featuredImage: "./four_very_white_colored_caps.jpg"
+title: "Whiteboarder: A Two Bit Image Processor"
+date: 2020-05-26T15:00:00-0800
+featuredImage: "./header.png"
 description: "Jupyter as whiteboard capture image post-processor"
 ---
 
-<img src="./four_pale_markers.png" width="100%"/>
+<img src="./header.png" width="100%"/>
+	&nbsp; 
 
-Of late I've been doing so much machine learning coding in an image
-processing context that it has caused a completely separate, long
-simmering potential project to force its way into reality. That
-project is whiteboard capture post-processing. I'm calling it
-Whiteboarder, with a tagline of "a two-bit image processor." Two bits
-can encode four states, which in the case of whiteboard images can be
-used to represent the four most common whiteboard pen colors: black,
-red, green, and blue.
+Whiteboarder is a two bit image processor, tuned for whiteboard
+captures. The four most common dry erase marker colors are recognized:
+black, red, green, and blue. Four colors, ergo two bit color images.
 
 <img src="./brightfield_cuboid_packager.jpg" />
+ 
+&nbsp; 
 
-Note: this is very much not an end-user tool; the tech is simply not
-mature enough for full auto-pilot but the results can be impressive
-with a bit of human in the mix. Rather, this is for folks who are
-comfortable seeing what is going on under the hood. There will be
-code.
+I have long wanted a tool dedicated to cleaning up whiteboard capture
+images. There are commercial tools but nothing made me happy. Of late
+I've been coding a lot of image processing in a machine learning
+context. So, Whiteboarder just kinda happened over this last month by
+hacking on a Jupyter notebook to see what could be cooked up with the
+tools I was already using for a different purpose.
 
 <img src="./red_kneecap.jpg" />
+&nbsp; 
 
-Additionally, the project has also been an experiment to probe how far
-a Jupyter UI be driven towards an end user app with presentable
-UI. 
-
+Note: this is very much not an end-user tool. The tech is simply not
+mature enough for full auto-pilot. But the results can be impressive
+with a touch of human intelligence in the mix. So, Whiteboarder is for
+folks who are comfortable seeing what is going on under the
+hood. There will be code.
 
 <img src="./git_and_jupyter_book.jpg" />
-To take it for a test drive, click below:
+&nbsp; 
+
+Additionally, the project is an experiment with Jupyter as a
+development platform. The question is: just how far can a Jupyter
+notebook's UI be morphed into an end-user-ish utility tool? The code is 
+<a href="https://github.com/JohnTigue/whiteboarder">available on GitHub.</a>
+
+
+Whiteboard can read your own images: specify an URL, upload a file, or
+take a picture in-browser. To take Whiteboarder for a test drive on
+Colab click below:
 
 <center>
 <a href="https://colab.research.google.com/github/JohnTigue/whiteboarder/blob/master/whiteboarder.ipynb"><img src="https://colab.research.google.com/assets/colab-badge.svg" width="23%" /></a>

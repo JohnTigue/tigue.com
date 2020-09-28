@@ -14,10 +14,11 @@ class BlogIndex extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
+    const hackColor = "#4c4c4c"
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <SEO title="John Tigue's tech writings" />
+        <SEO title="John Tigue's Tech Writings" />
         <Bio />
         {posts.map(({ node }) => {
           const title = node.frontmatter.title || node.fields.slug
@@ -29,7 +30,9 @@ class BlogIndex extends React.Component {
                     marginBottom: rhythm(1 / 4),
                   }}
                 >
-                  <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                  <Link style={{ boxShadow: `none`,
+                                   color:"#4c4c4c",                              
+                        }} to={node.fields.slug}>
                     {title}
                   </Link>
                 </h3>
