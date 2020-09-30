@@ -1,6 +1,7 @@
 # via https://dev.to/stoutlabs/my-docker-setup-for-gatsbyjs-and-nextjs-5gao
 
-FROM node:alpine
+#FROM node:alpine
+FROM node:11
 
 # Seems to involve VSCode debug ports.  TODO: But I don't use VSCode so...    
 EXPOSE 8000 9929 9230
