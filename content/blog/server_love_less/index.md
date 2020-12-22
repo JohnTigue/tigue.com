@@ -5,7 +5,6 @@ featuredImage: "./header.png"
 description: "A serverless-first app rational"
 ---
 
-
 <img src="./header.png" width="100%"/>
 	&nbsp; 
 
