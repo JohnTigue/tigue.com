@@ -9,7 +9,10 @@ description: "A serverless-first app rational"
 	&nbsp; 
 
 Where is serverless heading? Why use it?
-
+- It's not serverless anymore. It's stateless first Docker
+- So how to start making Step Functions portable
+  - Parser for stepfunction JSON.
+  - GraphQL front to DynamoDB for StateMachine state
 
 All re:Invent Announcements:
 https://aws.amazon.com/new/reinvent/?sc_icampaign=aware_aws-whats-new_reinvent20&sc_ichannel=ha&sc_icontent=awssm-6129&sc_iplace=signin&trk=ha_awssm-6129&cards-body-1.sort-by=item.additionalFields.postDateTime&cards-body-1.sort-order=desc
