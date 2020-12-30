@@ -8,8 +8,27 @@ description: "A serverless-first app rational"
 <img src="./header.png" width="100%"/>
 	&nbsp; 
 
+
+
+[CloudShell](https://aws.amazon.com/cloudshell/faqs/) to demo Lambda Docker images
+- https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/
+  - "You can also use the AWS Serverless Application Model (SAM), that
+    has been updated to add support for container images."
+- https://aws.amazon.com/about-aws/whats-new/2020/12/aws-lambda-now-supports-container-images-as-a-packaging-format/
+- [AWS Compute Blog: Working with Lambda layers and extensions in container images](https://aws.amazon.com/blogs/compute/working-with-lambda-layers-and-extensions-in-container-images/)
+
+
+
+
+
+From an app architecture perspective, this was the most significant announcement around re:Invent 2020.
+
+Aligning AWS Lambda to Docker really simplifies serverless-first designs: Dockerize, start on Lambda, migrate to ECS as needed for cost or perf reasons.
+- https://aws.amazon.com/about-aws/whats-new/2020/12/aws-lambda-now-supports-container-images-as-a-packaging-format/
+- https://aws.amazon.com/blogs/compute/working-with-lambda-layers-and-extensions-in-container-images/
+
 Where is serverless heading? Why use it?
-- It's not serverless anymore. It's stateless first Docker
+- It's not serverless anymore. It's stateless first containers
 - So how to start making Step Functions portable
   - Parser for stepfunction JSON.
   - GraphQL front to DynamoDB for StateMachine state
