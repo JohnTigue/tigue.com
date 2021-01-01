@@ -1,12 +1,17 @@
 ---
-title: "Server Love Less Architecture"
+title: "Server Loveless Architecture"
 date: 2020-05-26T15:00:00-0800
 featuredImage: "./header.png"
 description: "A serverless-first app rational"
 ---
 
+
+
 <img src="./header.png" width="100%"/>
 	&nbsp; 
+
+
+https://twitter.com/johntigue/status/1340438547011043328
 
 
 
@@ -20,12 +25,28 @@ description: "A serverless-first app rational"
 
 
 
+https://twitter.com/johntigue/status/1342962358893723648
 
 From an app architecture perspective, this was the most significant announcement around re:Invent 2020.
 
 Aligning AWS Lambda to Docker really simplifies serverless-first designs: Dockerize, start on Lambda, migrate to ECS as needed for cost or perf reasons.
 - https://aws.amazon.com/about-aws/whats-new/2020/12/aws-lambda-now-supports-container-images-as-a-packaging-format/
 - https://aws.amazon.com/blogs/compute/working-with-lambda-layers-and-extensions-in-container-images/
+
+Lambda becomes simply a generic containerized compute service. It is now simply an agile Docker service… one that is very much an AWS-only thing, acting as glue binding serverless services of AWS. 
+
+Take a counterintuitive step back for two forward: write stateless (Docker) containers that only run on AWS (for now). The component interface is the same as between Step Functions and Lambda. 
+
+That's two good interfaces:
+• To the task orchestrator
+• To the container platform
+
+So, if Lambda is now just lightweight Docker, and Lambda now bills in 1ms increments, serverless-first is simply a solid architecture for any cloud-native app, with the flexibility to compute on Lambda, ECS, or EKS, as per cost or workload.
+
+
+
+
+
 
 Where is serverless heading? Why use it?
 - It's not serverless anymore. It's stateless first containers
