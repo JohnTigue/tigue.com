@@ -13,6 +13,11 @@ description: "A serverless-first app rational"
 
 https://twitter.com/johntigue/status/1340438547011043328
 
+[Cumulus: Run Step Function Tasks in AWS Lambda or Docker](https://nasa.github.io/cumulus/docs/data-cookbooks/run-tasks-in-lambda-or-docker)
+
+
+https://github.com/irothschild/stefuna
+Stefuna is a simple AWS Step Function Activity server framework. It makes it incredibly quick and easy to write workers to process activity tasks in Python.
 
 
 [CloudShell](https://aws.amazon.com/cloudshell/faqs/) to demo Lambda Docker images
