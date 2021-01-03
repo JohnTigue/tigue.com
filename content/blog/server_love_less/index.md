@@ -11,6 +11,22 @@ description: "A serverless-first app rational"
 	&nbsp; 
 
 
+It is that time of year again: time to digest the implications of AWS
+re:Invent.  In particular, there have been developments which eables
+thinking of cloud apps through a new lens which unifies Lambda
+serverless and Docker container based apps into one architectural
+plan. I've decided to use the term "server loveless architectures" as
+the label.
+
+As usually re:Invent involved many announcements on multiple
+fronts. This writing focuses on broad architectural implications for
+software architects: folks who are designing new AWS cloud based
+apps. The primary goal, of course, is to address the needs of a
+specific project at hand but an architect should also consider
+broader, more long term factors. As such let's consider
+
+
+
 https://twitter.com/johntigue/status/1340438547011043328
 
 [Cumulus: Run Step Function Tasks in AWS Lambda or Docker](https://nasa.github.io/cumulus/docs/data-cookbooks/run-tasks-in-lambda-or-docker)
@@ -26,6 +42,23 @@ Stefuna is a simple AWS Step Function Activity server framework. It makes it inc
     has been updated to add support for container images."
 - https://aws.amazon.com/about-aws/whats-new/2020/12/aws-lambda-now-supports-container-images-as-a-packaging-format/
 - [AWS Compute Blog: Working with Lambda layers and extensions in container images](https://aws.amazon.com/blogs/compute/working-with-lambda-layers-and-extensions-in-container-images/)
+
+
+
+Serverless blog post
+- https://twitter.com/johntigue/status/1131606044113682432
+- https://twitter.com/johntigue/status/1115882989144166400
+- https://twitter.com/johntigue/status/1319709685348364288
+- https://twitter.com/johntigue/status/1338972275354189824
+- [[https://aws.amazon.com/blogs/containers/introducing-aws-step-functions-integration-with-amazon-eks/][Introducing AWS Step Functions integration with Amazon EKS]]
+- [[https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/][New for AWS Lambda – Container Image Support]]
+  - [[https://www.youtube.com/watch?v=HNm6jU_AUbE&t=21s][AWS reInvent 2020 Run Lambda with Container Image | Tutorial & DEMO | Lambda and Kubernetes]] RajMouth
+  - [[https://www.youtube.com/watch?v=UymPN45zkCQ][AWS Reinvent 2020 Lambda Change - Cheaper and Faster | How Many Cores in Your Lambda | Demo]]
+- [[https://www.youtube.com/c/AgentofChange-RajdeepSaha/videos][YouTube(Agent of Change channel)]]
+  - [[https://www.youtube.com/watch?v=LzFuXvhA5xk][SNS And SQS Deep Dive | SNS Vs SQS | Standard Vs FIFO | Use Cases]]
+  - [[https://www.youtube.com/watch?v=tiQs6UspMPA][Amazon Interview Tips | Sample AWS GCP Azure Questions and Answers | Good vs Bad Answer]]
+  - [[https://www.youtube.com/watch?v=YKT9bWvy_PI][Application Load Balancer (ALB) Vs API Gateway // Pros Cons Comparison]]
+  - [[https://www.youtube.com/watch?v=bTAavnHF5Cw][AWS Step Function Deep Dive | Service Integration Patterns | Sync vs Callback Vs Activity Worker]]
 
 
 
