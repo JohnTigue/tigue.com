@@ -12,11 +12,19 @@ description: "A serverless-first app rational"
 
 
 It is that time of year again: time to digest the implications of AWS
-re:Invent.  In particular, there have been developments which eables
-thinking of cloud apps through a new lens which unifies Lambda
-serverless and Docker container based apps into one architectural
-plan. I've decided to use the term "server loveless architectures" as
-the label.
+re:Invent announcements.  In particular, there have been developments
+which eables thinking of cloud apps through a new lens which unifies
+Lambda serverless and Docker container based apps into one
+architectural plan. 
+
+I've decided to use the term "server loveless architectures" as the
+label. This is obviously wordplay riffing off of "serverless" which
+has always been a lame name for a great suite of technologies. I try
+to build all my apps/solutions upon serverless technologies and the
+term for that is "serverless first." But what I discuss herein takes
+the focus off of serverless and simply noodles a design pattern for
+modern cloud native apps.
+
 
 As usually re:Invent involved many announcements on multiple
 fronts. This writing focuses on broad architectural implications for
