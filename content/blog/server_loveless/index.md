@@ -1,26 +1,53 @@
 ---
-title: "Server Loveless"
+title: "Server Loveless Architectures"
 date: 2021-01-06T15:00:00-0800
 featuredImage: "./header.png"
 description: "A serverless-first app design pattern"
 ---
 
-
+Publicly coined on Twitter 2020-12-31: https://twitter.com/johntigue/status/1344802523199074304
 
 <img src="./header.png" width="100%"/>
 Want step function logo with arrows to both Lambda and ECS both running Docker containers
 
-
 It is that time of year again: time to digest the implications of AWS
-re:Invent announcements.  In particular, there have been developments
-which eables thinking of cloud apps through a new lens which unifies
-Lambda serverless and Docker container based apps into one
-architectural plan. 
+re:Invent announcements. 
+
+
+Another AWS re:Invent has dropped a load of announcements. Those
+always deserve some mulling over. This time, in particular, there have
+been developments which eables implementing AWS cloud apps as Docker
+container images which run on both Lambda and EC2/ECS/Fargate/etc. It
+is a refinement to the serverless-first mentality, heavy on the
+Docker, which is rather clean in that the compute offerings are
+becoming more unified. Serverless first has meant starting with AWL
+Lambda and Step Functions and bringing in other AWS computer services
+as needed via Activity Workers. Now a Lambda function can be packaged
+as a Docker container image and be deploy to AWS Lambda. So,
+the next step is to figure out how to run the same Dockerized Lambda
+function on the AWS compute services such at ECS, Fargate, EC2, etc.
+
+i.e. it smooths the impedence mismatch
+between Lambda and the other AWS compute services such that app
+components can simply be designed as Lambdas (have the Lambda
+invocation interface) and the appropriate compute service can be
+paired to the needs.  For example, if a GPU is called for or if a
+Lambda function needs to run longer than the fifteen minutes AWS
+Lambda run time limit.
+
+
+through a new lens
+which unifies Lambda serverless and Docker container based apps into
+one architectural unity. It boils down to Step Functions running
+Docker images containing AWS Lambda functions that run on Lambda (for
+Tasks) or ECS (for Activities).
 
 I've decided to use the term "server loveless architectures" as the
 label. This term is obviously wordplay riffing off of "serverless"
-which has always been a lame name for a great suite of technologies. I
-try to build all my apps/solutions upon serverless technologies and
+which has always been a lame name for a great suite of technologies. 
+(The pun with SLA was unintentional.)
+
+I try to build all my apps/solutions upon serverless technologies and
 the term for that is "serverless first" architecting. But what I
 discuss herein takes the focus off of serverless and simply noodles a
 design pattern for modern cloud native apps.
@@ -67,9 +94,14 @@ packaged as a Docker image. The custom Lambda's Dockerfile will start
 from the runner-plumbing Docker image.
 
 In a Step Function, the act of migrating a Task from Lamba to another
-compute service is expressed in (the Amazon States
-Language)[https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html]] JSON.
+compute service is expressed in code in the JSON which defines a state
+machine ((the Amazon States
+Language)[https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html]]). When
+prototyping an app, a Lambda will initially be in a Task state,
 
+
+then the state will be recoded to be an activity task state in your
+state machine definition
 
 
 
@@ -118,6 +150,8 @@ in Jupyter.  I have decided to pull one of the techniques of
 Whiteboarder out Jupyter and port it to Server Loveless.  This
 is sufficient to demo a Dockerized component that can run on Lambda or
 alternatively other AWS compute services (ECS, Fargate, etc.).
+
+The simpliest way to demonstrate the idea is to [Starting a State Machine Execution in Response to Amazon S3 Events](https://docs.aws.amazon.com/step-functions/latest/dg/tutorial-cloudwatch-events-s3.html),
 
 One of the techniques available in Whiteboarder is Rolling Ball Background Removal.
 This is the one I have decided to transcribe to Server Loveless.
