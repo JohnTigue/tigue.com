@@ -1,14 +1,14 @@
 ---
-title: "Server Loveless Architecture"
-date: 2020-05-26T15:00:00-0800
+title: "Server Loveless"
+date: 2021-01-06T15:00:00-0800
 featuredImage: "./header.png"
-description: "A serverless-first app rational"
+description: "A serverless-first app design pattern"
 ---
 
 
 
 <img src="./header.png" width="100%"/>
-	&nbsp; 
+Want step function logo with arrows to both Lambda and ECS both running Docker containers
 
 
 It is that time of year again: time to digest the implications of AWS
@@ -18,13 +18,86 @@ Lambda serverless and Docker container based apps into one
 architectural plan. 
 
 I've decided to use the term "server loveless architectures" as the
-label. This is obviously wordplay riffing off of "serverless" which
-has always been a lame name for a great suite of technologies. I try
-to build all my apps/solutions upon serverless technologies and the
-term for that is "serverless first." But what I discuss herein takes
-the focus off of serverless and simply noodles a design pattern for
-modern cloud native apps.
+label. This term is obviously wordplay riffing off of "serverless"
+which has always been a lame name for a great suite of technologies. I
+try to build all my apps/solutions upon serverless technologies and
+the term for that is "serverless first" architecting. But what I
+discuss herein takes the focus off of serverless and simply noodles a
+design pattern for modern cloud native apps.
 
+The beauty of following AWS serverless in the middle of the previous
+decade was that it forced cloud scale architectural maturity upon a
+dev team. "Oh my god, how many times will I code up a Lambda that
+reads info from S3 and DynamoDB, transforms that information, and
+writes back to S3 and DynamoDB?" Whelp, that's what a robust, scalable
+app does. That makes the app component running on the server stateless
+such that when an instance fails the multi-server system can still
+keep doing its job. A developer was forced to persist any state off the
+machine instance. The default (as set by AWS documentation and evangelists)
+persistance was S3, DynamoDB, etc. i.e. rock solid robust cloud
+services. Add the two together (stateless app components running on
+disposable servers and cloud scale supporting services) and that pretty
+much is the value proposition of AWS serverless. AWS wanted to allow
+customers to add custom logic onto their industrial scale
+services. Small dev teams wanted to leverage mature industry
+practices, and using AWS services a la AWS serverless was how to get
+those benefits into a small team's products. Win, win; love it.
+
+So, the label "server loveless" does not mean leave AWS Serverless
+behind, rather design the whole app a la serverless. That is the place
+to start; and if it turns out something cannot run on AWS Lamba (say,
+it runs longer than 15 minutes or a GPU would be really, really handy
+to have) then simply deploy that Docker container image on ECS,
+Fargate, etc.
+
+
+Once an architect sees the app as one or more Step Functions which
+have Tasks which are Docker images that can run on Lambda or ECS, the
+architecture need a new plumbing component: the thing running non-on-Lambda that
+keeps checking in with a Step Funciont wait to invoke the newly migrated
+Lambda as needed. The term "plumbing" is used to imply that the code
+is generic framework code which will not change between specific apps.
+
+So there is a new app component that needs to be added: the thing that
+does long polls to Step Function waiting to process any Task that Step
+Functions wants execute.  It is a Step Function activity worker that
+invokes Lambda, i.e. via the same interface. Of course this Lambda is
+not running on AWS Lambda, rather it is running on ECS.  This will be
+packaged as a Docker image. The custom Lambda's Dockerfile will start
+from the runner-plumbing Docker image.
+
+In a Step Function, the act of migrating a Task from Lamba to another
+compute service is expressed in (the Amazon States
+Language)[https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html]] JSON.
+
+
+
+
+For existance proof of this being possible consider a tool such as
+[Cumulus: Run Step Function Tasks in AWS Lambda or
+Docker](https://nasa.github.io/cumulus/docs/data-cookbooks/run-tasks-in-lambda-or-docker).
+
+Or consider, [stefuna](https://github.com/irothschild/stefuna) ("Stefuna is a
+simple AWS Step Function Activity server framework. It makes it
+incredibly quick and easy to write workers to process activity tasks
+in Python."). That might be more the some of thing.
+
+
+
+This might be an Innovator's Dilimma moment: hack
+together some MVP level open source codebase which gets a new ball
+rolling.  Referencing the Innovator's Delimma implies there is some
+new market segment with requirements that are different from the
+established segment.  (This paragraph is a wierd mix of start-up and open source
+metaphors but there is a nice overlap.) That new segment is the 
+
+
+
+
+move that serverless component over to
+
+That's what serverless really brought to the table: less a server and
+it still keeps on ticking.
 
 As usually re:Invent involved many announcements on multiple
 fronts. This writing focuses on broad architectural implications for
@@ -33,16 +106,43 @@ apps. The primary goal, of course, is to address the needs of a
 specific project at hand but an architect should also consider
 broader, more long term factors. As such let's consider
 
+Since the metal model collapses to simply running Docker contained workers,
+want a way to easily migrate a worker from Lambda to ECS or other long running compute platform.
+Step Functions is the way to do that.
+
+OK, that's the big picture idea. Now let's work through a trivial yet
+interesting demo in detail.  By "interesting" I mean something that
+has actual utility beyond pedogigical purposes.  One of my recent side
+projects is Whiteboarder, an image processing studio with the UI based
+in Jupyter.  I have decided to pull one of the techniques of
+Whiteboarder out Jupyter and port it to Server Loveless.  This
+is sufficient to demo a Dockerized component that can run on Lambda or
+alternatively other AWS compute services (ECS, Fargate, etc.).
+
+One of the techniques available in Whiteboarder is Rolling Ball Background Removal.
+This is the one I have decided to transcribe to Server Loveless.
+
+(Image of rolling ball algorithm)
+
+The Rolling Ball algorithm's parameters can be tweaked such that on a
+large image, it can run for more that 15 minutes on Lambda.  (Each
+pixel is convolved with its neighboring pixels within a specified
+radius. With a large enough image and a long radius, the compute can
+add up. For demo purposes I'm using a small Lambda in order to force
+the 15 minute clock to run out.)  So, to demonstrate Server Loveless I
+have ported Rolling Ball to Docker with a Step Function invokable
+interface.
+
+
+
+state machine as language of app architecture schmatic
+
+[New for AWS Lambda – Container Image Support](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/)
+
+Step Functions is also a common language tagging well defined concepts throughout a community of developers.
 
 
 https://twitter.com/johntigue/status/1340438547011043328
-
-[Cumulus: Run Step Function Tasks in AWS Lambda or Docker](https://nasa.github.io/cumulus/docs/data-cookbooks/run-tasks-in-lambda-or-docker)
-
-
-https://github.com/irothschild/stefuna
-Stefuna is a simple AWS Step Function Activity server framework. It makes it incredibly quick and easy to write workers to process activity tasks in Python.
-
 
 [CloudShell](https://aws.amazon.com/cloudshell/faqs/) to demo Lambda Docker images
 - https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/
