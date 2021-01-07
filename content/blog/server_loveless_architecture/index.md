@@ -5,52 +5,183 @@ featuredImage: "./header.png"
 description: "A serverless-first app design pattern"
 ---
 
-Publicly coined on Twitter 2020-12-31: https://twitter.com/johntigue/status/1344802523199074304
+<img src="./header.png" width="100%"/> [Header: want step function
+logo with arrows to both Lambda and ECS both running/containing Docker
+logo i.e. the whale container ship]
 
-<img src="./header.png" width="100%"/>
-Want step function logo with arrows to both Lambda and ECS both running Docker containers
-
-It is that time of year again: time to digest the implications of AWS
-re:Invent announcements. 
-
-
-Another AWS re:Invent has dropped a load of announcements. Those
-always deserve some mulling over. This time, in particular, there have
-been developments which eables implementing AWS cloud apps as Docker
-container images which run on both Lambda and EC2/ECS/Fargate/etc. It
-is a refinement to the serverless-first mentality, heavy on the
-Docker, which is rather clean in that the compute offerings are
-becoming more unified. Serverless first has meant starting with AWL
-Lambda and Step Functions and bringing in other AWS computer services
-as needed via Activity Workers. Now a Lambda function can be packaged
-as a Docker container image and be deploy to AWS Lambda. So,
-the next step is to figure out how to run the same Dockerized Lambda
-function on the AWS compute services such at ECS, Fargate, EC2, etc.
-
-i.e. it smooths the impedence mismatch
-between Lambda and the other AWS compute services such that app
-components can simply be designed as Lambdas (have the Lambda
-invocation interface) and the appropriate compute service can be
-paired to the needs.  For example, if a GPU is called for or if a
-Lambda function needs to run longer than the fifteen minutes AWS
-Lambda run time limit.
-
-
-through a new lens
-which unifies Lambda serverless and Docker container based apps into
-one architectural unity. It boils down to Step Functions running
-Docker images containing AWS Lambda functions that run on Lambda (for
-Tasks) or ECS (for Activities).
+Another AWS re:Invent has dropped an annual load of announcements. If
+one spends time designing AWS apps, those always need to be considered
+for the implications. This time, there have been certain developments
+which eable an architect to view AWS cloud-native apps (read:
+serverless-first apps) through a unifying lens where the apps are
+composed of Docker container images. The main idea is that Step
+Functions orchestrates a Docker deployed app wherein
+components/containers run on both Lambda (for Tasks) and
+ECS/Fargate/EC2/etc. (for Activities). This is how cloud-native apps on AWS will be built this decade.
 
 I've decided to use the term "server loveless architectures" as the
-label. This term is obviously wordplay riffing off of "serverless"
-which has always been a lame name for a great suite of technologies. 
-(The pun with SLA was unintentional.)
+label for what is presented herein. This term is obviously wordplay
+riffing off of "serverless" which has always been a lame name for a
+great suite of technologies.  (The pun with SLA meaning service level agreement was unintentional.)
 
-I try to build all my apps/solutions upon serverless technologies and
-the term for that is "serverless first" architecting. But what I
-discuss herein takes the focus off of serverless and simply noodles a
-design pattern for modern cloud native apps.
+Within a serverless-first design mindset, the focal default compute
+concept has now moved from Lambda to Docker. Serverless-first has up
+until now meant starting with Lambda and if we really, really need to
+then dropping back down to where the architecture includes
+non-serverless old school machinery. 
+
+The most significant announcement around re:Invent 2020 was [New for
+AWS Lambda – Container Image
+Support](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/). Now,
+Lambda can be seen as simply another one of the Docker execution
+platform offering available on AWS. But the design principles of
+serverless expand to Docker in general, not just AWS Lambda. These
+microservice principles, such as statelessness, are the real value of
+serverless. Now we can focus on the component Function -- packaged as
+a Docker container image -- and run it on whichever compute platform
+is appropriate.
+
+These developements enable a Docker centric refinement to the
+serverless-first mentality. Things become clearer in that the various
+AWS compute offerings are becoming more unified on a continuum. This
+is not just a new Lambda features but a perspective that allows us to
+simplify things. For example, why do we need Lambda layers anymore?
+They simply become Docker image layers. The focus moves to Docker, not
+Lambda.
+
+In the past, serverless first has meant starting with AWS Lambda plus
+Step Functions and bringing in other AWS computer services as needed
+via Activity Workers in a Step Function. Now a Lambda function can be
+packaged as a Docker container image and the image can be deploy to
+AWS Lambda. So, the next step (the architectural refinement) is to
+have an autoscaling Docker set-up which maintains a pool of compute
+ready to service a Step Function by running the Docker image
+containing the same Lambda Function but now, from the Step Functions
+perspective, it is seen as an Activity not a Lambda Task. The Docker
+conatiner within which the Lambda Function runs is an activity worker.
+With this change of perspective, a serverless-first app's development
+can start as a pure serverless Step Functions app (i.e. involving no
+Activities) and as the code complicates, add in other compute
+platforms using the same serverless component design but deployed on
+activity workers rather than AWS Lambda.
+
+This refinement smooths the impedence mismatch between Lambda and the
+other AWS compute services such that app components can simply be
+designed as Lambdas (have the Lambda invocation interface, etc.) and
+the appropriate compute service can be paired to the needs of the use
+case. Example use cases that might require leaving AWS Lambda include
+if a GPU is called for or if a Lambda function needs to run longer
+than the fifteen minute AWS Lambda execution time limit.
+
+Serverless-first is most obviously about compute platforms but there are three main aspects:
+- The compute platform
+- The minimization of self-managed machinery
+- The architectural maturity enforced by Lambda
+
+I like using the term "server loveless" because it also refers to the
+minimization of self-managed infrastructure, whereas "serverless-first" is too much about just the compute platform. 
+
+Of course, one must keep an eye on the costs. Serverless can be quite
+cost effective but when it comes to fully managed services (for
+serverless or not), sometimes AWS wants way too much money in return
+for simply removing a hassle.
+
+Of the three above mentioned aspects, the first is now simplified by
+this new server loveless architecture.  The second stays the same in
+features and importance.  The third is the most subtle but now comes more
+to the forefront. That is, those mature component design principles
+can now be easily applied in non-Lambda contexts. This is core to
+the server loveless mindset. Start a junior developer down the serverless path and the techniques will transfer to context other than AWS Lambda.
+
+This post introduces the abstract ideas. My next post will walk through
+a specific coding exercise to demostrate the nitty-gritty.
+
+
+
+
+
+
+
+
+
+
+
+
+
+The architecture is a blending of AWS Lambda and Docker, where Lambda
+is looked at as simply another flavor of Docker available at the AWS
+compute buffet.
+
+There are two perspectives from which to consider these developments:
+the economic and the technical. Let's first briefly discuss the
+economic because it can be done briefly and it sets the context for
+the technical details.
+
+From the economic perspective, with Lambda now running Docker images,
+
+Before getting into the main act, let me mention one other re:Invent
+announcement: Lambda billing is now by the 1m increment. See, [ New
+for AWS Lambda – 1ms Billing Granularity Adds Cost
+Savings](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-1ms-billing-granularity-adds-cost-savings/).
+Read that for an nice simple example of the potential savings. In the
+gift card industry there is the concept of "breakage" which is the
+label for the fact that many gifts will not be completely
+drained. That is essentially what has happened up until now with
+Lambda compute being billed in one hundred millisecond increments.
+This is no longer an issues. Of course, for heavy compute workloads
+it still will make sence to purchase compute in bulk rather than
+by the millisecond. And that brings us to the second perspective that
+needs to be considered: the technical.
+
+
+
+That's truly "pay only for what you use" compute. Specifically, it is
+Docker by the millisecond. Of course, Lambda is the pacecar for the
+serverless provider race.  So moving forward "compute paided for by
+the millisecond" will be the pricing model for serverless on any cloud
+platform.
+
+
+
+
+Step Functions orchestrates a complex Docker app, interacting with the
+containers through the Task and Activity interfaces.  Any given Lambda
+function-running Docker container might be on AWS Lambda or other
+compute service (e.g., ECS). Step Functions handles retry logic, state
+maintenance, etc. across the app components running within multiple
+Docker containers. It kinda seems obvious when stated. But that's a
+nice thing: it does make a lot of simple sence. It's clean, terse, and
+allows a design to start simple (read: pure serverless at first).
+
+
+
+
+
+The above billing news is about really short Lambda compute. Next
+we'll get into too long Lambda compute i.e. what if a function, say,
+needs to run for more than 15 mintes?
+
+OK, so on to the main point. What is meant by the term "Server
+Loveless Architectures"? These are AWS cloud-native app architectures
+in which the servers are loveless, no sacred cows. Workers are
+stateless and managed by Step Functions state machines. 
+
+Loveless if there are less to love. We love having less servers
+i.e. leverage maximally any generic non-differentiated "heavy" lifting
+services that AWS has that can just be taken off the shelf to get the
+real job done.  Go for "buy don't build" while keeping an eye on the
+price. This is just AWS serverless app architectures implemented upon
+Docker.
+
+Similiarly, Lambdas can be wired up to an SQS queue in the normal, old ways.
+Now there might come to be something which listens on a queue but then
+simply invokes a Dockerize Lambda function. I suspect this will just become
+part of AWS eventually.
+
+I try to build all my apps/solutions upon serverless technologies
+i.e. "serverless first" architecting. But what I discuss herein takes
+the focus off of serverless and simply noodles a design pattern for
+modern AWS cloud native apps.
 
 The beauty of following AWS serverless in the middle of the previous
 decade was that it forced cloud scale architectural maturity upon a
@@ -77,6 +208,7 @@ it runs longer than 15 minutes or a GPU would be really, really handy
 to have) then simply deploy that Docker container image on ECS,
 Fargate, etc.
 
+Using the same interface is nice but there's also all the other disciplines that come from Lambda design: stateless, single user, etc.
 
 Once an architect sees the app as one or more Step Functions which
 have Tasks which are Docker images that can run on Lambda or ECS, the
@@ -86,14 +218,14 @@ Lambda as needed. The term "plumbing" is used to imply that the code
 is generic framework code which will not change between specific apps.
 
 So there is a new app component that needs to be added: the thing that
-does long polls to Step Function waiting to process any Task that Step
+does long polls to Step Functions waiting to process any Task that Step
 Functions wants execute.  It is a Step Function activity worker that
 invokes Lambda, i.e. via the same interface. Of course this Lambda is
 not running on AWS Lambda, rather it is running on ECS.  This will be
 packaged as a Docker image. The custom Lambda's Dockerfile will start
 from the runner-plumbing Docker image.
 
-In a Step Function, the act of migrating a Task from Lamba to another
+In Step Functions, the act of migrating a Task from Lamba to another
 compute service is expressed in code in the JSON which defines a state
 machine ((the Amazon States
 Language)[https://docs.aws.amazon.com/step-functions/latest/dg/concepts-amazon-states-language.html]]). When
@@ -123,6 +255,7 @@ new market segment with requirements that are different from the
 established segment.  (This paragraph is a wierd mix of start-up and open source
 metaphors but there is a nice overlap.) That new segment is the 
 
+The relationship between the container and the function are the same as in Lambda. Here there is a container running (possibly for a while) and the function may get invoked multiple times. But only a single thread/invocation at a time.
 
 
 
@@ -164,14 +297,12 @@ pixel is convolved with its neighboring pixels within a specified
 radius. With a large enough image and a long radius, the compute can
 add up. For demo purposes I'm using a small Lambda in order to force
 the 15 minute clock to run out.)  So, to demonstrate Server Loveless I
-have ported Rolling Ball to Docker with a Step Function invokable
-interface.
+have ported Rolling Ball for whiteboard images to Docker with a Step
+Functions invokable interface.
 
 
 
 state machine as language of app architecture schmatic
-
-[New for AWS Lambda – Container Image Support](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/)
 
 Step Functions is also a common language tagging well defined concepts throughout a community of developers.
 
@@ -231,7 +362,7 @@ So, if Lambda is now just lightweight Docker, and Lambda now bills in 1ms increm
 Where is serverless heading? Why use it?
 - It's not serverless anymore. It's stateless first containers
 - So how to start making Step Functions portable
-  - Parser for stepfunction JSON.
+  - Parser for Step Functions States language JSON.
   - GraphQL front to DynamoDB for StateMachine state
 
 All re:Invent Announcements:
@@ -385,18 +516,16 @@ E.g. say your storage and DB are horizontally web scalable. What would
 be the minimum impedance mismatch for allocating compute? #serverless
 
 
+
+
+
+
+
 # Cuboids: Serverless-first design pattern
 
-The core design innovation of Cuboids is that the Boss architecture is
-being refined and elaborated in a serverless-first fashion. This
-section explains what is meant by that.
 
-Obviously from previous sections, part of the serverless-first mindset
-involves simply minimizing any self-managed infrastructure. Of course,
-one must keep an eye on the costs. Serverless can be quite cost
-effective but when it comes to fully managed services (for serverless
-or not), sometimes AWS wants way too much money in return for simply
-removing a hassle.
+
+
 
 Setting aside services, from a coder's perspective the main AWS
 service that enables serverless-first designs is Step Functions, which
