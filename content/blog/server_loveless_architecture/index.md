@@ -293,6 +293,8 @@ cover other smaller re:Invent novelties such as updated SAM,
 CloudShell, etc.
 
 
+
+
 # ===============================================
 
 Loveless like cockroaches, not like sacred cows.
