@@ -5,6 +5,8 @@ featuredImage: "./header.png"
 description: "A serverless-first app design pattern"
 ---
 
+# Title?
+
 <img src="./header.png" width="100%"/> [Header: want step function
 logo with arrows to both Lambda and ECS both running/containing Docker
 logo i.e. the whale container ship]
@@ -28,11 +30,34 @@ and Docker, where Lambda can be looked at as simply another flavor of
 Docker available at the AWS compute buffet.  This is how cloud-native
 apps on AWS will be built this decade.
 
+
+## Terminology
+
+E.g. say your storage and DB are horizontally web scalable. What would
+be the minimum impedance mismatch for allocating compute? #serverless
+
+1. Explicit design constraint: you cannot hug these servers
+
+
 I've decided to use the term "server loveless architecture" as the
 label for what is presented herein. This term is obviously wordplay
 riffing off of "serverless" which has always been a lame name for a
 great suite of technologies.  (The pun with SLA meaning service level
 agreement was unintentional.)
+
+Loveless like cockroaches, not like sacred cows.
+Perhaps branding of "serverless" is its biggest flaw. We want to evolve how dear our servers are:
+sacred cows => cattle => cockroaches
+So, to label the architecture, "admin-less cockroach intrusion" could
+do except "intrusion" already has a negative definition in
+software-land.
+
+Perhaps a good label to use is "server love less architectures."
+Image siccing a Chaos Monkey on an intrusion of cockroach
+servers. That's the context within which one's architecture should be
+designed to thrive.  That's what serverless means to me.
+https://aws.amazon.com/fis/
+
 
 One last bit of defining terminology. ECS (Elastic Container Service)
 will be the stand in for "non Lambda compute." The point is: some
@@ -297,24 +322,21 @@ CloudShell, etc.
 
 # ===============================================
 
-Loveless like cockroaches, not like sacred cows.
-Perhaps branding of "serverless" is its biggest flaw. We want to evolve how dear our servers are:
-sacred cows => cattle => cockroaches
-So, to label the architecture, "admin-less cockroach intrusion" could do except "intrusion" already has a negative definition in software-land.
+
+Partially, the value of what is being proposed herein is what is
+absent. This is a way forward whereby there no longer needs to be a
+dual architecture of serverless and the more serverful rest. A single
+architectural design can now take center stage.
 
 
-Serverless blog post
-- https://twitter.com/johntigue/status/1131606044113682432
-- https://twitter.com/johntigue/status/1115882989144166400
-- https://twitter.com/johntigue/status/1319709685348364288
-- https://twitter.com/johntigue/status/1338972275354189824
 
-E.g. say your storage and DB are horizontally web scalable. What would
-be the minimum impedance mismatch for allocating compute? #serverless
+Step Functions based programs are composed of Lambdas and Activities,
+the innately stateless states in a (stateful) Step Functions based
+program. They can be mentally modeled as HTTP API'd services.
 
-Juxt two Lambda bits of news out of AWS #reinvent:
-• Bill by millisecond
-  - https://aws.amazon.com/blogs/aws/new-for-aws-lambda-1ms-billing-granularity-adds-cost-savings/
+[Boundaries](https://www.destroyallsoftware.com/talks/boundaries] talk by Gary Bernhardt
+
+
 • Run Docker images
 Ergo, design Docker components as stateless FSM nodes, which can run
 on both Lambda and ECS via Step Functions Task interface.  Core: FSM
@@ -323,15 +345,6 @@ goal moves from serverless-first to stateless-first. The Finite State
 Machine represents the core "flowchart" of an app.  [Bonus: the label
 "serverless" gets demoted to a background character, & this moves
 towards platform independent serverless apps.]
-
-
-
-Perhaps a good label to use is "server love less architectures."
-Image siccing a Chaos Monkey on an intrusion of cockroach
-servers. That's the context within which one's architecture should be
-designed to thrive.  That's what serverless means to me.
-https://aws.amazon.com/fis/
-
 
 
 Step Functions based programs are composed of Lambdas and Activities,
@@ -381,11 +394,6 @@ design. Serverless/serverless-first ensures that the architecture's
 components have statelessness and disposability.
 
 Then Step Functions is where long state is maintained.
-
-Pros of #serverless as a label:
-1. Explicit design constraint: you cannot hug these servers
-2. Implicit test: ID the "I'm so clever" asshats
-
 
 
 # Cuboids: Serverless-first design pattern
