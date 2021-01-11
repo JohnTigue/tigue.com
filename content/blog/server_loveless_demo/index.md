@@ -12,6 +12,12 @@ https://github.com/MCluck90/simple-ssh
 Lambda and SSH: a.k.a. serverfull (CLI) serverless
 
 
+Something else seems to be going on in AWS compute in general:
+vanialla EC2 instances seem to be starting more quickly than the did
+previously. But that migth just be subjective delusion i.e. AWS has
+not been bragging about this.
+
+
 Once an architect sees the app as one or more Step Functions which
 have Tasks which are Docker images that can run on Lambda or ECS, the
 architecture need a new plumbing component: the thing running

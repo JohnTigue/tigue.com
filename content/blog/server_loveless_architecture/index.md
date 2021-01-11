@@ -1,15 +1,28 @@
 ---
-title: "Server Loveless Architectures"
+title: "Server Loveless Architecture"
 date: 2021-01-06T15:00:00-0800
 featuredImage: "./header.png"
 description: "A serverless-first app design pattern"
 ---
 
-# Title?
+# Server Loveless Architecture
 
 <img src="./header.png" width="100%"/> [Header: want step function
 logo with arrows to both Lambda and ECS both running/containing Docker
 logo i.e. the whale container ship]
+
+
+TL;dr: AWS has been playing match maker and it looks like Docker and
+serverless are getting married. Cloud native apps can now consist of
+stateless components packaged as Docker container images -- that run
+on on both AWS Lambda as well as other AWS compute services. The
+compoenents of an app need to be ochestrated via a (potentially)
+long-running stateful mechanism; on AWS, the best way to do that is
+Step Functions. To the table, Docker brings the packaging and the
+compute platform abstraction. Serverless brings the internal design of
+the packaged components i.e. stateless components a la 12-factor app
+design. AWS Lambda is now essentially just Docker billed by the
+millisecond.
 
 As usually re:Invent involved many announcements on multiple
 fronts. This writing focuses on broad architectural implications for
@@ -325,8 +338,8 @@ CloudShell, etc.
 
 Partially, the value of what is being proposed herein is what is
 absent. This is a way forward whereby there no longer needs to be a
-dual architecture of serverless and the more serverful rest. A single
-architectural design can now take center stage.
+dual architecture of serverless and rest, the old school serverful
+stuff. A single architectural design can now be the main focus.
 
 
 
