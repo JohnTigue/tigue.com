@@ -213,11 +213,14 @@ microservice coding style.
 
 
 
-The work performing nodes/states in a Step Functions state machine are
-known as Tasks. Workers to work to complete Tasks. In Server Loveless
-the boundary between a Step Function program and a Task is a line which (ideally)
-state does not cross. All state, conceptually, should stay within 
-the the Step Function state machine.
+The work performing nodes in a Step Functions state machine are known
+as
+[Tasks](https://docs.aws.amazon.com/step-functions/latest/dg/amazon-states-language-task-state.html).
+Workers perfrom some work to complete Tasks. In Server Loveless the
+boundary between a Step Function program and a Task is the line which
+(ideally) state does not cross. All state, conceptually, should stay
+within the the Step Function state machine. This holds for Tasks
+that simply invoke a Lambda and those that work with Activities.
 
 Step Functions based programs are composed of Lambdas
 and Activities, the innately stateless states in a (stateful) Step
@@ -366,7 +369,8 @@ if a GPU is called for or if a Lambda function needs to run longer
 than the fifteen minute AWS Lambda execution time limit.
 
 
-Design Docker components as stateless FSM nodes, which can run on both Lambda and ECS, both are interfaced with via Step Function APIs.
+Design Docker components as stateless FSM nodes, which can run on both
+Lambda and ECS, both are interfaced with via Step Function APIs.
 
 Serverless-first is most obviously about compute platforms but there
 are three main aspects:
@@ -419,15 +423,8 @@ the main value: sure, convenient orchestration of serverless Lambdas
 enabling integration with non-serverless code, via Activities
 performing Tasks.
 
-
-# Cuboids: Serverless-first design pattern
-
-Setting aside services, from a coder's perspective the main AWS
-service that enables serverless-first designs is Step Functions, which
-has already been adopted into the Boss machinery. There are already at
-least [eighteen Step Functions](https://github.com/jhuapl-boss/boss-manage/tree/master/cloud_formation/stepfunctions) in the Boss codebase. For example, the
-Downsample service involves [a Step Function](https://github.com/jhuapl-boss/boss-manage/blob/master/cloud_formation/stepfunctions/resolution_hierarchy.hsd) with an Activity which is
-a trivial wrapper for [the core code](https://github.com/jhuapl-boss/boss-tools/blob/master/activities/resolution_hierarchy.py).
+From a coder's perspective the main AWS
+service that enables serverless-first designs is Step Functions,
 
 Step Functions are programs – programs that just so happen to have
 explicitly defined state machines. Step Functions bring state to
@@ -467,38 +464,6 @@ start-up might. Sure, low fixed costs are nice but the core value of
 serverless for the Boss is its ability to scale massively to the
 demands of large neuroscience experiments.
 
-From the Boss codebase, it may not be obvious that Step Functions can
-orchestrate both serverless and server-based compute. Yet dig around
-in the source and it turns out that although the Boss Step Functions
-deal primarily with Lambdas, there are long running processes as task
-Activities.
 
-There are two perspectives from which the Boss can be seen as
-something to build upon. From an external perspective, analysis
-programs can be built which call on [the Boss REST APIs](https://docs.theboss.io/docs). For example,
-that is what was done by the labs involved in the MICrONS
-program. From an internal perspective, programs can be built as Step
-Functions which orchestrate Lambda and EC2 based components (the
-latter includes Docker containers). Currently some of the Step
-Functions are available for use via the external REST APIs. New
-functionality added within Cuboids will build upon the internal
-libraries via the private APIs i.e. the interfaces to the existing
-core Boss Lambdas and Step Functions.
-
-Consider the case of adding cuboid segmentation functionality. To the
-outside world the service will manifest as new methods added to the
-REST APIs. Inside AWS, The HTTP messages containing REST requests will
-be handled by AWS API Gateway (APIGW) which will initiate a Step
-Function instance to run a segmentation job. Some states will be
-Lambdas; some states might be long running Activities, say, EC2
-instances running chunkflow processes.
-
-Following the serverless-first design pattern, Cuboids will continue
-to build more Step Functions based programs that run within the
-platform. Any new Step Functions based code will not use heaviside,
-rather it will be written using the Python AWS CDK. This does not mean
-that removing heaviside from the codebase is a prerequisite to such
-novel processes. CDK can live peaceably alongside heaviside.
-  
   
   
