@@ -1,5 +1,5 @@
 ---
-title: "Server Loveless Architecture"
+title: "Server Loveless Cloud Apps"
 date: 2021-01-06T15:00:00-0800
 featuredImage: "./header.png"
 description: "A serverless-first app design pattern"
@@ -14,142 +14,181 @@ Loveless icon, top layer first:
 - Compute: https://commons.wikimedia.org/wiki/File:AWS_Simple_Icons_Compute_Amazon_EC2_Instance.svg
 - Or ascii: [</3]
 
+
 ## Abstract
 
-As announced during re:Invent 2020, AWS has been playing match maker:
-Docker and AWS Lambda have gotten hitched, erasing the hard boundary
-separating serverless from other compute machinery. 
+As announced during re:Invent 2020, AWS has been playing match maker.
+Docker and AWS Lambda have been hitched together, erasing the hard
+boundary separating serverless from other compute machinery. 
 
-Cloud native AWS apps, serverless or otherwise, can now consist of
-stateless components packaged as Docker container images -- images
-that can run on AWS Lambda as well as other compute services. The
-label "server loveless" is herein coined to refer to this new unified
-cloud architecture.
+Cloud native AWS apps can now be viewed through a lens whereby they
+consist of stateless components packaged as Docker container images --
+images that can run on AWS Lambda as well as other compute
+services. Since the components in such an architecture are
+conceptually stateless, a non-trivial app will need to be ochestrated
+via a potentially long-running stateful mechanism. On AWS, the best
+way to accomplish that is Step Functions.
 
-Since the components in such an architecture are stateless they need
-to be ochestrated via a (potentially) long-running stateful
-mechanism. On AWS, the best way to accomplish that is Step
-Functions. The core model of a server loveless architected app is
-Step Functions state machines orchestrating stateless Docker
-containers, regardless of what compute service they run on.
+The label "server loveless" is herein coined to refer to this new
+unified cloud architecture. The core model of a server loveless
+architected app is Step Functions state machines orchestrating
+stateless Docker containers, regardless of the specific compute
+service they run on.
 
 Now that AWS Lambda can be viewed as essentially just stateless Docker
 billed by the millisecond, serverless is dead; long live serverless.
 
 
+## Preface
+
+The imagined audience for this document is software developers and
+architects building new, cloud-native apps atop AWS.
+
+This document has been structured such that the reader can start at
+the beginning and stop reading before the end yet still get the
+idea. The later sections expand on the earlier, terser ones.
+
+The progressively more detailed narative has been extended beyond the
+bounds of this single document; there is a companion post. This post
+focuses on the high-level mental model, and separately the companion
+post gets into the nitty-gritty of an example with code. The latter
+also addresses framework code required to actually implement the
+concepts introduced herein, that is how exactly is a Lambda function
+migrated off of AWS Lambda actually made scalably and highly available
+as an Activity which can do work for a Step Functions state machine.
+
+
 ## Introduction
-
-This new architectural design pattern needs a name. The phrase "server
-loveless architecture" is herein coined as a lighthearted label for
-cloud-native AWS apps that follow a serverless-first architecture
-wherein Docker is the basis of compute, rather than AWS Lambda. The
-twisting of the label "serverless" into "server loveless" is an
-attempt to pay homage to the valuable contributions of serverless
-while also deemphasizing that goofy marketing term -- a term which,
-moving forward, simply refers to a core subset of best practices for
-cloud-native app design.
-
-In terms of contribution to the server loveless mindset, Docker brings
-to the table the component packaging as well as the compute platform's
-abstractions and infrastructure (control plane, auto-scaling,
-etc.). Serverless brings the internal design of the packaged,
-stateless components i.e. components built according to 12-factor app
-design. Step Functions' contribution is orchestration which can bridge
-AWS Lambda and other computer services. 
-
 
 As is usual for an AWS re:Invent conference, the 2020 edition involved
 [many announcements on multiple
 fronts](https://aws.amazon.com/blogs/aws/aws-reinvent-announcements-2020/). This
-writing is the result of sifting through the implications thereof and
-then attempting to synthesize a response from a cloud architect's
-perspective. Server Loveless is the label I am using for a
-cloud-native, AWS-based application design pattern which is a
-refinement of the serverless-first mindset that reflects what AWS
-rolled out last month.
+document presents the results of sifting through those for the
+implications affecting cloud architects. In particular, there have
+been certain developments which eable an architect to view AWS
+cloud-native apps through the existing lens but with a new focus.
+
+The particular re:Invent announcements that inspired this writing are:
+- [New for AWS Lambda – Container Image Support](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/)
+- [Introducing AWS Step Functions integration with Amazon EKS](https://aws.amazon.com/blogs/containers/introducing-aws-step-functions-integration-with-amazon-eks/)
+- [New for AWS Lambda – 1ms Billing Granularity Adds Cost Savings](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-1ms-billing-granularity-adds-cost-savings/).
+
+AWS is aligning Lambda and Docker, such that Lambda can be looked at
+as simply another flavor of Docker available at the AWS compute
+buffet. Arguably, this is evolutionary not revolutionary but it is a
+significant refocusing which simplifies the mental model. This is how
+cloud-native apps on AWS will be built this decade.
+
+In response to these announcements, "server loveless" is the
+light-hearted label herein coined for a cloud-native, AWS-based
+application design pattern which is a refinement of the
+serverless-first mindset. The twisting of the label "serverless" into
+"server loveless" is an attempt to pay homage to the valuable
+contributions of serverless while also deemphasizing that fuzzy
+marketing term -- a term which, moving forward, simply refers to a
+core subset of best practices for cloud-native app design.
+
+The ideal structure of a server loveless app is that of Step Functions
+orchestrating components which are all stateless Docker container
+images, running on AWS Lambda as well as other AWS compute services.
 
 Partially, the value of what is being proposed herein is what is
-absent. This is now a way forward whereby there no longer needs to be a
-dual architecture of serverless and the rest -- the latter being the
-old school serverful stuff. A single architectural design can now be
-the main focus. 
-
-Further, this is also a way forward where development can continue, on
-AWS for now but with an eye towards the long term goal of vendor
-agnostic cloud apps.
-
-[Hybrid is the Straussian way of saying "positioning in a non-AWS
-dependent direction" rather that "vendor neutral" which is more
-confrontational.]
-
-
-
-
-This time, there have been certain developments
-which eable an architect to view AWS cloud-native apps (read:
-serverless-first apps) through the existing lens but with a new
-focus. The main idea is that Step Functions orchestrates components
-which are all serverless-first designed Docker images, running on both
-Lambda for purely serverless Tasks and ECS for more resource intensive Activities).  AWS is aligning Lambda
-and Docker, where Lambda can be looked at as simply another flavor of
-Docker available at the AWS compute buffet.  This is how cloud-native
-apps on AWS will be built this decade.
-
-
-AWS Lambda is now essentially just Docker billed by the millisecond,
-yet it just so happens to enforce multiple architectural best
-practices that should be followed, on Lambda and beyond. Docker mostly
-just provides the compute cluster operating system. Step Functions is
-the central nervous system orchestrating the app components that run
-on Docker (which might incidentally be billed under the AWS Lambda brand,
-or multiple other compute services).
-
-yet also reflect recent innovations which are reducing the
-significance of AWS Lambda. The enduring significance of
-serverless is more about the architectural goals and coding best practices
-and less about Lambda  specific compute product service fo
-Lambda started the serverless movement
-
-
-[Header: at top, step function
-logo puppet stringing into Docker zone, wherein there are both Lambda
-and ECS, EC2, and EKS running/containing Docker logo i.e. the whale
-container ship in all 4:
-https://www.docker.com/company/newsroom/media-resources]
-
+absent. For serverless-first designs there is now a way forward
+whereby there no longer needs to be a dual architecture of serverless
+and the rest -- the latter consisting of machinery where the compute
+does not occur on AWS Lambda. A single architectural design can now be
+the main focus.
 
 
 ## Terminology
 
-Let us call that server loveless because no servers
-are put on a pedastal [TODO: less idiomatic possible?].
+In order to avoid confusion, a few terms used herein deserve some
+explanation because they are thrown around amongst practitioners with
+fuzzy and sometime contradictory definitions.
+
+**Cloud native**  
+
+A lot of cloud work is simply "lift & shift migration." This involves
+legacy code moved from on-premise to cloud-based deployment.  In
+contrast, cloud native implies new code written to take advantage of
+what cloud providers enable including massive scalability and fully
+managed services. Serverless is the quintessential cloud-native
+technology. Simply exchanging bare metal ownership for a rental model
+is not what cloud-native is about.
+
+
+**Stateless**  
+
+Stateless is not the same as pure functional programming. Pure
+functional by definition has no side effects. In the server loveless
+model, components are still allowed to use things which may have side
+effects such as networks, object stores, databases, etc. 
+
+In server loveless, part of the statelessness is implemented via
+dependency injection i.e. things like specific S3 bucket ARNs are
+passed into a component during invocation rather than being hardcoded
+within the component. The stateful behavior is encapsulated within the
+referenced services, not the Docker hosted component.
 
 
 
-In this document, "Docker" is standing in for any containerization
-machinery. Kubernetes can run non-Docker containers. So, Docker is
-being used loosely. The same points apply to the other container
-systems.
 
-serverless-first
 
-"Serverless is dead; long live serverless!" is obviously meant
-humorously. It is not intended to be taken as being in the camp with
-the naybobs who pooh-pooh serverless. In their defense, there are some
-legacy codebases that are not good candidates for serverless, and we
-may we be at a point where the low-hanging fruit of serverless-able legacy
-code has already be harvested and made serverless. The reality is that the world has moved
-towards serverless and any greenfield project should be designed a la serverless-first.
+
+
+What is meant herein by stateless component is:
+- a component starts without state
+- is instructed by Step Function to perform a Task
+  - The Task's input Parameters fully describes the task to perform
+  - Side effectable services are described as ARNs in a dependency injection style 
+    - E.g., "use this S3 bucket" or "use that DynamoDB table"), 
+- and upon completion the component is assumed to be disposed of (killed before it can die or go off into the weeds).
+  - E.g. anything written to the local file system in /tmp is assumed to be tossed (of course, beware the abstration leak where Lambda reuse containers. In this situation old files may stick around for a while.)
+  
+Lambda functions are naturally stateless. Lambda functions are the
+simpliest Step Function Task implementor. Server loveless simply
+extends the statelessness assumption to all components, even those not
+running on AWS Lambda.
+
+**Serverless**  
+Serverlessstarted as AWS Lambda and then spread throughout the AWS
+ecosystem. At this time, essentially stateless components with compute
+provisioned on-demand, with billing occurring only for what is used
+(which is all the more true now that Lambda billing happens in 1ms
+increments). Serverless also implies fully managed services. So,
+serverless now means stateless components with light upfront costs in
+terms of billing and devops time.
+
+Serverless implies leveraging fully managed services
 
 E.g. say your storage and DB are horizontally web scalable. What would
 be the minimum impedance mismatch for allocating compute? #serverless
 
-1. Explicit design constraint: you cannot hug these servers
+**Serverless-first**__
+
+Serverless-first is AWS serverless centric microservices-based
+architecture, where non-serverless tech is used only if necessary.
 
 
-Stateless
+**Serverless is dead; long live serverless!**  
 
-Loveless servers as in how [FNGs](https://en.wikipedia.org/wiki/FNG_syndrome)
+This phrase is obviously meant humorously. It is not intended to be
+taken as being in the camp with the naybobs who pooh-pooh
+serverless. In their defense, there are some legacy codebases that are
+not good candidates for serverless, and we may we be at a point where
+the low-hanging fruit of serverless-able legacy code has already be
+harvested and made serverless. The reality is that the world has moved
+towards serverless and any greenfield project should be designed a la
+serverless-first.
+
+Serverless is becoming less about features of specific compute
+services and more about coding practices (statelessness, horizontal
+scalability, high availability, etc.).
+
+**Loveless**__
+
+- Explicit design constraint: you cannot hug these servers
+- Loveless servers as in how [FNGs](https://en.wikipedia.org/wiki/FNG_syndrome)
 were perceived: transient and prone to failure. Loveless as in it is wise not to form attachments.
 
 Perhaps a good label to use is "server love less architectures."
@@ -158,7 +197,8 @@ servers. That's the context within which one's architecture should be
 designed to thrive.  That's what serverless means to me.
 https://aws.amazon.com/fis/
 
-
+Let us call that server loveless because no servers
+are put on a pedastal [TODO: less idiomatic possible?].
 
 I've decided to use the term "server loveless architecture" as the
 label for what is presented herein. This term is obviously wordplay
@@ -174,13 +214,62 @@ do except "intrusion" already has a negative definition in
 software-land.
 
 
-One last bit of defining terminology. ECS (Elastic Container Service)
-will be the stand in for "non Lambda compute." The point is: some
-Docker platform.  It could be stood-up on EC2 or Fargate. Or, perhaps
-the best stand in would be EKS (Amazon Elastic Kubernetes Service),
-give the following re:invent announcement, [Introducing AWS Step
-Functions integration with Amazon
-EKS](https://aws.amazon.com/blogs/containers/introducing-aws-step-functions-integration-with-amazon-eks/)
+
+## Conceptual overview
+
+A cute label, such as server loveless, in nice for Diffusion of
+Innovation purposes. More important is the value proposition
+associated with the label. Server loveless is comprised of three main
+concepts: serverless-first, Step Functions, and Docker.
+
+[TODO: Image: 
+- at top, step function logo 
+- puppet stringing into Docker zone
+- wherein there are both Lambda and ECS, EC2, and EKS running/containing Docker logo 
+- i.e. the whale container ship in all 4
+  - https://www.docker.com/company/newsroom/media-resources
+- Prior art:
+  - https://medium.com/better-programming/aws-lambda-now-supports-container-images-bff86b0f62b1
+]
+
+Docker mostly just provides the compute cluster operating system. Step
+Functions is the central nervous system orchestrating the app
+components that run on Docker (which might incidentally be billed
+under the AWS Lambda brand, or multiple other compute services).
+
+In terms of division of labor, Docker handles the low-level physical
+model of a compute cluster. Server loveless delegates higher level,
+logical structuring to Step Functions.
+
+In terms of contribution to the server loveless mindset, Docker brings
+to the table the component packaging and delivery as well as the
+compute platform's abstractions and infrastructure (control plane,
+auto-scaling, etc.). Serverless brings the internal design of the
+packaged, stateless components i.e. components built according to
+12-factor app design. Step Functions' contribution is orchestration
+which can bridge AWS Lambda and other computer services, including
+those external to AWS such as on-premise and and other cloud providers
+as needed.
+
+
+AWS Lambda is now essentially just Docker billed by the millisecond.
+Nonetheless, serverless started as AWS Lambda. The associated design
+requirements of Lambda-based compute enforced multiple architectural
+best practices that should continue to be followed, on Lambda and
+beyond. This is what is meant by "serverless is dead; long live
+serverless."
+
+
+yet also reflect recent innovations which are reducing the
+significance of AWS Lambda. The enduring significance of
+serverless is more about the architectural goals and coding best practices
+and less about Lambda  specific compute product service fo
+Lambda started the serverless movement
+
+
+
+
+
 
 There are two perspectives from which to consider these developments:
 the economic and the technical. Let's first briefly discuss the
@@ -243,19 +332,30 @@ components have statelessness and disposability. Then Step Functions
 is where long state is maintained, for example to handle a retry after
 a failure.
 
+[A nice feature of this style is that the compute is just generic
+cloud-able containerized tech i.e. Docker, Kubernetes, etc. The AWS
+specific aspects are confined to Step Functions and the services. The
+logic within the containers is the core and should be more amenable to
+hybrid deployment.] This leads to positioning to functioning markets
+based on pricing competition. Even if the code stays inside AWS, they
+are very aggressive in terms of pricing for some generic services. So, 
+savings are still realizable within AWS.
 
 
 ## The technical perspective
+
 
 [Boundaries](https://www.destroyallsoftware.com/talks/boundaries] talk
 by Gary Bernhardt Server Loveless is boundaries applied to cloud apps
 i.e. the Dockerized components are the functional internals and the
 Step Functions are the imperative surface things (including how
-invokes, say, by API GW)
-Stateless Docker components means they are easy to test.
-The interface between Step Functions and a component is where dependency injection can be applied
-"Do the following task, and use these resources (e.g. S3 buckets and DynamoDB databases) as your persistance"
-AWS IAM policies and roles help in ensuring that some supposedly stateless component really is not painting outside the lines prescribed.
+invokes, say, by API GW) Stateless Docker components means they are
+easy to test.  The interface between Step Functions and a component is
+where dependency injection can be applied "Do the following task, and
+use these resources (e.g. S3 buckets and DynamoDB databases) as your
+persistance" AWS IAM policies and roles help in ensuring that some
+supposedly stateless component really is not painting outside the
+lines prescribed.
 
 Core: FSM apps on cloud with nodes as stateless servers.
 
@@ -291,6 +391,9 @@ statelessness, are the real value of serverless. Now we can focus on
 the component Function -- packaged as a Docker container image,
 interfaced with a la Step Functions -- and run it on whichever compute
 platform is appropriate.
+
+Nice detail: the container images can be as large as 10GB, rather than
+the 250MB limit with Lambda layers.
 
 These developements enable a Docker centric refinement to the
 serverless-first mentality. Things become clearer in that the various
@@ -401,7 +504,7 @@ Think of it as similar to TDD:
 - write tests that call into that intentionally failing dummy implementation
 - finally start writing the real implementation atop that dummy code
 
-Well, with server loveless start with a Lambda Function running on
+Well, with server loveless start with a Lambda function running on
 Lambda. Get it running to some level of performance. Then if, say,
 some code really could benefit from a GPU (which are not available on
 Lambda), well, then migrate that stateless Function to some other Docker
@@ -410,7 +513,7 @@ platform which has GPUs available.
 
 The goal is for all state to reside in a Step Function state machine,
 and the individual nodes in the graph, the States, to be stateless. In
-the early days of Step Functions that obviously meant Lambda Functions
+the early days of Step Functions that obviously meant Lambda functions
 which are by nature stateless. Now we can extend it to where Functions
 run stateless on Lambda or other longer running compute services. This
 is a natural process in serverless-first designs and AWS is making it
@@ -444,9 +547,9 @@ packaged as a Docker container image and the image can be deploy to
 AWS Lambda. So, the next step (the architectural refinement) is to
 have an autoscaling Docker set-up which maintains a pool of compute
 ready to service a Step Function by running the Docker image
-containing the same Lambda Function but now, from the Step Functions
+containing the same Lambda function but now, from the Step Functions
 perspective, it is seen as an Activity not a Lambda Task. The Docker
-conatiner within which the Lambda Function runs is an activity worker.
+conatiner within which the Lambda function runs is an activity worker.
 With this change of perspective, a serverless-first app's development
 can start as a pure serverless Step Functions app (i.e. involving no
 Activities) and as the code complicates, add in other compute

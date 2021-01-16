@@ -5,11 +5,13 @@ featuredImage: "./header.png"
 description: "A demonstration of the server loveless app design pattern"
 ---
 
+
+
 Since we can (usually) SSH into Docker containers, might want to set up
 Lambda for SSH:
 https://medium.com/clog/ssh-ing-into-your-aws-lambda-functions-c940cebf7646
 https://github.com/MCluck90/simple-ssh
-Lambda and SSH: a.k.a. serverfull (CLI) serverless
+Lambda and SSH: a.k.a. serverful (CLI) serverless [JFT: really? this "serverful" sounds lame]
 
 
 Something else seems to be going on in AWS compute in general:
@@ -130,6 +132,31 @@ in Python."). That might be more the some of thing.
 
 These Activity servers should send heartbeats back to Step Funcions
 for really long runs.
+
+[The follow may not make sense. There may be no value from using the
+Lambda base images off of Lambda.  Note the announcement says: "We
+also have base images for custom runtimes based on Amazon Linux that
+you can extend to include your own runtime implementing the Lambda
+Runtime API."  So, if the Activity server FROMs upon a generic Amazon
+Linux image, that is probably the way to get sameness in the base.]
+So, it would be very nice to take [AWS' base images for Dockerized
+Lambdas](https://aws.amazon.com/blogs/aws/new-for-aws-lambda-container-image-support/)
+and have a Docker layer which builds FROM them which brings in
+Activity server machinery, such as stefuna. This then becomes the
+gereric framework base images for server loveless component to be
+package with.  Some the main goal is to deploy some specific Lambda:
+same code but different Dockerfiles during build [So, 3 build targets:
+localhost, Lambda, Kubernetes. (Maybe localhost is just a tooling
+thing: "We are also releasing as open source a Lambda Runtime
+Interface Emulator that enables you to perform local testing of the
+container image and check that it will run when deployed to Lambda.")
+As mentioned in the announcement: "following the Docker best practices
+of multi-stage builds." Also note the entry.sh, which shall be the
+point where the Activity server invokes the Lambda Function.  ]
+
+
+
+So, to package for Lambda, FROM AWS' base images. For non-Lambda deploys, FROM upon the generic framework base image.
 
 ### The shim
 
