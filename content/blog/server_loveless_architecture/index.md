@@ -1,11 +1,11 @@
 ---
-title: "Server Loveless Cloud Apps"
+title: "Server Loveless Cloud Architecture"
 date: 2021-01-06T15:00:00-0800
 featuredImage: "./header.png"
 description: "A serverless-first app design pattern"
 ---
 
-# Server Loveless Architecture
+# Server Loveless Cloud Architecture
 
 <img src="./header.png" width="100%"/> 
 Loveless icon, top layer first:
@@ -102,31 +102,33 @@ the main focus.
 
 ## Terminology
 
-A few terms deserve a definition as intended herein, in order to avoid
+A few terms deserve definition as intended herein, in order to avoid
 confusion, since they are thrown around amongst practitioners with
-fuzzy and sometime contradictory definitions.
+fuzzy and sometime contradictory definitions. 
+
+[TODO: kill? These definition alone provide a sketch of server loveless.]
 
 ### Cloud native
 
 A lot of cloud work has been simply "lift & shift migration." This
 involves legacy code moved from on-premise to cloud-based deployment.
 In contrast, cloud native implies new code designed from the start to
-take advantage of capabilities cloud providers enable, ranging from
-bare virtual machines to massively scalable, fully managed
-services. Simply exchanging bare metal ownership for a rental model is
-not what cloud-native is about. Serverless is the quintessential
-cloud-native technology.
+take advantage of capabilities cloud platforms enable, ranging in
+sophistication from bare virtual machines to massively scalable, fully
+managed services. Simply exchanging bare metal ownership for a rental
+model is not what cloud-native is about. Serverless is the
+quintessential cloud-native technology.
 
 
 ### Serverless
 
 Serverless started as AWS Lambda and then spread widely throughout the
 AWS ecosystem. From the cloud provider's perspective, serverless was
-motivated as providing a plug-in hook for customers code logic to be
+motivated as providing plug-in hooks for customers' code logic to be
 run in association with the platform's internet scale, fully managed
-services. Once an app's support services, say, object storage and DB
-were super-scalable, there needed to be a compute mechanism with low
-impedance mismatch: serverless Lamdba.
+services. Once an app's support services, say, object store or
+datbase were super-scalable, there needed to be a compute mechanism
+with low impedance mismatch: serverless Lamdba.
 
 Part of the serverless value proposition is purely financial as
 reflected in billing statements. In serverless, compute resources have
@@ -144,36 +146,32 @@ pairs well with fully managed services; something has to implement the
 persistant data and fully managed means less devops manual
 care-and-feeding of such machinery.
 
-So, serverless now essentially means scalable microservice
-architectures with stateless computing components with light upfront
-costs in terms of billing and devops. It is becoming more a collection
-of design patterns for cloud native applications than anything else.
+So, serverless now essentially refers to a set of architectural
+features: scalable microservice provisioning, stateless computing
+components, purely variable costs, and minimized devops related cost
+of ownership via fully managed services. It is becoming more a
+collection of design patterns for cloud native applications than
+anything else.
 
 
 ### Serverless-first
 
-Serverless-first is an architectural style label that expresses the
-desire to solve problems using cloud-native serverless technologies
-while acknowledging that not everything can be done serverless and on
-AWS Lambda. The simplest argument might be any situation where a GPU
-would come in very handy.
-
-Server loveless is simply a refinement of serverless-first which has a
-unified mental models of both serverless and that which cannot be
-implemented given the current limitations of Lambda and friends.
-
-Serverless-first architecting reaches first for the serverless toolbox
-and falls back to non-serverless tech only if necessary.
+Serverless-first is a label for an architectural style that desires to
+solve problems using cloud-native serverless technologies while
+acknowledging that not everything can be implemented serverless. The
+simplest argument might be any situation calling for a
+GPU. Serverless-first architecting reaches first for the serverless
+toolbox and falls back to non-serverless tech only if requied.
 
 
 ### Software architect
 
-An "architect" is one who draws up the blueprints of a design. The term
-sounds highfalutin but the object being specified could range from a
-backyard bikeshed to a skyscraper. "Architect" is simply the label for
-the role of the designer. A "software architect" could be designing a
-static web site or a petascale volumetric database which performs
-ML-based object detection.
+An "architect" is the one who draws up the blueprints of a design. The
+term sounds highfalutin but the object being specified could range
+from a backyard bikeshed to a skyscraper. "Architect" is simply the
+label for the role of the designer of a functional object. A "software
+architect" could be designing a static web site or a petascale
+volumetric database which performs ML-based object detection.
 
 
 ### Stateless
@@ -182,49 +180,45 @@ Stateless is not meant to imply pure functional programming. Pure
 functional by definition has no side effects. In the server loveless
 model, compute components are still conceived of as interacting with
 things that may have side effects such as networks, object stores,
-databases, etc. Stateless means that no state is assumed to persist
-between invocations of a component (even if by some abstraction
-leakage that actually can happen, as is the case with AWS Lambda). The
-app's system is designed assuming that servers die and such cases have
-to be handled elegantly.
+databases, etc. 
 
-In server loveless designs, one technique for achieving statelessness
-is via dependency injection. That is, rather than being hardcoded
-within a component, things which do contain state -- such as a
-specific S3 bucket -- are during invocation passed in by reference
-(read: ARNs). The stateful behavior is encapsulated within the
-referenced services, not the Docker hosted component. Only highly
-fault tolerant services are used this was, such as S3, DynamoDB, SQS,
-and the other cloud usual suspects.
+Stateless means that no state is assumed to persist between
+invocations of a component. The app's system is designed assuming
+that servers die and such cases have to be handled elegantly. The
+simpliest way is to start the machine from zero at each interaction.
 
-The envisioned lifecycle of a stateless component is:
+The envisioned lifecycle of a stateless compute component is:
 - A component instance starts without state
-- The component is instructed by Step Function to perform a Task
-  - The Task's input Parameters fully describes the work to perform
-  - Identities of side-effecting services are dependency injects as ARNs
-- Upon Task completion the component is assumd to be disposed of
+- The component is instructed to perform some task.
+- During task performance the component gets into some state
+- Upon task completion the component is assumed to be disposed of
 
 Being disposed of means that any internal state is destroy. The
-compute instance is assumed killed before it can die or go off into
-the weeds. E.g. anything written to the local file system in /tmp is
-assumed to be tossed.
+compute instance is killed before it can die or go off into
+the weeds. For example, anything written to the Lambda instance's
+local file system in /tmp is assumed to be erased. As such, any long
+lasting information needs to be persisted outside the Lambda instance,
+preferably in very durable machinery which can also scale with Lambdas
+horizontal scalability (read: S3, DynamoDB, etc.).
 
-Of course, beware abstration leaks such as how Lambda reuses
-containers. In this situation old files in /tmp may stick around for a
-while, but this has always been the case with serverless.
+Of course, one must be aware of abstration leaks such as how Lambda
+reuses containers. In this situation old files in /tmp may stick
+around for a while, but this has always been the case with
+serverless. So, in AWS, "stateless" is a leaky abstraction for real
+world computer engineering not a pure computer science concept.
 
 
 ### Loveless
 
 The above defitions provide movitivation for the choice of adopting
-the word "loveless" into this architecture's name. (And geeks cannot
-help themselves with punny wordplay, it seems.)
+the word "loveless" into this architecture's name. (And, seemingly,
+geeks cannot help themselves with punny wordplay.)
 
 "Loveless" implies a design constraint that one cannot hug such
 servers. The unloved servers are treated like the Vietnam War's
-[FNGs](https://en.wikipedia.org/wiki/FNG_syndrome): considered
+[FNG](https://en.wikipedia.org/wiki/FNG_syndrome): considered
 transient and prone to failure. Loveless as in it is wise not to form
-attachments.
+emotional attachments.
 
 Loveless as in no servers are put on a pedastal. The servers are
 treated like cattle, not like sacred cows. Indeed some are even
@@ -236,12 +230,12 @@ sacrifial, killed off in
 
 This phrase is obviously meant humorously. It is not intended to be
 taken as being in the camp with the naybobs who pooh-pooh
-serverless. One of the best arguments from that camp can be found in 
-[Why the Serverless Revolution Has Stalled](https://www.infoq.com/articles/serverless-stalled/).
+serverless. (One of the best arguments from that camp can be found in 
+[Why the Serverless Revolution Has Stalled](https://www.infoq.com/articles/serverless-stalled/).)
 
 In the naybobs defense, there are some legacy codebases that are not
-good candidates for serverless. Addtionally, the industry may we be at
-a point where the very low-hanging fruit of serverless-able legacy
+good candidates for serverless. Addtionally, the industry may well be
+at a point where the very low-hanging fruit of serverless-able legacy
 code has already be harvested and made serverless. The reality is that
 the world has moved towards serverless and any greenfield project
 should be designed a la serverless-first.
@@ -249,10 +243,47 @@ should be designed a la serverless-first.
 Serverless is becoming less about the features of specific compute
 services and more about cloud coding best practices (failure resiliant
 statelessness, horizontal scalability, high availability, etc.). As
-such it can be de-emphasized and taken as simply par for the course.
+such it can be de-emphasized and taken as simply par for the
+course. And, hint-hint, it would be nice to have a mental model which
+adopts the more valuable practices of serverless and yet also
+addresses non-serverless machinery similarly.
 
 
 ## Conceptual overview
+
+Server loveless is simply a refinement of serverless-first with a
+mental models which unifies both serverless and that which cannot be
+implemented given the current limitations of Lambda and friends. Like
+serverless first, server loveless reaches first for the serverless
+toolbox and falls back to non-serverless tech only if necessary. The
+refinement over serverless first is that the same coding practices of
+serverless are extended to the non-serverless components of the
+architecture, if possible. 
+
+The new Docker container support in Lambda
+is what enables the same mental model to be applied to both -- that
+and a bit of framework shim code which runs Lambda functions outside
+of Lambda
+
+
+
+
+In server loveless designs, one technique for achieving statelessness
+is via dependency injection. That is, rather than being hardcoded
+within a component, things which do contain state -- such as a
+specific S3 bucket -- are during invocation passed in by reference
+(read: ARNs). The stateful behavior is encapsulated within the
+referenced services, not the Docker hosted component. Only highly
+fault tolerant services are used this was, such as S3, DynamoDB, SQS,
+and the other cloud usual suspects.
+- The component is instructed by Step Function to perform a Task
+  - The Task's input Parameters fully describes the work to perform
+  - Identities of side-effecting services are dependency injects as ARNs
+
+
+
+
+
 
 A cute label, such as server loveless, in nice for Diffusion of
 Innovation purposes. More important is the value proposition
