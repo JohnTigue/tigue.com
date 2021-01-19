@@ -270,10 +270,11 @@ preferably in very durable machinery which can also scale with Lambdas
 horizontal scalability (read: S3, DynamoDB, etc.).
 
 Of course, one must be aware of abstration leaks such as how Lambda
-reuses execution environments. In this situation old files in /tmp may stick
-around for a while, but this has always been the case with
-serverless. So, in AWS, "stateless" is a leaky abstraction for real
-world computer engineering not a pure computer science concept.
+reuses execution environments (read: containers). In this situation
+old files in /tmp may stick around for a while, but this has always
+been the case with serverless. So, in AWS, "stateless" is a leaky
+abstraction for real world computer engineering not a pure computer
+science concept.
 
 
 ## History
@@ -444,15 +445,52 @@ will not be part of build processes. That functionality will simply be
 provided via layered Dockerfiles.
 
 Lambda deployable Docker images can be a large as 10 GB, a significant
-increase over the previous limit of 250MB achievable via Lambda
+increase over the previous limit of 250MB achievable using Lambda
 layers.
 
 Lambda is becoming simply an operationally simple Docker service --
 one that is very much an AWS-only thing, acting as glue binding
-serverless services of AWS.
+serverless services of AWS to execute a workflow program.
 
 
 ## The Loveless model
+
+A three layer architecture for cloud deployed microservice
+applications. The three layers consist of a container compute
+substrate, stateless components floating within the substrate, and a
+central conductor leading the orchestra of components.
+
+At the bottom is the compute substrate, ones little cloud condensed
+out of the computational ether. It is simply something that runs
+Dockerfile specified containers. The serverless-or-not duality is no
+more.
+
+### Compute marketplace scatter plot
+
+The products on the cloud compute market can be scatter plotted along
+two axes of compute time versus ease-of-use. The compute time axis
+ranges from by-the-millisecond to bulk purchasing. Products are sorted
+on that axis according to the amount of compute purchased per product
+unit. On the small end is "purchase by the millisecond" where, for
+example, Lambda would be found. From there the unit size increases to
+renting computers by the hour, month, or longer. 
+
+Of course this is an oversimplification; a simple scatter plot can
+only represent two dimensions. Sorting solely by compute time does not
+fully represent the complexity inherent in the myriad dimensions of
+compute such as memory size, CPU type, GPU options, etc. Nonetheless
+the mental model is useful.
+
+The ease-of-use axis ranges from pre-assembled to roll-your-own. The
+pre-assembled end is where serverless offers are, examples being
+Lambda and Fargate. At the other end of the spectrum, if necessary one
+can build a custom container compute system from scratch on EC2 and
+tweak it out to whatever specialized needs are called for.
+
+
+
+
+
 
 The new Docker container support in Lambda is what enables the same
 mental model to be applied to both serverless and other compute
@@ -760,6 +798,22 @@ Lambda and ECS, both are interfaced with via Step Function APIs.
 
 ### Loveless Activity server
 
+https://aws.amazon.com/blogs/compute/working-with-lambda-layers-and-extensions-in-container-images/
+> For Lambda, a container image includes the base operating system,
+> the runtime, any Lambda extensions, your application code, and its
+> dependencies. Lambda provides a set of open-source base images that 
+> you can use to build your container image...
+> You can build your own custom runtime images starting with AWS
+> provided base images for custom runtimes. You can add your preferred
+> runtime, dependencies, and code to these images. To communicate with
+> Lambda, the image must implement the Lambda Runtime API. We provide
+> Lambda runtime interface clients for all supported runtimes, or you
+> can implement your own for additional runtimes.
+
+So a Loveless Activity server provides a Lambda equivalent runtime and
+a mechanism for interfacing with Step Functions in the role of an
+Activity.
+
 In the past, serverless-first has meant starting with AWS Lambda plus
 Step Functions and bringing in other AWS computer services as needed
 via Activity Workers for use by Step Functions. Now a Lambda function
@@ -920,7 +974,7 @@ serverless or not), sometimes AWS wants way too much money in return
 for simply removing a hassle.
 
 
-## Conclusion
+## Further work
 
 Finally, although this manifesto is not calling for it, the idea of an
 open source implementation of Step Functions feels imminent. Given the
@@ -930,11 +984,12 @@ will be a Docker based cloud provider agnostic way of writing super
 scalable applications.
 
 Compared to an open source Step Functions, there is a lot less code
-required to implement a Loveless Activity server. The Loveless Activity
-server alone would complete a set of valuable technologies with immediate
-utility. Mature apps could be written following the Loveless architecture.
-Of course, they could only run on AWS. At that stage, Loveless is simply
-a clear, unified model for building cloud-native AWS apps.
+required to implement a Loveless Activity server. The Loveless
+Activity server alone would complete a set of valuable technologies
+with immediate utility. Mature apps could then be written following
+the Loveless architecture. Of course, they would only run on AWS. At
+that stage, Loveless is simply a clear, unified model for building
+cloud-native AWS apps.
 
 Later, an open source Step Function service would allow apps to be
 multi-cloud portable, modulo any dependencies on AWS specific such at
@@ -951,6 +1006,11 @@ happen for things like the NoSQL database. That is, there will be a
 100% compatible replacement for DynamoDB. Vendor agnostic cloud apps
 are coming. The vendors will be fungible for the disciplined
 architect, enabling viscious pricing competition.
+
+Docker by the millisecond
+
+
+[Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview)
 
 
 
