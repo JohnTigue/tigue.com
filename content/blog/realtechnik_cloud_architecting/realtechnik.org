@@ -1,0 +1,105 @@
+* Realtechnik of cloud architecting
+
+One step back, two forward: More AWS, but Dockerized.
+  
+
+  
+Significant but non-core parts of the bossDB codebase (the red boxes
+in the previous diagram) are simply deployments of existing open
+source components which just so happens to be platform neutral,
+non-serverless tech. Vendor neutrality is a good thing but Cuboids
+consciously jettisons that feature in the interests of accelerating
+innovation via improved developer velocity and reduced devops
+workload. Perfectly good open-source component of the Boss will be
+replaced with equivalent AWS fully managed services.
+
+This document is entitled "The Cuboids Manifesto" in reference to the
+"[[https://www.youtube.com/watch?v=s1AiBi5gf1s][manifesto]]" documents that circulate within the Swift programming
+community (as well as acknowledging that this document is a bit
+long). A Swift manifesto serves to introduce a proposal which is
+larger in scope than a single, small, specific idea. This document
+follows that lighthearted nomenclature, in order to highlight that
+there is a [[https://www.ribbonfarm.com/2012/08/16/realtechnik-nausea-and-technological-longing/][realtechnik]] "philosophy" driving the decisions behind what
+is proposed herein.
+
+There are two main assumptions to the argument:
+- The original Boss codebase can only be deployed on AWS
+- Very large datasets (in particular, the MICrONS data on AWS) are rather immobile
+
+As to the former assumption, normally it is ideal if open source code
+is platform vendor neutral. Yet falling short of such ideals there are
+still benefits to the open source way, for example, innovation shared
+throughout a community of users. The Boss, given its AWS serverless
+engine, is very much not vendor neutral. For example, the Boss makes
+use of AWS Step Functions. Unfortunately there is currently no
+equivalent abstraction available which works on other cloud platforms
+(which seems odd but c'est la vie).
+
+Given the AWS technologies already adopted in the bossDB codebase,
+Cuboids accepts and runs with the reality of AWS lock-in, probably in
+perpetuity. It is arguably a bit perverse for open source to be tuned
+up just for a single commercial cloud platform, but the hypothesis
+herein is that by doing so it will make it much easier for other
+organizations to deploy BossDB, thereby speeding up the diffusion of
+innovation.
+
+The latter assumption acknowledges the inertia of peta-scale
+datasets. The MICrONS data is already in AWS S3. Other smaller
+datasets are also accreting in Boss deploys on AWS. So code which
+analyzes these datasets yet only runs on AWS is not a major
+negative. Of course, this too is gradually leading to more AWS lock
+in. Other cloud vendors are missing out on an emerging industry
+sector. Obviously it is not the biggest sector in terms of users but
+this is heading towards exo-scale datasets which is not insignificant.
+
+Datasets on such a scale as that of the MICrONS data form a
+gravitational well inducing system architectures wherein data
+processing happens as close to the data as possible; it is desirable
+to minimize massive data transfers. Although the existing bossDB APIs
+can be used to fetch raw data for analysis on systems external to the
+Boss, Cuboids intends to extend the Boss platform such that data
+analysis can be performed within the system. Quoting Francis Bacon:
+
+#+BEGIN_QUOTE
+Mahomet cald the Hill to come to him. And when the Hill stood still,
+he was neuer a whit abashed, but said; If the Hill will not come to
+Mahomet, Mahomet wil go to the hil. [sic]
+#+END_QUOTE
+
+#+attr_html: :width 400px
+[[./images/mohammed_and_the_mountain.jpg]]
+
+The two above assumptions drive the logic of this document. This
+proposal argues to dive headlong down the slippery slope of AWS
+lock-in. This recommended direction may seem counterintuitive and even
+distasteful given the platform vendor neutral, open source ecosystem
+out of which the Boss grew. Nonetheless, although the technological
+lead which AWS currently enjoys over the other cloud platform vendors
+[[https://cloudwars.co/amazon/inside-amazon-aws-no-longer-jeff-bezos-growth-engine/][is slipping]], it does not appear that a cross-platform serverless
+version of bossDB is possible at this time, given the state of those
+cloud platform offerings competing with AWS (e.g. a lack of an AWS
+Step Functions equivalent for Google Cloud Platform).
+
+Therefore, it is argued herein that the mixed architecture is
+retarding the [[https://en.wikipedia.org/wiki/Diffusion_of_innovations][diffusion of innovation]], especially with regards to that
+theory's criteria of "complexity" and "trialability." So, perhaps we
+should just accept that this codebase will always be locked in to AWS
+and drink their Kool Aid in order to lighten the load.
+
+As a reality check on this AWS serverless enthusiasm, there is a
+decent 2020-10 article, [[https://www.infoq.com/articles/serverless-stalled/][Why the Serverless Revolution Has Stalled]],
+which enumerates situations where serverless is not yet living up to
+its promise. The Boss as a use case of serverless technology actually
+passes almost all the checkpoints enumerated in that article: for
+example, all the code is written in Python (i.e. a language well
+supported by AWS Lambda), it is greenfield, and the entire app was
+explicitly designed to run on a cloud platform from the get go. The
+single concern raised of which the Boss is guilty is vendor lock-in but
+as argued herein, that is acknowledged and accepted.
+
+So, the Cuboids code will be very locked to AWS as the vendor
+platform, which is an ironic form of open source. Regardless, the
+Cuboids codebase will remain open source, intentionally maintaining
+the Apache 2.0 license in the hopes of building a community around the
+codebase.
+
