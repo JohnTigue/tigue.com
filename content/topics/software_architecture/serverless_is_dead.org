@@ -1,13 +1,5 @@
----
-title: "Serverless is dead; long live serverless"
-date: 2021-01-06T15:00:00-0800
-featuredImage: "./header.png"
-description: "A reading of what the re:Invent 2020 tea leave portend"
----
-
-# Serverless is dead; long live serverless
-
-## Inbox
+* Serverless is dead; long live serverless
+** TODO Inbox
 
 Lambda execution environment: https://docs.aws.amazon.com/lambda/latest/dg/images/logs-api-concept-diagram.png
 
@@ -74,8 +66,7 @@ infrastructure.
 
 [Hip Hop Is Dead by Nas](https://www.youtube.com/watch?v=kAKxjTRV6ms)
 
-
-## Abstract
+** Abstract
 
 As announced during re:Invent 2020, AWS has been playing match maker.
 Docker and AWS Lambda have been hitched together, erasing the hard
@@ -97,8 +88,7 @@ the best way to accomplish that is Step Functions.
 that it is meaningless. But the
 technologies that the term sloppily refers to will rule this decade.
 
-
-## Introduction
+** Introduction
 
 This realignment is seemingly an instanced of the theme of
 "reinvention" discussed in [Jassy's re:Invent 2020
@@ -128,8 +118,7 @@ alternative label would have completed the analogy:
 
 Lambda : Step Functions :: serverless-first : stateless-first
 
-
-## Terminology
+** Terminology
 
 A few terms deserve definitions for use as intended herein. Otherwise
 there is potential for confusion, since they are thrown around amongst
@@ -141,7 +130,7 @@ referenced. For example, AWS documentation uses "Lambda function" but
 herein "Function" specifically implies those Lambda components. Similarly,
 "Execution" means a Step Functions execution.
 
-### Cloud native
+*** Cloud native
 
 A lot of cloud work has been simply "lift & shift migration." This
 involves legacy code moved from on-premise to cloud-based deployment.
@@ -153,7 +142,7 @@ model is not what cloud-native is about. Serverless is the
 quintessential cloud-native technology.
 
 
-### Serverless
+*** Serverless
 
 On AWS, serverless initially meant AWS Lambda. Subsequently the term
 has spread widely throughout the AWS ecosystem to where it is
@@ -220,7 +209,7 @@ price. This is just AWS serverless app architectures implemented upon
 Docker.
 
 
-### Serverless-first
+*** Serverless-first
 
 Serverless-first is a label for an architectural style that desires to
 solve problems using cloud-native serverless technologies while
@@ -257,7 +246,7 @@ I like using the term "server Loveless" because it also refers to the
 minimization of self-managed infrastructure, whereas
 "serverless-first" is too much about just the compute platform.
 
-### Software architect
+*** Software architect
 
 An "architect" is the one who draws up the blueprints of a design. The
 term sounds highfalutin but the object being specified could range
@@ -267,7 +256,7 @@ architect" could be designing a static web site or a petascale
 volumetric database which performs ML-based object detection.
 
 
-### Stateless
+*** Stateless
 
 Stateless is not meant to imply pure functional programming. Pure
 functional by definition has no side effects. In the server Loveless
@@ -301,14 +290,13 @@ been the case with serverless. So, in AWS, "stateless" is a leaky
 abstraction for real world computer engineering not a pure computer
 science concept.
 
-
-## The history
+** The history
 
 A brief historical review of some AWS developments will set the stage
 for the Loveless architecture and illustrate its motivation. This section
 simply presents the record; analysis happens in later sections.
     
-### Lambda
+*** Lambda
 
 Lambda was introduced in 2014, starting the serverless movement within
 AWS. They needed a mechanism to allow customers an easy way to pair
@@ -345,7 +333,7 @@ practices throughout the developer community and less about particular
 features of Lambda.
 
 
-#### Lambda by the millisecond
+**** Lambda by the millisecond
 one other re:Invent
 announcement: Lambda billing is now by the 1m increment. See, [ New
 for AWS Lambda – 1ms Billing Granularity Adds Cost
@@ -368,7 +356,7 @@ platform.
 
 
 
-### Step Functions
+*** Step Functions
 
 A non-trivial serverless application can quickly evolve to a chaotic
 jungle of microservices convolutedly wired together like a madcap Rube
@@ -385,7 +373,7 @@ garden. Step Functions provides the central high-level structure for
 complex cloud-native applications on AWS.
 
 
-#### Basics
+**** Basics
 
 AWS describes Step Functions as "serverless microservice
 orchestration."  Note that is different than "orchestration of
@@ -409,7 +397,7 @@ which look a lot like a FSM. Also worth noting: those diagrams can be
 awefully useful for an architect explaining an app to non-technical
 stake holders.
 
-#### Design implications
+**** Design implications
 
 The vast majority of Step Function articles seem to miss one of its
 main values: Activities. This is probably because simple yet useful
@@ -451,7 +439,7 @@ from Lambda to other compute services. Obviously such would involve
 Activities...
 
 
-### Docker
+*** Docker
 
 Docker was first released in 2013, earlier than AWS Lambda. Since then
 Docker has been quickly adopted to become the premier containerization
@@ -468,7 +456,7 @@ based on AWS software, [ECS Anywhere](https://aws.amazon.com/blogs/containers/in
 Clearly, AWS has all along invested in Docker and are even enabling
 hybrid and serverless build outs.
 
-### Lambda meets Docker
+*** Lambda meets Docker
 
 If there were any doubt about AWS's commitment to Docker then it was
 settled by the re:Invent 2020 announcement,
@@ -500,15 +488,14 @@ Lambda is becoming simply an operationally simple Docker service --
 one that is very much an AWS-only thing, acting as glue binding
 serverless services of AWS to execute a workflow program.
 
-
-## The present
+** The present
 
 Loveless was dreamt up while sifting through the re:Invent 2020
 announcements and attempting to imaging their implications as to where
 things go from here. Before getting into the specifics of Loveless,
 some initial insights can be made.
 
-### Serverless is dead; long live serverless
+*** Serverless is dead; long live serverless
  
 This phrase is obviously meant humorously. It is not intended to be
 taken as being in the camp with the naybobs who pooh-pooh
@@ -536,7 +523,7 @@ course. And, hint-hint, it would be nice to have a mental model which
 adopts the more valuable practices of serverless and yet also
 addresses non-serverless machinery similarly.
 
-#### MORE
+**** MORE
 Actually, another bit of evidence of how the distinction between
 Lambda and other AWS compute services is lessening over time, since
 late 2019 Lambda has had [provisioned
@@ -546,7 +533,7 @@ can be autoscaled i.e. yet another similarity between Lambda and the
 other AWS compute service.
 
 
-### Cloud compute marketplace scatter plot
+*** Cloud compute marketplace scatter plot
 
 Realizing the duality of serverless-or-not is a rapidly blurring
 classification, the cloud compute marketplace can be viewed through a
