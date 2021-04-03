@@ -1,0 +1,24 @@
+200c200
+<     ap_rvputs(r, DOCTYPE_HTML_4_0T,
+---
+>     ap_rvputs(r, DOCTYPE_HTML_3_2,
+1405c1405
+< 	    ap_rputs(" /> ", r);
+---
+> 	    ap_rputs("> ", r);
+1426c1426
+< 	ap_rputs("\n<HR />\n", r);
+---
+> 	ap_rputs("\n<HR>\n", r);
+1468c1468
+< 		ap_rputs(" />", r);
+---
+> 		ap_rputs(">", r);
+1517c1517
+< 		      "</A></LI>", NULL);
+---
+> 		      "</A>", NULL);
+1711c1711
+< 	ap_rputs("<HR />\n", r);
+---
+> 	ap_rputs("<HR>\n", r);
